@@ -245,6 +245,9 @@ body.single-product #tab-title-additional_information {
 .woocommerce-message {
   background-color: #7287c4 !important; }
 
+a {
+  color: #7287c4; }
+
 @keyframes fade {
   from {
     opacity: 0; }

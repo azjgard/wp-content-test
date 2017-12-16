@@ -63,12 +63,15 @@ function debug() {
         }, 1200);
       });
     }
-
-    $('.add-to-cart.button').on('click', ajaxAddToCart);
+    window.ajaxAddToCart = ajaxAddToCart;
+    addAjaxCartListeners();
   });
 })(jQuery);
 
-
+function addAjaxCartListeners() {
+  jQuery('.add-to-cart.button').off('click', window.ajaxAddToCart);
+  jQuery('.add-to-cart.button').on('click', window.ajaxAddToCart);
+}
 
 // ---------------------------------------------------------------------------------
 
@@ -296,8 +299,14 @@ function debug() {
       }
       function toggleProductVisibility(productsVisibilityClass) { $(products).toggleClass(productsVisibilityClass); }
       function toggleLoaderVisibility(loaderVisibilityClass)    { $(loader).toggleClass(loaderVisibilityClass);     }
+
       function setProductsHTML(html) {
         $(products).html(html);
+
+        // When the filter is used and the products are replaced in the store,
+        // we need to ensure that the listeners on the Add to Cart buttons
+        // are re-added to the new HTML.
+        addAjaxCartListeners();
       }
 
       function showSidebarElements(categoryName) {

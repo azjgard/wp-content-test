@@ -15,9 +15,6 @@
       - Only options are to ship with account or ship with GCFerrule's FedEx
       account
 
-
-
-
 ----- **DONE** -----
 - Implement sidebar front-end to request the filterable product page
 via AJAX.
@@ -28,16 +25,16 @@ via AJAX.
 saved in Chrome Snippets)
 ----- **DONE** -----
 
-
 - BUG: make the tables wider so that the values of the product attributes
 are never wrapped (screwing up the rest of the product div)
 
 - BUG: the dumb search only searches for product names, and doesn't work for
 SKU numbers, attributes, etc.
 
+- Fix the AJAX add to cart for the single product page
+
 - Figure out what to do for caching and versioning file names before
 uploading to the server.
-
 
 - Add JavaScript to prevent adding to cart if the customer has not yet
 selected a quantity.
