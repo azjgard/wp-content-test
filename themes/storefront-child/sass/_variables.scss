@@ -1,0 +1,23 @@
+// Image thumbnail
+$thumbnail-height    : 133px;
+$thumbnail-width     : 200px;
+$content-left-margin : $thumbnail-width + 20;
+
+// Add to Cart button
+$atc-button_v-padding : 5px;
+$atc-button_h-padding : 15px;
+$atc-button_width     : 100px;
+$atc-button_height    : 21px + ($atc-button_v-padding * 2);
+$atc-pft: 8px; // "space from thumbnail"
+
+// Product container
+$pc-padding-top    : 15px;
+$pc-padding-right  : 10px;
+$pc-padding-bottom : $atc-button_height + $atc-pft;
+$pc-padding-left   : 15px;
+
+// Cart form
+$cart-form-top  : $thumbnail-height + $atc-pft + $pc-padding-top + 8;
+$cart-form-left : $pc-padding-left;
+
+

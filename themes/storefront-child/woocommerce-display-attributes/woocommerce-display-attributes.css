@@ -1,0 +1,16 @@
+.wcda-display-attributes {
+  max-height : 150px;
+  overflow   : hidden;
+  margin-left: 220px;
+}
+
+.wcda-display-attributes .attr-table {
+  width            : 200px;
+  background-color : transparent;
+}
+
+.wcda-display-attributes .attr-table td {
+  background-color : transparent;
+  padding          : .2em 0 .1em 0;
+  text-align       : left;
+}

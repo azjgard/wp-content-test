@@ -1,0 +1,106 @@
+// Sass code for product archive page in WooCommerce
+
+// Imports
+@import '../variables.scss';
+@import '../mixins.scss';
+
+// Selector variables
+$product-container : 'body:not(.product-template-default) .product.type-product.status-publish';
+$product-title     : '.woocommerce-loop-product__title';
+$product-image     : 'img.woocommerce-placeholder';
+$attribute-table   : 'table.attr-table';
+
+$pagination-links : '.woocommerce-pagination .page-numbers';
+$result-count     : '.woocommerce-result-count';
+$breadcrumbs      : '.woocommerce-breadcrumb';
+
+#{$product-container} {
+  @import '../cart-form.scss';
+
+  width            : 100% !important;
+  margin-bottom    : 20px;
+  border           : 1px solid #eee;
+  background-color : #fff;
+  box-shadow: 1px 2px 3px #ccc;
+
+  padding-top    : $pc-padding-top;
+  padding-right  : $pc-padding-right;
+  padding-bottom : $pc-padding-bottom;
+  padding-left   : $pc-padding-left;
+
+  height: 220px;
+
+  @include screen-size(md) {
+    height : 230px;
+  }
+
+  @include screen-size(xs) {
+    height : auto;
+  }
+
+  #{$product-image}, .attachment-shop_catalog {
+    height        : $thumbnail-height;
+    width         : $thumbnail-width;
+    float         : left;
+    border-radius : 0;
+
+    @include screen-size(xs) {
+      float  : none;
+      margin : auto;
+    }
+  }
+
+  #{$product-title} {
+    margin-left : $content-left-margin;
+    text-align  : left;
+    display     : block;
+    clear       : none;
+    font-weight : bold;
+    color       : #555;
+
+    @include screen-size(xs) {
+      margin     : 8px auto;
+      text-align : left;
+      width      : 200px;
+    }
+
+    a {
+     color            : inherit !important;
+     text-decoration  : inherit !important;
+     background-color : inherit !important;
+     font-weight      : inherit !important;
+    }
+  }
+}
+
+#{$pagination-links} {
+  li .page-numbers {
+    margin: 0;
+  }
+}
+
+#{$pagination-links}, #{$result-count} {
+  margin : 23px 0; 
+}
+
+
+#{$breadcrumbs} {
+  display : none; 
+}
+
+/* Keep spacing between product categories once the sidebar goes away */
+// @media screen and (max-width: 767px) {
+//   .product.type-product.status-publish {
+//     margin-bottom : 150px;
+//   }
+// }
+
+// When the screen gets REALLY small, we need the shop to switch to
+// a pure vertical layout.
+@media screen and (max-width: 500px) {
+
+}
+
+#main > .storefront-sorting {
+  margin-bottom: 0;
+}

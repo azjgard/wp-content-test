@@ -1,0 +1,38 @@
+
+$break-xs : 505px;
+$break-md : 767px;
+
+@mixin screen-size($media) {
+  @if $media == xs {
+    @media only screen and (max-width: $break-xs) { @content; }
+  }
+  @else if $media == md {
+    @media only screen and (max-width: $break-md) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
+
+
+@mixin fadeIn($start, $end, $duration, $tag) {
+  $name: "fadeIn-#{$tag}";
+
+  @keyframes #{$name} {
+    from { background-color: $start; }
+    to   { background-color: $end;   }
+  }
+
+  animation: #{$name} #{$duration} forwards;
+}
+
+@mixin transition($type, $time) {
+  -webkit-transition: $type $time;
+  -moz-transition: $type $time;
+  transition: $type $time;
+}
+
+@mixin no-sidebar() {
+  #secondary { display: none; }
+  #primary   { width: 100%;   }
+}

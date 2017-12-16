@@ -1,0 +1,358 @@
+/*
+Theme Name:     Storefront-child
+Theme URI:
+Description:    Storefront child theme.
+Author:         Me
+Author URI:
+Template:       storefront
+Version:        0.1.0
+*/
+
+@import 'variables.scss';
+@import 'mixins.scss';
+
+@import 'archive-product/archive.scss';
+@import 'woocommerce-display-products.scss';
+
+// Components
+@import 'filter';
+
+// Pages
+@import 'single-product';
+@import 'cart-page';
+
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body {
+  @include screen-size(md) {
+    margin-top : 50px;
+  }
+}
+
+
+.woocommerce-result-count,
+.woocommerce-pagination {
+  display: none;
+}
+
+
+// 
+// product archive page
+ul.products {
+  margin-top: 23px;
+  -webkit-transition : opacity .8s;
+  -moz-transition    : opacity .8s;
+  transition         : opacity .8s;
+}
+
+#secondary {
+
+
+  .category-filter {
+    .subcategory-title {
+      margin-top    : 20px;
+      margin-bottom : 0;
+    }
+    .subcategory {
+      max-height : 150px;
+      overflow-y : auto;
+      border     : 1px solid #ccc;
+    }
+
+    label,
+    input[type=checkbox] {
+      margin-left: 5px;
+    }
+
+    h3 {
+      font-size : 20px;
+    }
+    h2 {
+      font-size   : 18px;
+      font-weight : bold;
+    }
+  }
+}
+
+.invisible {
+  opacity : 0;
+}
+.no-display {
+  display: none; 
+}
+// product archive page
+// 
+
+
+#primary, #secondary {
+  animation: fade 2.0s forwards;
+}
+
+h1 {
+  margin-top: 10px;
+}
+
+p+h2 {
+  margin-top: 1em;
+}
+
+
+// Buttons
+.button {
+  border: 1px solid #000;
+}
+
+.woocommerce-page #content {
+
+}
+
+.woocommerce-page #secondary {
+  box-shadow: 1px 2px 6px #bbb;
+}
+
+.button.woof_reset_search_form {
+  border      : 0;
+  width       : 100%;
+  font-weight : 100;
+  float       : none;
+}
+
+// Sidebar
+#secondary {
+}
+
+// Main Menu
+.primary-navigation {
+  ul > li {
+    text-transform: uppercase;
+  }
+
+}
+
+.menu-item {
+  position: relative;
+}
+
+.current-menu-item a {
+  color       : #000 !important;
+  font-weight : bold;
+}
+
+@media screen and (min-width: 767px) {
+  .current-menu-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    border-top: 2px solid #555;
+    width: 70%;
+    left: 15%;
+    height: 20px;
+  }
+}
+
+#masthead {
+  margin-bottom : 0;
+  padding-top   : 15px;
+}
+
+
+#primary {
+  @include screen-size(md) {
+    @include transition(opacity, .5s);
+  }
+}
+
+
+.grayed-out {
+  pointer-events : none;
+  position       : relative;
+}
+.grayed-out::before {
+  position: fixed;
+  content: '';
+  background-color: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  @include fadeIn(transparent, rgba(0,0,0,.1), 1.0s, 'skdfs');
+}
+
+.site-header {
+  background-color: transparent;
+}
+
+#wpadminbar {
+  display: none;
+  pointer-events: none;
+}
+
+@include screen-size(md) {
+  #secondary {
+    @include transition(transform, .6s);
+  }
+  #secondary:not(.visible) {
+    transform: translateY(-430px);
+  }
+}
+
+#secondary.fixed-position {
+  position: fixed;
+  top: -5px;
+}
+
+#secondary {
+  min-height   : 320px;
+  overflow-y   : auto;
+  padding      : 10px;
+  width        : 25%;
+  margin-left  : -20px;
+  margin-right : 0;
+
+  background-color : #FFF;
+  box-shadow       : 5px 5px 15px #ccc;
+  border           : 1px solid #eee;
+  margin-top       : 23px;
+  padding          : 10px;
+  max-width        : 260px;
+
+  &.visible {
+    max-height: calc(100% - 95px);
+  }
+
+  @include screen-size(md) {
+    position       : fixed;
+    top            : 0;
+    left           : 0;
+    margin         : 0;
+    z-index        : 99999;
+    padding-bottom : 30px;
+    box-shadow     : -3px 0 6px rgba(0,0,0,.5) !important;
+    height         : 100%;
+    max-height     : 480px;
+    max-width      : none;
+    width          : 50%;
+  }
+
+  .widget { margin : 10px 0; }
+
+  .widget-title {
+    margin-bottom  : 0;
+    padding-bottom : 0;
+  }
+
+  .woof {
+    margin-top: 10px ;
+  }
+
+  #lcgc-toggle-filter {
+    position         : absolute;
+    display          : none;
+    bottom           : 3px;
+    width            : 100%;
+    padding          : 10px;
+    text-align       : center;
+    left             : 0;
+    background-color : transparent;
+    border           : 0;
+    color            : #555;
+    cursor           : pointer;
+
+    @include screen-size(md) {
+      display     : block;
+      font-size   : 18px;
+      font-weight : 300;
+      line-height : 18px;
+    }
+  }
+}
+
+.custom-logo-link {
+  width: 230px;
+}
+
+button.menu-toggle {
+  display: none;
+}
+
+.storefront-primary-navigation:not(.visible) {
+  @include screen-size(md) {
+    transform : translateY(-300px);
+  }
+}
+
+.storefront-primary-navigation {
+  @include transition(transform, .5s);
+
+  @include screen-size(md) {
+    height           : 350px;
+    position         : fixed;
+    top              : 0;
+    right            : 0;
+    margin           : 0;
+    z-index          : 99999;
+    box-shadow       : 3px 0 6px rgba(0,0,0,.5) !important;
+    max-width        : none;
+    width            : 50%;
+    border           : 0;
+    padding          : 0;
+    max-height       : none;
+    background-color : #fff;
+
+    .handheld-navigation {
+      max-height : none;
+      text-align : center;
+    }
+  }
+
+  #lcgc-toggle-mobile-nav {
+    padding          : 10px;
+    font-size        : 18px;
+    text-align       : center;
+    font-family      : "Source Sans Pro",HelveticaNeue-Light,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-weight      : 100;
+    width            : 100%;
+    background-color : transparent;
+    border           : 0;
+    display          : none;
+    position         : absolute;
+    bottom           : 0;
+
+    @include screen-size(md) {
+      display : block;
+    }
+
+    i {
+      margin-right:5px ;
+    }
+  }
+}
+
+
+button.menu-toggle::before,
+button.menu-toggle::after,
+button.menu-toggle span::before {
+  display: none;
+}
+
+button.menu-toggle span::before {
+  display    : block;
+  background : none;
+  content    : "\f00b";
+  position   : absolute;
+  height     : 50px;
+  width      : 50px;
+  bottom     : 10px;
+  top        : 13px;
+  left       : 18px;
+  color      : #555;
+}
+
+.toggled button.menu-toggle span:before {
+  opacity: 1;
+}

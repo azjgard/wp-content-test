@@ -1,0 +1,40 @@
+@import 'mixins';
+@import 'variables';
+
+// uh
+
+$thumbnail-container: '.woocommerce-product-gallery';
+
+body.single-product {
+  @include no-sidebar();
+
+  .woocommerce-product-gallery  {
+    margin-top: 23px !important;
+  }
+
+  .woocommerce-tabs {
+    padding-top: 5px;
+  }
+
+  .summary .price {
+    display : none;
+  }
+
+  form.cart {
+    .wcgp-select {
+      display: block;
+      padding: 10px;
+      margin-bottom: 15px;
+      width: 203px;
+    }
+  }
+
+  @include screen-size(md) {
+    margin-top: 0 !important;
+  }
+
+  #tab-title-additional_information {
+    display: none;
+  }
+
+}
