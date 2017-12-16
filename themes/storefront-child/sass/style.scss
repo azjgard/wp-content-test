@@ -1,8 +1,8 @@
 /*
-Theme Name:     Storefront-child
+Theme Name: WooCommerce List
 Theme URI:
-Description:    Storefront child theme.
-Author:         Me
+Description: List theme for WooCommerce products.
+Author:      Jordin Gardner
 Author URI:
 Template:       storefront
 Version:        0.1.0
@@ -20,6 +20,17 @@ Version:        0.1.0
 // Pages
 @import 'single-product';
 @import 'cart-page';
+
+// Disable the cart preview hover on the shopping cart.
+.widget_shopping_cart {
+  display: none !important;
+}
+
+// Default popup message from WooCommerce should always have a
+// background color that matches the logo.
+.woocommerce-message {
+  background-color: #7287c4 !important;
+}
 
 @keyframes fade {
   from { opacity: 0; }

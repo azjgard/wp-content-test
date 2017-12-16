@@ -11,6 +11,65 @@ function debug() {
         }
     }
 }
+
+
+/**
+ * Add to Cart via AJAX
+ */
+
+(function($) {
+  $(document).ready(function() {
+    function ajaxAddToCart(e) {
+      e.preventDefault();
+
+      var action           = $(this).parent().attr('action')
+      var productContainer = $(this).parent().parent()
+
+      $.get(action, function(res) {
+        // TODO: change logic for product page vs product-archive
+        // page.
+
+        var html  = jQuery.parseHTML(res);
+        var notif = $(html).find('.woocommerce-message');
+
+        var notificationText = notif.text().includes('added to your cart') ?
+          'This item has been added to your cart.' :
+          'Sorry, please try again.';
+
+        // Replace the old cart with the new cart
+        var newCart = $(html).find('#site-header-cart');
+        $('#site-header-cart').replaceWith(newCart);
+
+        // Replace the old footer bar with the new footer bar
+        var newFooterBar = $(html).find('.storefront-handheld-footer-bar');
+        $('.storefront-handheld-footer-bar').replaceWith(newFooterBar);
+
+        // Display the notification text
+        $(productContainer).append('<div class="notification">' + notificationText + '</div>');
+
+        // fade it in
+        setTimeout(function () {
+          $(productContainer).find('.add-to-cart.button').addClass('added').text('Item Added');
+        }, 10);
+
+        // fade it out
+        setTimeout(function () {
+          $(productContainer).find('.notification').fadeOut();
+          $(productContainer).find('.add-to-cart.button').removeClass('added').text('Add to Cart');
+
+          setTimeout(function () {
+            $(productContainer).find('.notification').remove();
+          }, 600);
+        }, 1200);
+      });
+    }
+
+    $('.add-to-cart.button').on('click', ajaxAddToCart);
+  });
+})(jQuery);
+
+
+
 // ---------------------------------------------------------------------------------
 
 /**
@@ -20,55 +79,55 @@ function debug() {
  */
 
 (function($) {
-    var shopPage    = window.location.href.includes('shop');
-    var productPage = window.location.href.includes('product');
+  var shopPage    = window.location.href.includes('shop');
+  var productPage = window.location.href.includes('product');
 
-    // Run initialization for each select box
-    $('.wcgp-select').each(function() {
-        var form   = $(this).parent();
-        var button = $(this).siblings('button')[0];
+  // Run initialization for each select box
+  $('.wcgp-select').each(function() {
+    var form   = $(this).parent();
+    var button = $(this).siblings('button')[0];
 
-        // on shop page, form will have an attribute called 'default'
-        // that stores the initial value of the form's 'action' attribute
-        if (shopPage) {
-            form.attr('default', form.attr('action'));
-        }
-        // on product page, button will have an attribute called 'default'
-        // that stores the initial value of the button's 'value' attribute
-        else if (productPage) {
-            $(button).attr('default', $(button).attr('value'));
-        }
-    });
+    // on shop page, form will have an attribute called 'default'
+    // that stores the initial value of the form's 'action' attribute
+    if (shopPage) {
+      form.attr('default', form.attr('action'));
+    }
+    // on product page, button will have an attribute called 'default'
+    // that stores the initial value of the button's 'value' attribute
+    else if (productPage) {
+      $(button).attr('default', $(button).attr('value'));
+    }
+  });
 
-    debug('Forms initialized.');
+  debug('Forms initialized.');
 
-    // change the action of the add-to-cart form every time
-    // the value of the select box is changed.
-    $(document).on('change', '.wcgp-select', function(e) {
+  // change the action of the add-to-cart form every time
+  // the value of the select box is changed.
+  $(document).on('change', '.wcgp-select', function(e) {
 
-        // info from select box
-        var options = this.options;
-        var index   = e.target.selectedIndex;
-        var action  = options[index].value;
+    // info from select box
+    var options = this.options;
+    var index   = e.target.selectedIndex;
+    var action  = options[index].value;
 
-        // form elements
-        var form       = $(this).parent();
-        var cartButton = $(this).siblings('button');
+    // form elements
+    var form       = $(this).parent();
+    var cartButton = $(this).siblings('button');
 
-        // product id
-        var productId = action.split(/add-to-cart\=/)[1];
+    // product id
+    var productId = action.split(/add-to-cart\=/)[1];
 
-        // change the action of the form
-        if (shopPage) {
-            form.attr('action', action ? action : form.attr('default'));
-        }
-        // change the value of the button
-        else if (productPage) {
-            $(cartButton).attr('value', productId ? productId : $(cartButton).attr('default'));
-        }
+    // change the action of the form
+    if (shopPage) {
+      form.attr('action', action ? action : form.attr('default'));
+    }
+    // change the value of the button
+    else if (productPage) {
+      $(cartButton).attr('value', productId ? productId : $(cartButton).attr('default'));
+    }
 
-        debug('Select box changed.. ', action);
-    });
+    debug('Select box changed.. ', action);
+  });
 })(jQuery);
 
 // ---------------------------------------------------------------------------------
@@ -80,53 +139,53 @@ function debug() {
 
 (function($) {
 
-    // Mobile product filter
-    $('#lcgc-toggle-filter').on('click', function() {
-        toggleElement('#secondary', filter)
-    });
-    debug('Added mobile filter listener.');
+  // Mobile product filter
+  $('#lcgc-toggle-filter').on('click', function() {
+    toggleElement('#secondary', filter)
+  });
+  debug('Added mobile filter listener.');
 
-    // Mobile navigation menu
-    $('#lcgc-toggle-mobile-nav').on('click', function() {
-        toggleElement('.storefront-primary-navigation', nav)
-    });
-    debug('Added mobile nav listener.');
+  // Mobile navigation menu
+  $('#lcgc-toggle-mobile-nav').on('click', function() {
+    toggleElement('.storefront-primary-navigation', nav)
+  });
+  debug('Added mobile nav listener.');
 
-    // we use objects so that we can
-    // pass to the function by reference,
-    // instead of passing by value with
-    // a regular boolean.
-    var filter = { visible: false };
-    var nav    = { visible: false };
+  // we use objects so that we can
+  // pass to the function by reference,
+  // instead of passing by value with
+  // a regular boolean.
+  var filter = { visible: false };
+  var nav    = { visible: false };
 
-    function toggleElement(selector, flag) {
-        flag.visible = !flag.visible;
+  function toggleElement(selector, flag) {
+    flag.visible = !flag.visible;
 
-        if (flag.visible) {
-            debug('Element is now visible');
+    if (flag.visible) {
+      debug('Element is now visible');
 
-            $('.site-branding').addClass('grayed-out');
-            $('#primary')      .addClass('grayed-out');
+      $('.site-branding').addClass('grayed-out');
+      $('#primary')      .addClass('grayed-out');
 
-            $(selector).addClass('visible');
+      $(selector).addClass('visible');
 
-            // hide the element when the window is resized
-            // with it open.
-            $(window).resize(function() { toggleElement(selector, flag); });
-        }
-        else {
-            debug('Element is now hidden.');
-
-            $('.site-branding').removeClass('grayed-out');
-            $('#primary')      .removeClass('grayed-out');
-
-            $(selector).removeClass('visible');
-
-            // remove the resize listener when
-            // the element is closed.
-            $(window).off('resize');
-        }
+      // hide the element when the window is resized
+      // with it open.
+      $(window).resize(function() { toggleElement(selector, flag); });
     }
+    else {
+      debug('Element is now hidden.');
+
+      $('.site-branding').removeClass('grayed-out');
+      $('#primary')      .removeClass('grayed-out');
+
+      $(selector).removeClass('visible');
+
+      // remove the resize listener when
+      // the element is closed.
+      $(window).off('resize');
+    }
+  }
 })(jQuery);
 
 // ---------------------------------------------------------------------------------
@@ -136,7 +195,7 @@ function debug() {
  * Set the sidebar to fixed position once scrolled to certain position.
  *
   (function($) {
-      // don't run on the product page or the cart page
+    // don't run on the product page or the cart page
       if (window.location.href.includes('shop')) {
           var minWidth        = 767;
           var elementPosition = $('#secondary').offset();
@@ -151,125 +210,125 @@ function debug() {
           });
       }
   })(jQuery);
-*/
+  */
 
-// ---------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------
 
-/**
- * Handle the product filter sidebar.
- */
+    /**
+     * Handle the product filter sidebar.
+     */
 
-(function($) {
-  // TODO: implement loader class
-  var loaderVisibilityClass   = '';
-  var minimumTransitionDelay  = 400;
-  var productsVisibilityClass = 'invisible';
+    (function($) {
+      // TODO: implement loader class
+      var loaderVisibilityClass   = '';
+      var minimumTransitionDelay  = 400;
+      var productsVisibilityClass = 'invisible';
 
-  var selectBox       = $('#lcgc-attribute-filter');
-  var checkboxes      = $('#secondary .attributes input[type="checkbox"]');
-  var requestLocation = window.location.href.split('shop')[0] + 
-                        'product-filter';
+      var selectBox       = $('#lcgc-attribute-filter');
+      var checkboxes      = $('#secondary .attributes input[type="checkbox"]');
+      var requestLocation = window.location.href.split('shop')[0] + 
+        'product-filter';
 
-  // TODO: implement loader reference
-  var loader       = $('');
-  var products     = $('ul.products');
-  var originalHTML = null;
+      // TODO: implement loader reference
+      var loader       = $('');
+      var products     = $('ul.products');
+      var originalHTML = null;
 
-  // Checkbox event handlers
-  $(checkboxes).on('change', function(e) {
-    var checked        = this.checked;
-    var categoryName   = $(this).parent().parent().siblings('h4').attr('name');
-    console.log(categoryName);
-    var attributeName  = this.name;
-    var attributeValue = $( $(this).siblings()[0] ).text();
-    var attrString    = '';
+      // Checkbox event handlers
+      $(checkboxes).on('change', function(e) {
+        var checked        = this.checked;
+        var categoryName   = $(this).parent().parent().siblings('h4').attr('name');
+        console.log(categoryName);
+        var attributeName  = this.name;
+        var attributeValue = $( $(this).siblings()[0] ).text();
+        var attrString    = '';
 
-    if (checked) {
-      // uncheck all the other boxes
-      $(this).closest('.subcategory').find('input').prop("checked", false);
-      // check this one
-      $(this).prop("checked", true);
-    }
-    else {
-      // uncheck this one
-      $(this).prop("checked", false);
-    }
+        if (checked) {
+          // uncheck all the other boxes
+          $(this).closest('.subcategory').find('input').prop("checked", false);
+          // check this one
+          $(this).prop("checked", true);
+        }
+        else {
+          // uncheck this one
+          $(this).prop("checked", false);
+        }
 
-    $.each($(checkboxes), function() {
-      var currentAttributeName  = this.name;
-      var currentAttributeValue = $( $(this).siblings()[0] ).text();
+        $.each($(checkboxes), function() {
+          var currentAttributeName  = this.name;
+          var currentAttributeValue = $( $(this).siblings()[0] ).text();
 
-      if (this.checked) {
-        attrString += currentAttributeName + ':' + currentAttributeValue + ';';
-      }
-    });
-
-    var newURL = requestLocation + '?category=' + categoryName + '&attribute=' + attrString;
-
-    console.log(newURL);
-    replaceProducts(newURL);
-  });
-
-  // Select box Event Handler
-  $(selectBox).on('change', function(e) {
-    var options      = this.options;
-    var index        = e.target.selectedIndex;
-    var categoryName = options[index].value;
-    var fullReqURL   = requestLocation + '?category=' + categoryName;
-
-    if (categoryName === 'choose' && originalHTML !== null) {
-      showSidebarElements();
-      replaceProducts();
-    }
-    else if (categoryName !== 'choose') {
-      if (originalHTML === null)
-        originalHTML = $(products).html();
-
-      showSidebarElements(categoryName);
-      replaceProducts(fullReqURL);
-    }
-  })
-
-  function toggleClass(element, className) {
-    return $(element).hasClass(className) ?
-      $(element).removeClass(className)   :
-      $(element).addClass(className);
-  }
-  function toggleProductVisibility(productsVisibilityClass) { $(products).toggleClass(productsVisibilityClass); }
-  function toggleLoaderVisibility(loaderVisibilityClass)    { $(loader).toggleClass(loaderVisibilityClass);     }
-  function setProductsHTML(html) {
-    $(products).html(html);
-  }
-
-  function showSidebarElements(categoryName) {
-    $('#secondary .attributes > div').fadeOut();
-
-    if (categoryName) {
-      var selector = '#secondary .' + categoryName + '-attribute-filter';
-      setTimeout(function() { $(selector).fadeIn(); }, 500);
-    }
-  }
-
-  function replaceProducts(requestURL) {
-    toggleLoaderVisibility(loaderVisibilityClass);
-    toggleProductVisibility(productsVisibilityClass);
-
-    setTimeout(function() {
-      if (requestURL) {
-        $.get(requestURL, function(response) {
-          var obj     = $.parseHTML(response);
-          var newHTML = $(obj).find('ul.products').html();
-
-          setProductsHTML(newHTML);
-          toggleProductVisibility(productsVisibilityClass);
-          toggleLoaderVisibility(loaderVisibilityClass);
+          if (this.checked) {
+            attrString += currentAttributeName + ':' + currentAttributeValue + ';';
+          }
         });
+
+        var newURL = requestLocation + '?category=' + categoryName + '&attribute=' + attrString;
+
+        console.log(newURL);
+        replaceProducts(newURL);
+      });
+
+      // Select box Event Handler
+      $(selectBox).on('change', function(e) {
+        var options      = this.options;
+        var index        = e.target.selectedIndex;
+        var categoryName = options[index].value;
+        var fullReqURL   = requestLocation + '?category=' + categoryName;
+
+        if (categoryName === 'choose' && originalHTML !== null) {
+          showSidebarElements();
+          replaceProducts();
+        }
+        else if (categoryName !== 'choose') {
+          if (originalHTML === null)
+            originalHTML = $(products).html();
+
+          showSidebarElements(categoryName);
+          replaceProducts(fullReqURL);
+        }
+      })
+
+      function toggleClass(element, className) {
+        return $(element).hasClass(className) ?
+          $(element).removeClass(className)   :
+          $(element).addClass(className);
       }
-      else {
-        setProductsHTML(originalHTML);
-        toggleProductVisibility(productsVisibilityClass);
+      function toggleProductVisibility(productsVisibilityClass) { $(products).toggleClass(productsVisibilityClass); }
+      function toggleLoaderVisibility(loaderVisibilityClass)    { $(loader).toggleClass(loaderVisibilityClass);     }
+      function setProductsHTML(html) {
+        $(products).html(html);
+      }
+
+      function showSidebarElements(categoryName) {
+        $('#secondary .attributes > div').fadeOut();
+
+        if (categoryName) {
+          var selector = '#secondary .' + categoryName + '-attribute-filter';
+          setTimeout(function() { $(selector).fadeIn(); }, 500);
+        }
+      }
+
+      function replaceProducts(requestURL) {
         toggleLoaderVisibility(loaderVisibilityClass);
+        toggleProductVisibility(productsVisibilityClass);
+
+        setTimeout(function() {
+          if (requestURL) {
+            $.get(requestURL, function(response) {
+              var obj     = $.parseHTML(response);
+              var newHTML = $(obj).find('ul.products').html();
+
+              setProductsHTML(newHTML);
+              toggleProductVisibility(productsVisibilityClass);
+              toggleLoaderVisibility(loaderVisibilityClass);
+            });
+          }
+          else {
+            setProductsHTML(originalHTML);
+            toggleProductVisibility(productsVisibilityClass);
+            toggleLoaderVisibility(loaderVisibilityClass);
+          }
+        }, minimumTransitionDelay);
       }
-    }, minimumTransitionDelay);
-  }
-})(jQuery);
+    })(jQuery);

@@ -15,32 +15,18 @@
       - Only options are to ship with account or ship with GCFerrule's FedEx
       account
 
---------------------------------------
-** WAIT ON DETAILS FROM STEVEN **
-
-- Ensure promo code system is set up
-
-- For the quantity packs, only look for SKUs that end in:
-  - 5
-  - 25
-  - 50
-  - 100
-(nothing else will come afterwards)
 
 
----- **DONE** -----
-- Use commas to separate Similar to field instead of |
----- **DONE** -----
 
-
----- **DONE** -----
-- Absolute positioning and no max-height on the sidebar when on desktops.
-Leave fixed positioning with max-height on mobile.
----- **DONE** -----
-
-
+----- **DONE** -----
 - Implement sidebar front-end to request the filterable product page
 via AJAX.
+----- **DONE** -----
+
+----- **DONE** -----
+- Add products to cart via AJAX (NOTE: there is a snippet for this
+saved in Chrome Snippets)
+----- **DONE** -----
 
 
 - BUG: make the tables wider so that the values of the product attributes
@@ -52,8 +38,6 @@ SKU numbers, attributes, etc.
 - Figure out what to do for caching and versioning file names before
 uploading to the server.
 
-- Add products to cart via AJAX (NOTE: there is a snippet for this
-saved in Chrome Snippets)
 
 - Add JavaScript to prevent adding to cart if the customer has not yet
 selected a quantity.

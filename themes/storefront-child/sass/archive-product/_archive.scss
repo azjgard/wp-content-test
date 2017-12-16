@@ -30,6 +30,12 @@ $breadcrumbs      : '.woocommerce-breadcrumb';
 
   height: 220px;
 
+  // Don't allow the transitioning Add to Cart button
+  // to be clickable.
+  .added {
+    pointer-events: none;
+  }
+
   @include screen-size(md) {
     height : 230px;
   }

@@ -1,8 +1,8 @@
 /*
-Theme Name:     Storefront-child
+Theme Name: WooCommerce List
 Theme URI:
-Description:    Storefront child theme.
-Author:         Me
+Description: List theme for WooCommerce products.
+Author:      Jordin Gardner
 Author URI:
 Template:       storefront
 Version:        0.1.0
@@ -61,6 +61,8 @@ body:not(.product-template-default) .product.type-product.status-publish {
         width: 200px;
         margin-top: 15px;
         margin-bottom: 8px; } }
+  body:not(.product-template-default) .product.type-product.status-publish .added {
+    pointer-events: none; }
   @media only screen and (max-width: 767px) {
     body:not(.product-template-default) .product.type-product.status-publish {
       height: 230px; } }
@@ -236,6 +238,12 @@ body.single-product form.cart .wcgp-select {
 
 body.single-product #tab-title-additional_information {
   display: none; }
+
+.widget_shopping_cart {
+  display: none !important; }
+
+.woocommerce-message {
+  background-color: #7287c4 !important; }
 
 @keyframes fade {
   from {
