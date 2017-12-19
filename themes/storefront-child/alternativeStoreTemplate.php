@@ -68,6 +68,13 @@ $value_blacklist = array();
           $meta_query     = array();
           $key_value_pair = explode(';', $filter_attribute);
 
+          // Everytime we filter by an attribute(s), we want to keep track
+          // of all the other attributes that now shouldn't be selectable
+          // (because the filtering is exclusive vs inclusive). Those
+          // attributes will be stored in this string in the same format
+          // that the attributes are passed into the query string.
+          $exclusion_string = '';
+
           $tax_query['relation'] =
             ($filter_inclusive == "true") ? 'OR' : 'AND';
 
@@ -92,6 +99,10 @@ $value_blacklist = array();
                 // we're allowed to do regex in our query, which works pretty
                 // well. If something breaks in the future, try adjusting the
                 // {2,7} ranges; that part is probably a little hacky.
+                //
+                // TODO:
+                // This might be able to be done as 'value' => '%". $value . "%'
+                // using 'compare' => 'LIKE'
                 array_push($meta_query, array(
                   'key' => '_product_attributes',
                   'value' => '\"'.$key.'\".{2,7}\"value\".{2,7}\"'.$value.'\"',
@@ -125,57 +136,38 @@ $value_blacklist = array();
             // key can only work with one value.
             if (!array_key_exists($key, $value_blacklist)) {
               foreach ($subcategory['subcategory_attr'] as $value) {
-                  array_push($exclusion_meta_query, array(
-                    'key' => '_product_attributes',
-                    'value' => '\"'.$key.'\".{2,7}\"value\".{2,7}\"'.$value.'\"',
-                    'compare' => 'REGEXP'
-                  ));
+                array_push($exclusion_meta_query, array(
+                  'key' => '_product_attributes',
+                  'value' => '\"'.$key.'\".{2,7}\"value\".{2,7}\"'.$value.'\"',
+                  'compare' => 'REGEXP'
+                ));
 
-          // No Hole should return true
-          // (2 Hole) 0.3mm should return false
+                $exclusion_args = array(
+                  'post_type' => 'product',
+                  'posts_per_page' => 10,
+                  'meta_query' => $exclusion_meta_query,
+                  'fields' => 'ids'
+                );
 
-                  $exclusion_args = array(
-                    'post_type' => 'product',
-                    'posts_per_page' => 1,
-                    'meta_query' => $exclusion_meta_query,
-                    'fields' => 'ids'
-                  );
+                $posts = get_posts($exclusion_args);
 
-                  $posts = get_posts($exclusion_args);
+                $arg_has_results = (sizeof($posts) > 0) ? 'true;' : 'false;';
 
-                  echo $key . ': ' . $value . '<br>';
-                  var_dump($posts);
-                  echo "<br>";
-                  var_dump($exclusion_meta_query);
+                $exclusion_string .= 
+                  $key . '--' . $value . '--' . $arg_has_results;
 
-
-                  array_pop($exclusion_meta_query);
-
-                  echo "<br>";
-                  echo "<br>";
-                  echo "<br>";
+                array_pop($exclusion_meta_query);
               }
             }
           }
 
+          echo "<br>";
+          echo "<br>";
+          echo "<br>";
+          echo $exclusion_string;
+
           $args['meta_query'] = $meta_query;
         }
-
-
-
-        /* $args['fields'] = 'ids'; */
-        /* $before = microtime(true); */
-        /* for ($i=0 ; $i<100; $i++) { */
-        /*     get_posts($args); */
-        /* } */
-        /* $after = microtime(true); */
-
-        /* echo ($after-$before)/$i . " sec/get posts<br/>"; */
-        /* echo ($after-$before) . " to get posts ". $i ." times<br/><br/>"; */
-
-        /* $args['fields'] = ''; */
-
-
 
         $loop = new WP_Query( $args );
 
@@ -183,6 +175,11 @@ $value_blacklist = array();
           while ( $loop->have_posts() ) : $loop->the_post();
           wc_get_template_part( 'content', 'product' );
 endwhile;
+
+// The client side JavaScript will grab the value of this input
+// box and use it to gray out the options that shouldn't be selectable.
+echo '<input type="hidden" id="exclusion-string" value="'.$exclusion_string.'" />';
+
         } 
         else {
           echo __( 'No products found' );

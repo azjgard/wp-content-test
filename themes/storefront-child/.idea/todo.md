@@ -15,10 +15,11 @@
       - Only options are to ship with account or ship with GCFerrule's FedEx
       account
 
------ **DONE** -----
-- Implement sidebar front-end to request the filterable product page
-via AJAX.
------ **DONE** -----
+~~- Implement sidebar front-end to request the filterable product page
+via AJAX.~~
+- Need to finish making it mutually exclusive
+- Need to add the rest of the categories, sub-categories, and attributes
+- Need to add the finishing touches to everything
 
 ----- **DONE** -----
 - Add products to cart via AJAX (NOTE: there is a snippet for this

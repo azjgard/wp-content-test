@@ -13,6 +13,22 @@
   }
 }
 
+.subcategory .disabled {
+  pointer-events : none;
+  position       : relative;
+  opacity        : .5;
+}
+
+.subcategory .disabled::before {
+  content          : '';
+  position         : absolute;
+  background-color : rgba(0,0,0,.2);
+  left             : 0;
+  top              : 0;
+  width            : 100%;
+  height           : 100%;
+}
+
 #wcapf-category-filter-2 {
   @include screen-size(md) {
     overflow-y : auto;

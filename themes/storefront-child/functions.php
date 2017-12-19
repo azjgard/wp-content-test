@@ -109,7 +109,7 @@ class LCGC_Sidebar_Filter_Widget extends WP_Widget {
 
       foreach($this->attribute_data[$category->name] as $subcategory) {
         $filter_html .= '<h4 class="subcategory-title" name="'.$category->slug.'">'.$subcategory['subcategory_name'].'</h4>';
-        $filter_html .= '<div class="subcategory">';
+        $filter_html .= '<div class="subcategory" name="'.$subcategory['subcategory_name'].'">';
 
         foreach ($subcategory['subcategory_attr'] as $attr) {
           $filter_html .= '<div><input type="checkbox" name="'.$subcategory['subcategory_name'].'" /><label>'.$attr.'</label></div>';
@@ -133,6 +133,6 @@ add_action( 'widgets_init', function() {
 add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 
 function new_loop_shop_per_page( $num_of_products ) {
-  $num_of_products = 30;
+  $num_of_products = 20;
   return $num_of_products;
 }

@@ -238,25 +238,31 @@ function addAjaxCartListeners() {
       var originalHTML = null;
 
       // Checkbox event handlers
+      // This fires every time a checkbox is changed. We should never
+      // have to re-add these because all of the checkboxes are always
+      // present on the page; changing the category that you're filtering
+      // for only shows / hidesthem.
       $(checkboxes).on('change', function(e) {
         var checked        = this.checked;
         var categoryName   = $(this).parent().parent().siblings('h4').attr('name');
-        console.log(categoryName);
         var attributeName  = this.name;
         var attributeValue = $( $(this).siblings()[0] ).text();
         var attrString    = '';
 
         if (checked) {
-          // uncheck all the other boxes
+          // uncheck all the boxes in this subcategory
           $(this).closest('.subcategory').find('input').prop("checked", false);
-          // check this one
-          $(this).prop("checked", true);
+          $(this).prop("checked", true); // check this one
         }
         else {
-          // uncheck this one
-          $(this).prop("checked", false);
+          $(this).prop("checked", false); // uncheck this one
         }
 
+        // TODO:
+        // Right now we are looping through every single checkbox on the
+        // page, but instead, it might be a better idea to loop through
+        // the different subcategories and used the :checked jQuery
+        // selector to help with performance and save some loop time.
         $.each($(checkboxes), function() {
           var currentAttributeName  = this.name;
           var currentAttributeValue = $( $(this).siblings()[0] ).text();
@@ -266,13 +272,15 @@ function addAjaxCartListeners() {
           }
         });
 
+        // Build a new URL to send a request to that contains all of the 
+        // information about the products that you want in the query string.
         var newURL = requestLocation + '?category=' + categoryName + '&attribute=' + attrString;
 
-        console.log(newURL);
         replaceProducts(newURL);
       });
 
       // Select box Event Handler
+      // This fires every time the Category select box is changed.
       $(selectBox).on('change', function(e) {
         var options      = this.options;
         var index        = e.target.selectedIndex;
@@ -281,7 +289,7 @@ function addAjaxCartListeners() {
 
         if (categoryName === 'choose' && originalHTML !== null) {
           showSidebarElements();
-          replaceProducts();
+          replaceProducts(); // calling w/o args shows original products
         }
         else if (categoryName !== 'choose') {
           if (originalHTML === null)
@@ -327,6 +335,42 @@ function addAjaxCartListeners() {
             $.get(requestURL, function(response) {
               var obj     = $.parseHTML(response);
               var newHTML = $(obj).find('ul.products').html();
+
+
+              // A formatted string containing the information about all
+              // of the other filter options that should be disabled
+              // is stored in a hidden input with the id of '#exclusion-string'.
+              // If it exists, we need to pull it out, parse it, and add
+              // a 'disabled' class to all of the appropriate filter
+              // attributes.
+              var exclusionString = $(obj).find('#exclusion-string').val() || '';
+              var exclusionPieces = exclusionString ? exclusionString.split(';') : [];
+              var exclude         = [];
+
+              $('.subcategory div').removeClass('disabled');
+
+              // Parse the data and store the attributes that should
+              // be excluded in the 'exclude' array
+              exclusionPieces.map(function(exclusion) {
+                var pieces = exclusion.split('--');
+
+                var attributeName    = pieces[0].replace(' ', '\ ');
+                var attributeValue   = pieces[1].replace(' ', '\ ');
+                var shouldBeIncluded = pieces[2];
+
+                if (shouldBeIncluded == 'false') {
+                  exclude.push({
+                    attributeName  : attributeName,
+                    attributeValue : attributeValue
+                  });
+
+                  $('.subcategory[name="' + attributeName + '"]')
+                    .find('div:contains("' + attributeValue + '")')
+                    .addClass('disabled');
+                }
+              });
+
+              console.log(exclude);
 
               setProductsHTML(newHTML);
               toggleProductVisibility(productsVisibilityClass);
