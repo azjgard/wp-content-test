@@ -47,6 +47,8 @@ body {
   }
 }
 
+ol.flex-control-nav.flex-control-thumbs { display: flex; justify-content: center; }
+
 .woocommerce-result-count,
 .woocommerce-pagination {
   display: none;

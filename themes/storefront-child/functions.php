@@ -1,5 +1,8 @@
 <?php
 
+//
+// ol.flex-control-nav.flex-control-thumbs { display: flex; justify-content: center; }
+
 /**
  * WooCommerce customizations
  */
@@ -47,26 +50,61 @@ add_filter( 'query_vars', 'add_query_vars_filter' );
 $attribute_data = array(
   'Ferrules' => array(
     array( 
-    'subcategory_name' => 'Fitting Size',
-    'subcategory_attr' => array(
-      '1/16"', '1/8"', '3/16"', '1/4"', '3/8"', '1/2"', '5/8"',
-      '3/4"', '7/8"', '1"', '1.25"', '1.5"', '6 mm', '8 mm',
-      '10 mm', '12 mm')
-    ),
-    array( 
-      'subcategory_name' => 'Ferrule ID',
+      'subcategory_name' => 'Fitting Size',
       'subcategory_attr' => array(
-        'No Hole', '0.3 mm', '(2 Hole) 0.3 mm', '0.4 mm',
-        '(2 Hole) 0.4 mm', '0.5 mm', '(2 Hole) 0.5 mm', '0.8 mm',
-        '(2 Hole) 0.8 mm', '1 mm', '1.2 mm', '2.4 mm', '4 mm',
-        '5 mm', '6 mm', '8 mm', '10 mm', '12 mm', '1/16"', '1/8"',
-        '3/16"', '1/4"', '3/8"', '1/2"', '5/8"', '3/4"', '7/8"',
-        '1"', '1.25"', '1.5"')
-      )
-    ),
-    'these' => array(),
-    'world' => array()
-);
+        '1/16"', '1/8"', '3/16"', '1/4"', '3/8"', '1/2"', '5/8"',
+        '3/4"', '7/8"', '1"', '1.25"', '1.5"', '6 mm', '8 mm',
+        '10 mm', '12 mm')
+      ),
+      array( 
+        'subcategory_name' => 'Ferrule ID',
+        'subcategory_attr' => array(
+          'No Hole', '0.3 mm', '(2 Hole) 0.3 mm', '0.4 mm',
+          '(2 Hole) 0.4 mm', '0.5 mm', '(2 Hole) 0.5 mm', '0.8 mm',
+          '(2 Hole) 0.8 mm', '1 mm', '1.2 mm', '2.4 mm', '4 mm',
+          '5 mm', '6 mm', '8 mm', '10 mm', '12 mm', '1/16"', '1/8"',
+          '3/16"', '1/4"', '3/8"', '1/2"', '5/8"', '3/4"', '7/8"',
+          '1"', '1.25"', '1.5"')
+        ),
+        array(
+          'subcategory_name' => 'Fits Column ID',
+          'subcategory_attr' => array(
+            '0.1 mm', '0.2-0.25 mm', '0.32 mm', '0.45-0.53 mm',
+            '0.65 mm', '0.75 mm', '2.4 mm OD Tube', '4 mm OD Tube',
+            '5 mm OD Tube', '6 mm OD Tube', '8 mm OD Tube',
+            '10 mm OD Tube', '12 mm OD Tube', '1/16" OD Tube',
+            '1/8" OD Tube', '3/16" OD Tube', '1/4" OD Tube',
+            '3/8" OD Tube', '1/2" OD Tube', '5/8" OD Tube',
+            '3/4" OD Tube', '7/8" OD Tube', '1" OD Tube',
+            '1.25" OD Tube', '1.5" OD Tube', 'M5 NUT', 'M8 NUT'
+          )
+        ),
+        array(
+          'subcategory_name' => 'Specialty Styles',
+          'subcategory_attr' => array(
+            'Short', 'Short HP Style', 'Jacketed Styles',
+            'Preconditioned', 'Long', 'Extra Long',
+            'Long Taper', '2 Hole', 'Double Taper', 'Carlo Erba',
+            'Mini Union MSUV', 'Shimadzu',
+            'Accessories, Capillary Nuts', 'Accessories, O-Rings',
+            'Accessories, GC Filters', 'Accessories, GC Septa',
+            'Accessories, Scoring Wafer'
+          )
+        ),
+        array(
+          'subcategory_name' => 'Material',
+          'subcategory_attr' => array(
+            '100% Graphite',
+            '100% Vespel®',
+            '100% Teflon®',
+            '85% Vespel®/ 15% Graphite',
+            '60% Vespel®/ 40% Graphite'
+          )
+        )
+      ),
+      'these' => array(),
+      'world' => array()
+    );
 wp_cache_add('attribute_data', $attribute_data, 'lcgc');
 
 /**

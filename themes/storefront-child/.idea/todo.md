@@ -21,6 +21,11 @@ via AJAX.~~
 - Need to add the rest of the categories, sub-categories, and attributes
 - Need to add the finishing touches to everything
 
+- Disable the image zoom when hovered on an individual product page
+- Change the "easter basket" cart to a shopping cart
+- Notification on each product page to contact Reflect Scientific
+if the desired package can't be found
+
 ----- **DONE** -----
 - Add products to cart via AJAX (NOTE: there is a snippet for this
 saved in Chrome Snippets)
@@ -44,10 +49,14 @@ selected a quantity.
 
 - Optimize speed and load times
 
+----- **DONE** -----
 - Pay for hosting, change DNS servers to point
 to hosting
+----- **DONE** -----
 
+----- **DONE** -----
 - Put site up in production
+----- **DONE** -----
 
 - Link up actual payment gateway
 

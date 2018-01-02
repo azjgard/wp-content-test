@@ -6,6 +6,19 @@
 
 // ---------------------------------------------------------------------------------
 
+/**
+ * Remove zoom functionality from individual 
+ * product pages in WooCommerce.
+ */
+
+add_action( 'after_setup_theme', 'remove_pgz_theme_support', 100 );
+
+function remove_pgz_theme_support() { 
+  remove_theme_support( 'wc-product-gallery-zoom' );
+}
+
+// ---------------------------------------------------------------------------------
+
 /*
  * Show a warning message when this theme is enabled but WooCommerce is disabled.
  */

@@ -41,7 +41,7 @@ $value_blacklist = array();
 
         $args = array(
           'post_type' => 'product',
-          'posts_per_page' => 100
+          'posts_per_page' => 15
         );
 
         // Filtering by CATEGORY
@@ -63,10 +63,13 @@ $value_blacklist = array();
           $args['tax_query'] = $tax_query;
         }
 
+        $start_time = null;
+
         // Filtering by ATTRIBUTE
         if ($filter_attribute) {
           $meta_query     = array();
           $key_value_pair = explode(';', $filter_attribute);
+
 
           // Everytime we filter by an attribute(s), we want to keep track
           // of all the other attributes that now shouldn't be selectable
@@ -119,6 +122,7 @@ $value_blacklist = array();
             }
           }
 
+
           // This creates a deep copy the of meta_query data. We don't
           // want to modify the query itself, because that should be run
           // without modification to return the actual products for the user.
@@ -128,6 +132,8 @@ $value_blacklist = array();
           }
 
           foreach($attribute_data['Ferrules'] as $subcategory) {
+
+
             $key = $subcategory['subcategory_name'];
 
             // We want to make sure that the current key doesn't exist
@@ -136,6 +142,9 @@ $value_blacklist = array();
             // key can only work with one value.
             if (!array_key_exists($key, $value_blacklist)) {
               foreach ($subcategory['subcategory_attr'] as $value) {
+
+                $start_time = microtime(true);
+
                 array_push($exclusion_meta_query, array(
                   'key' => '_product_attributes',
                   'value' => '\"'.$key.'\".{2,7}\"value\".{2,7}\"'.$value.'\"',
@@ -144,14 +153,18 @@ $value_blacklist = array();
 
                 $exclusion_args = array(
                   'post_type' => 'product',
-                  'posts_per_page' => 10,
+                  'posts_per_page' => 1,
+                  'numberposts' => 1,
                   'meta_query' => $exclusion_meta_query,
-                  'fields' => 'ids'
+                  'fields' => 'ids',
+                  'no_found_rows'          => true,
+                  'update_post_term_cache' => false,
+                  'update_post_meta_cache' => false,
+                  'cache_results'          => false
                 );
 
-                $posts = get_posts($exclusion_args);
-
-                $arg_has_results = (sizeof($posts) > 0) ? 'true;' : 'false;';
+                $exclusion_loop  = new WP_Query( $exclusion_args );
+                $arg_has_results = ($exclusion_loop->post_count > 0) ? 'true;' : 'false;';
 
                 $exclusion_string .= 
                   $key . '--' . $value . '--' . $arg_has_results;
@@ -161,13 +174,15 @@ $value_blacklist = array();
             }
           }
 
-          echo "<br>";
-          echo "<br>";
-          echo "<br>";
-          echo $exclusion_string;
+          /* echo "<br>"; */
+          /* echo "<br>"; */
+          /* echo "<br>"; */
+          /* echo $exclusion_string; */
 
           $args['meta_query'] = $meta_query;
         }
+
+          /* echo '<h1>Time taken: ' . (microtime(true) - $start_time) . '</h1>'; */
 
         $loop = new WP_Query( $args );
 
@@ -176,10 +191,12 @@ $value_blacklist = array();
           wc_get_template_part( 'content', 'product' );
 endwhile;
 
-// The client side JavaScript will grab the value of this input
-// box and use it to gray out the options that shouldn't be selectable.
-echo '<input type="hidden" id="exclusion-string" value="'.$exclusion_string.'" />';
-
+          // The client side JavaScript will grab the value of this input
+          // box and use it to gray out the options that shouldn't be selectable.
+          echo '<input type="hidden" id="exclusion-string" value="'.$exclusion_string.'" />';
+echo '<div id="exclusion-string-div" style="display: none">';
+echo $exclusion_string;
+echo '</div>';
         } 
         else {
           echo __( 'No products found' );
