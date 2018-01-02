@@ -47,13 +47,17 @@ body {
   }
 }
 
-ol.flex-control-nav.flex-control-thumbs { display: flex; justify-content: center; }
+// On single product page, make sure that the individual
+// thumbnails are centered.
+ol.flex-control-nav.flex-control-thumbs {
+  display         : flex;
+  justify-content : center;
+}
 
 .woocommerce-result-count,
 .woocommerce-pagination {
   display: none;
 }
-
 
 // 
 // product archive page
@@ -204,8 +208,8 @@ p+h2 {
 }
 
 #wpadminbar {
-  display: none;
-  pointer-events: none;
+  // display: none;
+  // pointer-events: none;
 }
 
 @include screen-size(md) {

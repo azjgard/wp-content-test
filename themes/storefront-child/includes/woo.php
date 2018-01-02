@@ -178,10 +178,14 @@ add_action('woocommerce_before_add_to_cart_quantity', 'lcgc_echo_cart_form');
 // for each product on the archive page. This function adds a select box that allows
 // the user to select the quantity of product that they desire to add to their cart.
 function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product ) {
-	if ( $product && $product->is_type( 'simple' ) && $product->is_purchasable() && $product->is_in_stock() && ! $product->is_sold_individually() ) {
-
-	    // the default action that will occur when the form
-        // is submitted
+  if ( 
+    $product && $product->is_type( 'simple' ) && 
+    $product->is_purchasable() && 
+    $product->is_in_stock() && 
+    !$product->is_sold_individually() 
+  ) {
+    // the default action that will occur when the form
+    // is submitted
 		$default_action = esc_url($product->add_to_cart_url());
 
 		$form_quantity_info = generate_quantity_select_box($product, '', true);
@@ -191,6 +195,7 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
 
 		$html = '<form action="' . $default_action . '" data-default="'.$default_action.'" class="cart-form" method="post" enctype="multipart/form-data">';
 		$html .= $form_quantity_info['html'];
+    $html .= woocommerce_quantity_input( array(), $product, false );
 		$html .= '<button type="submit" class="add-to-cart button alt ' . $add_to_cart_button_class . '">' . esc_html( $product->add_to_cart_text() ) . '</button>';
 		$html .= '</form>';
 	}

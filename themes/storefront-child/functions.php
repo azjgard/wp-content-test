@@ -1,8 +1,5 @@
 <?php
 
-//
-// ol.flex-control-nav.flex-control-thumbs { display: flex; justify-content: center; }
-
 /**
  * WooCommerce customizations
  */

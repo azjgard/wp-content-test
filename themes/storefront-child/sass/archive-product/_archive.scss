@@ -21,14 +21,15 @@ $breadcrumbs      : '.woocommerce-breadcrumb';
   margin-bottom    : 20px;
   border           : 1px solid #eee;
   background-color : #fff;
-  box-shadow: 1px 2px 3px #ccc;
+  box-shadow       : 1px 2px 3px #ccc;
+  min-width        : 275px;
 
   padding-top    : $pc-padding-top;
   padding-right  : $pc-padding-right;
   padding-bottom : $pc-padding-bottom;
   padding-left   : $pc-padding-left;
 
-  height: 220px;
+  height: 270px;
 
   // Don't allow the transitioning Add to Cart button
   // to be clickable.
@@ -37,11 +38,12 @@ $breadcrumbs      : '.woocommerce-breadcrumb';
   }
 
   @include screen-size(md) {
-    height : 230px;
+    height : 280px;
   }
 
   @include screen-size(xs) {
-    height : auto;
+    height         : auto;
+    padding-bottom : 15px;
   }
 
   #{$product-image}, .attachment-shop_catalog {

@@ -12,11 +12,14 @@
 }
 
 .wcda-display-attributes .attr-table {
-  width            : 200px;
+  width            : 100% !important;
+  max-width        : 250px !important;
   background-color : transparent;
 
   @include screen-size(xs) {
-    margin: auto !important;
+    margin    : auto !important;
+    font-size : 13px;
+    max-width : 200px !important;
   }
 }
 
