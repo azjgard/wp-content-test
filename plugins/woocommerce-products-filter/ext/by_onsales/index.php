@@ -50,7 +50,7 @@ final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
         ?>      
         <script type="text/javascript">
             if (typeof woof_lang_custom == 'undefined') {
-                var woof_lang_custom = {};//!!important
+                var woof_lang_custom = {};/*!!important*/
             }
             woof_lang_custom.<?php echo $this->index ?> = "<?php _e('On sales', 'woocommerce-products-filter') ?>";
         </script>
@@ -76,34 +76,32 @@ final class WOOF_EXT_BY_ONSALES extends WOOF_EXT {
 
         if (isset($request['onsales']) AND $request['onsales'] == 'salesonly')
         {
-            $meta_query[] = array(
-                array(
-                    'relation' => 'OR',
-                    array(
-                        'key' => '_sale_price',
-                        'value' => 0,
-                        'compare' => '>',
-                        'type' => 'DECIMAL'
-                    ),
-                    array(
-                        'key' => '_min_variation_sale_price',
-                        'value' => 0,
-                        'compare' => '>',
-                        'type' => 'DECIMAL'
-                    )
-                )
-            );
-
-            //***
+//            $meta_query[] = array(
+//                array(
+//                    'relation' => 'OR',
+//                    array(
+//                        'key' => '_sale_price',
+//                        'value' => 0,
+//                        'compare' => '>',
+//                        'type' => 'DECIMAL'
+//                    ),
+//                    array(
+//                        'key' => '_min_variation_sale_price',
+//                        'value' => 0,
+//                        'compare' => '>',
+//                        'type' => 'DECIMAL'
+//                    )
+//                )
+//            );
 
             if (is_object($query))
             {
-                $query->set('post__in', array_merge(array(0), wc_get_product_ids_on_sale()));
+                $query->set('post__in', array_merge(array(0), wc_get_product_ids_on_sale() ));
             }
 
             if (is_array($query))
             {
-                $query['post__in'] = array_merge(array(0), wc_get_product_ids_on_sale());
+                $query['post__in'] = array_merge(array(0), wc_get_product_ids_on_sale() );
             }
 
             add_filter('woof_products_query', array($this, 'woof_products_query'), 9999);

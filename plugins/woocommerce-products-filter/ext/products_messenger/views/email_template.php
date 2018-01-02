@@ -79,9 +79,9 @@ $text_email = str_replace($text_str, $text_var, $text_email);
 	<?php
 	}
     } else {
-	echo __('No products found');
+	echo __('No products found', 'woocommerce-products-filter');
     }
     wp_reset_postdata();
     ?>
 </ul><!--/.products-->
-<div class="woof_subscr"><p><?php _e('If you want to Unsubscribe from this newsletter', 'woocommervce-products-filter') ?> - <a href="<?php echo $unsobscr_link ?>"><?php _e('unsubscribe', 'woocommerce-products-filter') ?></a> </p></div>
+<div class="woof_subscr"><p><?php _e('If you want to Unsubscribe from this newsletter', 'woocommerce-products-filter') ?> - <a href="<?php echo $unsobscr_link ?>"><?php _e('unsubscribe', 'woocommerce-products-filter') ?></a> </p></div>

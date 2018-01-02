@@ -12,8 +12,19 @@ wp_enqueue_style('ion.range-slider-skin', WOOF_LINK . 'js/ion.range-slider/css/i
 //***
 $request = $this->get_request_data();
 $uniqid = uniqid();
-$preset_min =WOOF_HELPER::get_min_price();
-$preset_max = WOOF_HELPER::get_max_price();
+$preset_min =WOOF_HELPER::get_min_price($additional_taxes);
+$preset_max = WOOF_HELPER::get_max_price($additional_taxes);
+if ( wc_tax_enabled() && 'incl' === get_option( 'woocommerce_tax_display_shop' ) && ! wc_prices_include_tax() ) {
+    $tax_classes = array_merge( array( '' ), WC_Tax::get_tax_classes() );
+    $class_max   = $preset_max;
+    foreach ( $tax_classes as $tax_class ) {
+	if ( $tax_rates = WC_Tax::get_rates( $tax_class ) ) {
+	    $class_max = ceil($preset_max + WC_Tax::get_tax_total( WC_Tax::calc_exclusive_tax( $preset_max, $tax_rates ) ));
+	}
+    }
+
+    $preset_max = $class_max;
+}
 
 $min_price =$this->is_isset_in_request_data('min_price') ? esc_attr($request['min_price']) : $preset_min;
 $max_price = $this->is_isset_in_request_data('max_price') ? esc_attr($request['max_price']) : $preset_max;

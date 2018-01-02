@@ -194,7 +194,7 @@ nav ul {  display: block; }
     overflow: hidden;
     width: 100%;
     font-weight: 300;
-    font-size: 1.25em;
+    font-size: 1.15em;
 }
 
 /* Nav */
@@ -254,7 +254,7 @@ nav ul {  display: block; }
 /* Shape Styling Tabs */
 
 .woof-tabs-style-shape {
-    max-width: 1200px;
+    max-width: 100%;
 }
 
 .woof-tabs-style-shape > nav ul li {
@@ -307,7 +307,7 @@ nav ul {  display: block; }
 .woof-tabs-style-shape > nav li a span {
     display: block;
     overflow: hidden;
-    padding: 0.25em 0;
+    padding: 0.26em 0;
     background-color: #bdc2c9;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -430,7 +430,7 @@ nav ul {  display: block; }
     display: none;
     margin: 0 auto;
     padding: 1em;
-    max-width: 1200px;
+    max-width: 100%;
 }
 
 .content-wrap section.content-current {  display: block; }
@@ -914,4 +914,9 @@ input:focus:-ms-input-placeholder      {opacity: 0; transition: opacity 0.3s eas
 .woof-button.woof_select_image{
     margin-left: 0;
 }
+
+.woof-control .select2-container--default .select2-selection--multiple .select2-selection__rendered li{
+    width: 97%;
+}
+
 

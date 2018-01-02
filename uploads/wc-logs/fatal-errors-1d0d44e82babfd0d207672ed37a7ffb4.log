@@ -1,0 +1,873 @@
+2017-12-19T07:33:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 178 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(178): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 178, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:40:55+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 178 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(178): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 178, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:41:03+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 178 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(178): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 178, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:41:09+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 178 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(178): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 178, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:41:17+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 178 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(178): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 178, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:42:51+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:43:08+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:48:28+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:48:55+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:50:20+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:52:20+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:52:37+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:52:58+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:54:40+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:55:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:57:43+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T07:57:58+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:01:02+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:05:11+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:06:38+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:08:27+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:09:25+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:11:27+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:12:02+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:15:04+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:16:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:17:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:19:42+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:20:31+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:21:27+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:21:54+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:25:21+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:25:44+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:25:52+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:26:34+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:28:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:28:16+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:31:17+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-19T08:33:27+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:25:13+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 184 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(184): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 184, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:33:59+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:34:19+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:35:10+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:36:24+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:36:49+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:37:19+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:40:18+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:45:31+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:55:03+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:55:16+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:55:29+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T01:56:25+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 181 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(181): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 181, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:01:18+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 186 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(186): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 186, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:01:31+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 186 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(186): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 186, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:02:38+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: start_time on line 175 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(175): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 175, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:02:57+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: start_time on line 177 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(177): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 177, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:03:07+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 188 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(188): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 188, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:03:16+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 188 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(188): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 188, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:03:39+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 189 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(189): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 189, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:04:36+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 193 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(193): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 193, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:06:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:08:59+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 198 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(198): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 198, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:10:06+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 198 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(198): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 198, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:10:28+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 198 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(198): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 198, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:15:14+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 200 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(200): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 200, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:15:30+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 200 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(200): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 200, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:16:05+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 201 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(201): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 201, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:16:16+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 201 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(201): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 201, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:17:18+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 205 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(205): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 205, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:17:37+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 205 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(205): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 205, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:21:07+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 205 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(205): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 205, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:21:14+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 205 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(205): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 205, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:23:51+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 207 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(207): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 207, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:24:23+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 208 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(208): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 208, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:24:36+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 208 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(208): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 208, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:24:49+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 208 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(208): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 208, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:24:57+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 208 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(208): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 208, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T02:25:07+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 208 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(208): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 208, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T03:57:24+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T03:57:50+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T04:07:04+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T04:21:56+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T04:31:54+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T04:32:08+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T04:35:32+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T04:36:36+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T05:01:54+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T06:13:23+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T20:03:11+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T20:36:20+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2017-12-20T20:38:53+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-02T19:00:40+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-02T19:34:26+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-02T20:14:00+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-02T22:00:38+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-02T22:15:24+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-02T22:31:55+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 196, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+

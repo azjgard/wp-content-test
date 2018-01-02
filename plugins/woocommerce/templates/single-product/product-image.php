@@ -1,21 +1,5 @@
 <?php
 /**
- *
- *
- * OVERRIDE NOTES:
- *
- * Since there are separate images that are used for the product thumbnail
- * and the one that actually looks good on the product pages, we use
- * the first image on the imported spreadsheet on the thumbnail.
- *
- * However, we don't want that thumbnail image to appear on the individual
- * product pages. This edit basically moves the thumbnail to the end
- * of the ordered list, and then hides it with CSS.
- *
- *
- *
- *
- *
  * Single Product Image
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/product-image.php.
@@ -35,10 +19,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-?>
-
-
-<?php
 
 global $post, $product;
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
@@ -65,32 +45,6 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 			'data-large_image_height' => $full_size_image[2],
 		);
 
-    // -----------
-    // EDITED CODE
-    // -----------
-    // By moving this above the post_thumbnail section, the individual product
-    // pages will default to having this selected instead of the other ones.
-    // Now, we just need to add some CSS to always hide the last thumbnail in the
-    // selection.
-		do_action( 'woocommerce_product_thumbnails' );
-    // -----------
-    // EDITED CODE
-    // -----------
-?>
-<!-- ----------- -->
-<!-- EDITED CODE -->
-<!-- ----------- -->
-<!-- Hide the last image on the individual product pages -->
-<style type="text/css">
-  ol > li:last-child {
-    display: none;
-  }
-</style>
-<!-- ----------- -->
-<!-- EDITED CODE -->
-<!-- ----------- -->
-<?php
-
 		if ( has_post_thumbnail() ) {
 			$html  = '<div data-thumb="' . get_the_post_thumbnail_url( $post->ID, 'shop_thumbnail' ) . '" class="woocommerce-product-gallery__image"><a href="' . esc_url( $full_size_image[0] ) . '">';
 			$html .= get_the_post_thumbnail( $post->ID, 'shop_single', $attributes );
@@ -103,8 +57,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 
 		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id( $post->ID ) );
 
-		/* do_action( 'woocommerce_product_thumbnails' ); */
-
+		do_action( 'woocommerce_product_thumbnails' );
 		?>
 	</figure>
 </div>

@@ -186,13 +186,19 @@ jQuery(function ($) {
     window.onpopstate = function (event) {
 	try {
 	    if (Object.keys(woof_current_values).length) {
+                
 		var temp = str.split('?');
-		var get1 = temp[1].split('#');
+                var get1="";
+                if(temp[1]!=undefined){
+                    get1 = temp[1].split('#');
+                }
 		var str2 = window.location.href;
 		var temp2 = str2.split('?');
+                if(temp2[1]==undefined){
+                    return false;
+                }
 		var get2 = temp2[1].split('#');
-		//console.log(get1[0]);
-		//console.log(get2[0]);
+
 		if (get2[0] != get1[0]) {
 		    woof_show_info_popup(woof_lang_loading);
 		    window.location.reload();
@@ -242,7 +248,7 @@ jQuery(function ($) {
 function woof_redirect_init() {
 
     try {
-	if (jQuery('.woof').length) {
+	if (jQuery('.woof').length ) {
 	    //https://wordpress.org/support/topic/javascript-error-in-frontjs?replies=1
 	    if (undefined !== jQuery('.woof').val()) {
 		woof_redirect = jQuery('.woof').eq(0).data('redirect');//default value
@@ -403,6 +409,7 @@ function woof_init_search_form() {
 
 var woof_submit_link_locked = false;
 function woof_submit_link(link) {
+    
 
     if (woof_submit_link_locked) {
 	return;
@@ -445,6 +452,8 @@ function woof_submit_link(link) {
 	    woof_infinite();
 	    //*** script after ajax loading here
 	    woof_js_after_ajax_done();
+            //***  change  link  in button "add to cart"
+            woof_change_link_addtocart();
 	});
 
     } else {
@@ -797,7 +806,7 @@ function woof_draw_products_top_panel() {
 
 //control conditions if proucts shortcode uses on the page
 function woof_shortcode_observer() {
-    if (jQuery('.woof_shortcode_output').length) {
+    if (jQuery('.woof_shortcode_output').length  ||( typeof woof_not_redirect!== 'undefined' && woof_not_redirect==1 )) {
 	woof_current_page_link = location.protocol + '//' + location.host + location.pathname;
     }
 
@@ -895,14 +904,27 @@ function woof_checkboxes_slide() {
 		    return;
 		}
 
-		var span_class = 'woof_is_closed';
-		if (jQuery(ul).find('input[type=checkbox],input[type=radio]').is(':checked')) {
-		    jQuery(ul).show();
-		    span_class = 'woof_is_opened';
-		}
 
-		jQuery(ul).before('<a href="javascript:void(0);" class="woof_childs_list_opener"><span class="' + span_class + '"></span></a>');
-	    });
+                var span_class = 'woof_is_closed';
+                if(woof_supports_html5_storage()){ 
+                    //test mode  from 06.11.2017
+                         var preulstate=localStorage.getItem( jQuery(ul).closest('li').find('label').first().text());
+                        if(preulstate && preulstate=='woof_is_opened'){
+                           var span_class='woof_is_opened';
+                           jQuery(ul).show();
+                        }
+                        jQuery(ul).before('<a href="javascript:void(0);" class="woof_childs_list_opener"><span class="' + span_class + '"></span></a>');
+                    //++   
+                }else{
+                    if (jQuery(ul).find('input[type=checkbox],input[type=radio]').is(':checked')) {
+                        jQuery(ul).show();
+                        span_class = 'woof_is_opened';
+                    }
+                    jQuery(ul).before('<a href="javascript:void(0);" class="woof_childs_list_opener"><span class="' + span_class + '"></span></a>');
+
+                }
+ 
+            });
 
 	    jQuery.each(jQuery('a.woof_childs_list_opener'), function (index, a) {
 		jQuery(a).click(function () {
@@ -918,7 +940,14 @@ function woof_checkboxes_slide() {
 			span.removeClass('woof_is_opened');
 			span.addClass('woof_is_closed');
 		    }
-
+                    
+                    if(woof_supports_html5_storage()){ 
+                        //test mode  from 06.11.2017
+                        var ullabel=jQuery(this).closest("li").find("label").first().text();
+                        var ullstate=jQuery(this).children("span").attr("class");
+                        localStorage.setItem(ullabel,ullstate);
+                        //++  
+                    }
 		    return false;
 		});
 	    });
@@ -929,6 +958,7 @@ function woof_checkboxes_slide() {
 function woof_init_ion_sliders() {
     jQuery.each(jQuery('.woof_range_slider'), function (index, input) {
 	try {
+
 	    jQuery(input).ionRangeSlider({
 		min: jQuery(input).data('min'),
 		max: jQuery(input).data('max'),
@@ -1350,4 +1380,29 @@ var page="";
 }
 //End infinity scroll
 
+//fix  if woof - is ajax  and  cart - is redirect
+function woof_change_link_addtocart(){
+    if(!woof_is_ajax){
+        return;
+    }
+    jQuery(".add_to_cart_button").each(function(i,elem) {
+        var link = jQuery(elem).attr('href');
+        var link_items =link.split("?");
+        var site_link_items = window.location.href.split("?");
+        if(link_items[1]!=undefined){
+            link= site_link_items[0]+"?"+link_items[1];
+            jQuery(elem).attr('href',link);
+        }     
+    });
+    
+}
 
+//additional function to check local storage
+
+function woof_supports_html5_storage() {
+  try {
+    return 'localStorage' in window && window['localStorage'] !== null;
+} catch (e) {
+    return false;
+  }
+}

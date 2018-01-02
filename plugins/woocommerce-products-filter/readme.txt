@@ -1,10 +1,11 @@
 === WooCommerce Products Filter ===
 Contributors: RealMag777
 Donate link: http://codecanyon.net/item/woof-woocommerce-products-filter/11498469?ref=realmag777
-Tags: woocommerce filter, ajax products filter, woocommerce products filter, woocommerce product filter, products filter, ajax products filter, filter for woocommerce, filter, shortcode, widget, woocommerce, products, ajax
+Tags: filter, products filter, woocommerce, products, ajax filter, woof, category filter, woocommerce products filter, woocommerce price filter, attributes filter, advanced product filters
 Requires at least: 4.1.0
-Tested up to: 4.8.1
-Stable tag: 1.1.7
+Tested up to: 4.9
+Requires PHP: 5.4
+Stable tag: 1.1.8
 
 WooCommerce Products Filter – flexible, easy and robust professional filter for products in the WooCommerce store
 
@@ -21,13 +22,14 @@ If you are WP+PHP developer and you want to create something unusual in the seac
 * Products shortcode [woof_products per_page=8 columns=3 is_ajax=1 taxonomies=product_cat:9]
 * Uses native woocommerce API only
 * Products searching by AJAX
-* [Products Messenger](http://www.woocommerce-filter.com/extencion/products-messenger/)
-* [Infinite Scrolling](http://www.woocommerce-filter.com/make-infinite-scroll-for-filtered-products-also/)
-* Statistic for the search requests by taxonomies
 * Dynamic products recount
 * You can show your taxonomies as: radio, checkbox, drop-down, multi-drop-down, radio buttons in drop-down. Color,label,hierarchy drop-down, checkbox buttons in drop-down - in the premium version
 * Different skins for radio and checkboxes in the plugin settings
 * Simple options
+* [Statistic](https://www.woocommerce-filter.com/extencion/statistic/)
+* [Products Messenger](http://www.woocommerce-filter.com/extencion/products-messenger/)
+* [Quick Search](https://www.woocommerce-filter.com/extencion/quick-search/)
+* [Infinite Scrolling](http://www.woocommerce-filter.com/make-infinite-scroll-for-filtered-products-also/)
 * Compatible with WooCommerce Currency Switcher - [https://wordpress.org/plugins/woocommerce-currency-switcher/](https://wordpress.org/plugins/woocommerce-currency-switcher/)
 * Compatible with WooCommerce Brands - [http://codecanyon.net/item/woocommerce-brands/8039481?ref=realmag777](http://codecanyon.net/item/woocommerce-brands/8039481?ref=realmag777)
 * Compatible with WooCommerce Products Per Page - [https://wordpress.org/plugins/woocommerce-products-per-page/](https://wordpress.org/plugins/woocommerce-products-per-page/)
@@ -55,7 +57,7 @@ You can get premium version of the plugin here: [https://codecanyon.net/item/woo
 == Frequently Asked Questions ==
 
 Q: Where can I see demo?
-R: [http://demo.woocommerce-filter.com](http://demo.woocommerce-filter.com)
+R: [http://demo.woocommerce-filter.com](http://demo.woocommerce-filter.com/)
 
 Q: Where can I see video tutorials?
 R: [http://www.woocommerce-filter.com/video-tutorials/](http://www.woocommerce-filter.com/video-tutorials/)
@@ -81,6 +83,9 @@ R: [http://www.woocommerce-filter.com/documentation/](http://www.woocommerce-fil
 5. The plugin settings
 
 == Changelog ==
+
+= 1.1.8 =
+* https://www.woocommerce-filter.com/update-woocommerce-products-filter-v-2-1-8/
 
 = 1.1.7 =
 * http://www.woocommerce-filter.com/update-woocommerce-products-filter-v-2-1-7/
@@ -230,7 +235,7 @@ Plugin release. Operate all the basic functions.
 
 == License ==
 
-This plugin is copyright pluginus.net &copy; 2012-2017 with [GNU General Public License][] by realmag777.
+This plugin is copyright pluginus.net &copy; 2012-2018 with [GNU General Public License][] by realmag777.
 
 This program is free software; you can redistribute it and/or modify it under the terms of the [GNU General Public License][] as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
@@ -245,3 +250,4 @@ Old v.1.1.3.1: http://www.woocommerce-filter.com/wp-content/uploads/2016/03/wooc
 Old v.1.1.4.2: http://www.woocommerce-filter.com/wp-content/uploads/2016/07/woocommerce-products-filter-1142.zip
 Old v.1.1.5.1: http://www.woocommerce-filter.com/wp-content/uploads/2016/11/woocommerce-products-filter-1151.zip
 Old v.1.1.6.1: http://www.woocommerce-filter.com/wp-content/uploads/2017/04/woocommerce-products-filter-v.1.1.6.1.zip
+Old v.1.1.7: https://www.woocommerce-filter.com/wp-content/uploads/2017/12/woocommerce-products-filter-1.1.7.zip

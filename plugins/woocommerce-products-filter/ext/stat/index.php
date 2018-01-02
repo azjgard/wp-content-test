@@ -123,6 +123,7 @@ final class WOOF_EXT_STAT extends WOOF_EXT {
         add_action('wp_ajax_woof_get_operative_tables', array($this, 'get_operative_tables'));
         add_action('wp_ajax_woof_get_stat_data', array($this, 'woof_get_stat_data'));
         add_action('wp_ajax_woof_get_top_terms', array($this, 'woof_get_top_terms'));
+        add_action('wp_ajax_woof_stat_check_connection', array($this, 'woof_stat_check_connection'));
     }
 
     public function get_ext_path()
@@ -141,7 +142,23 @@ final class WOOF_EXT_STAT extends WOOF_EXT {
         add_action('woof_print_applications_tabs_content_' . $this->folder_name, array($this, 'woof_print_applications_tabs_content'), 10, 1);
         self::$includes['js']['woof_stat_html_items'] = $this->get_ext_link() . 'js/stat.js';
     }
+//ajax
+    public function woof_stat_check_connection() {
+        $pdo_options = array();
+        $pdo_options['host'] = sanitize_text_field($_REQUEST['woof_stat_host']);
+        $pdo_options['host_db_name'] = sanitize_text_field($_REQUEST['woof_stat_name']);
+        $pdo_options['host_user'] = sanitize_text_field($_REQUEST['woof_stat_user']);
+        $pdo_options['host_pass'] = sanitize_text_field($_REQUEST['woof_stat_pswd']);
 
+        try {
+            $this->pdo = new PDO("mysql:host={$pdo_options['host']};dbname={$pdo_options['host_db_name']}", $pdo_options['host_user'], $pdo_options['host_pass']);
+        } catch (PDOException $e) {
+            die(__("Database not connected!    ERROR! ", 'woocommerce-products-filter'));
+            // More info!
+            //die(__("Database not connected!    ERROR:  ",'meta-data-filter').$e->getMessage());
+        }
+        die(__("Database successfully connected!!!", 'woocommerce-products-filter'));
+    }
     public function woof_print_applications_tabs()
     {
         ?>

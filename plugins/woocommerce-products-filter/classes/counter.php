@@ -15,9 +15,15 @@ final class WP_QueryWoofCounter
 
     public function __construct($query)
     {
+        $saving_memory=apply_filters('woof_counter_method',false);
         global $wpdb;
         global $WOOF;
         $query = (array) $query;
+        if($saving_memory){
+            $query["nopaging"]=false;
+            $query["posts_per_page"]=1;
+        }
+        
         $key = md5(json_encode($query));
         //***
         $this->key_string = 'woof_count_cache_' . $key;
@@ -35,14 +41,22 @@ final class WP_QueryWoofCounter
             } else
             {
                 $q = new WP_QueryWOOFCounterIn($query);
-                $this->post_count = $this->found_posts = $q->post_count;
+                if($saving_memory){
+                    $this->post_count = $this->found_posts = $q->found_posts;  
+                }else{
+                    $this->post_count = $this->found_posts = $q->post_count;
+                }
                 unset($q);
                 $this->set_value();
             }
         } else
         {
             $q = new WP_QueryWOOFCounterIn($query);
-            $this->post_count = $this->found_posts = $q->post_count;
+            if($saving_memory){
+                $this->post_count = $this->found_posts = $q->found_posts;
+            }else{
+                $this->post_count = $this->found_posts = $q->post_count;
+            }
             unset($q);
         }
         unset($_REQUEST['woof_before_recount_query']);
@@ -51,14 +65,30 @@ final class WP_QueryWoofCounter
     private function set_value()
     {
         global $wpdb;
-        $wpdb->query($wpdb->prepare("INSERT INTO {$this->table} (mkey, mvalue) VALUES (%s, %d)", $this->key_string, $this->post_count));
+        $data=array(
+            array(
+                'type'=>'string',
+                'val'=>$this->key_string
+            ),
+            array(
+                'type'=>'int',
+                'val'=>$this->post_count,
+            ),
+        );
+        $wpdb->query(WOOF_HELPER::woof_prepare("INSERT INTO {$this->table} (mkey, mvalue) VALUES (%s, %d)", $data));
     }
 
     private function get_value()
     {
         global $wpdb;
         $result = -1;
-        $sql = $wpdb->prepare("SELECT mkey,mvalue FROM {$this->table} WHERE mkey=%s", $this->key_string);
+        $data=array(
+            array(
+                'type'=>'string',
+                'val'=>$this->key_string
+            )
+        );        
+        $sql = WOOF_HELPER::woof_prepare("SELECT mkey,mvalue FROM {$this->table} WHERE mkey='%s'", $data);
         $value = $wpdb->get_results($sql);
 
         if (!empty($value))

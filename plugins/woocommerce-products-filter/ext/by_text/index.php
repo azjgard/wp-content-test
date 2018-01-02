@@ -2,7 +2,7 @@
 if (!defined('ABSPATH'))
     die('No direct access allowed');
 
-//24-04-2017
+//01-09-2017
 final class WOOF_EXT_BY_TEXT extends WOOF_EXT {
 
     public $type = 'by_html_type';
@@ -79,7 +79,7 @@ final class WOOF_EXT_BY_TEXT extends WOOF_EXT {
 	</style>
 	<script type="text/javascript">
 	    if (typeof woof_lang_custom == 'undefined') {
-		var woof_lang_custom = {};//!!important
+		var woof_lang_custom = {};/*!!important*/
 	    }
 	    woof_lang_custom.<?php echo $this->index ?> = "<?php _e('By text', 'woocommerce-products-filter') ?>";
 
@@ -107,6 +107,9 @@ final class WOOF_EXT_BY_TEXT extends WOOF_EXT {
     //shortcode
     public function woof_text_filter($args = array()) {
 	global $WOOF;
+        if(!is_array($args)){
+            $args=array();
+        }
 	$args['loader_img'] = $this->get_ext_link() . 'img/loader.gif';
 	return $WOOF->render_html($this->get_ext_path() . 'views' . DIRECTORY_SEPARATOR . 'shortcodes' . DIRECTORY_SEPARATOR . 'woof_text_filter.php', $args);
     }
@@ -150,11 +153,15 @@ final class WOOF_EXT_BY_TEXT extends WOOF_EXT {
 	//if ($conditions)
 	{
 	    if ($WOOF->is_isset_in_request_data('woof_text')) {
+                
 		$woof_text = wp_specialchars_decode(trim(urldecode($request['woof_text'])));
 		$woof_text = trim(WOOF_HELPER::strtolower($woof_text));
 		$woof_text = preg_replace('/\s+/', ' ', $woof_text);
 		$woof_text = preg_quote($woof_text, '&');
 		$woof_text = str_replace(' ', '?(.*)', $woof_text);
+                //$woof_text = str_replace(' ', '?(.*)', $woof_text);
+                $woof_text = str_replace("\&#039;", "\'", $woof_text);
+             
 		//http://dev.mysql.com/doc/refman/5.7/en/regexp.html
 		//***
 
@@ -210,12 +217,73 @@ final class WOOF_EXT_BY_TEXT extends WOOF_EXT {
 			//only by title
 			$text_where .= "  LOWER(post_title) REGEXP '{$woof_text}'";
 			break;
+                 
 		}
 		//by SKU  *******************
 		global $wpdb;
 		$sku_where = "";
 		if ($WOOF->settings['by_text']['sku_compatibility']) {
+		    //$woof_text = trim(urldecode($request['woof_sku']));
+		    $woof_sku_request = explode(',', $request['woof_text']);
+		    $woof_sku_request = array_map('urldecode', $woof_sku_request);
+		    $woof_sku_request = array_map('trim', $woof_sku_request);
 		    //***
+		    if (!isset($WOOF->settings['by_sku']['logic']) OR empty($WOOF->settings['by_sku']['logic'])) {
+			$WOOF->settings['by_sku']['logic'] = 'LIKE';
+		    }
+
+		    $condtion_string = "";
+		    if (!empty($woof_sku_request)) {
+			foreach ($woof_sku_request as $k => $sku) {
+			    if ($k > 0) {
+				$condtion_string .= " OR ";
+			    }
+			    if ($WOOF->settings['by_sku']['logic'] == '=') {
+				$condtion_string .= "postmeta.meta_value {$WOOF->settings['by_sku']['logic']} '$sku'";
+			    } else {
+				$condtion_string .= "postmeta.meta_value {$WOOF->settings['by_sku']['logic']} '%$sku%'";
+			    }
+			}
+		    }
+
+		    //***
+
+		    $product_variations = $wpdb->get_results("
+                    SELECT posts.ID
+                    FROM $wpdb->posts AS posts
+                    LEFT JOIN $wpdb->postmeta AS postmeta ON ( posts.ID = postmeta.post_id )
+                    WHERE posts.post_type IN ('product_variation','product')
+                    AND postmeta.meta_key = '_sku'
+                    AND ($condtion_string)", ARRAY_N);
+		    //+++
+		    $product_variations_ids = array();
+		    if (!empty($product_variations)) {
+			foreach ($product_variations as $v) {
+			    $product_variations_ids[] = $v[0];
+			}
+
+			//+++
+			$product_variations_ids_string = implode(',', $product_variations_ids);
+			//die($product_variations_ids_string);
+			$products = $wpdb->get_results("
+                        SELECT posts.post_parent
+                        FROM $wpdb->posts AS posts
+                        WHERE posts.ID IN ($product_variations_ids_string) AND posts.post_parent > 0", ARRAY_N);
+			//+++
+			$product_ids = array();
+			if (!empty($products)) {
+			    foreach ($products as $v) {
+				$product_ids[] = $v[0];
+			    }
+			}
+			$product_ids = implode(',', array_merge($product_ids, $product_variations_ids));
+			$sku_where .= " $wpdb->posts.ID IN($product_ids)";
+			$where_sku = " AND $wpdb->posts.ID IN($product_ids)";
+			//die($where);
+		    }
+		    if ($sku_where AND ! empty($sku_where)) {
+			$sku_where = " OR " . $sku_where;
+		    }
 		}
 		//by SKU  *******************
 

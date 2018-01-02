@@ -20,7 +20,7 @@ extract($options);
             {
                 case 'textinput':
                     ?>
-                    <input type="text" placeholder="<?php echo $placeholder ?>" name="woof_settings[<?php echo $key ?>]" value="<?php echo $woof_settings[$key] ?>" id="<?php echo $key ?>" />
+                    <input type="text" placeholder="<?php echo $placeholder ?>" name="woof_settings[<?php echo $key ?>]" value="<?php echo stripcslashes($woof_settings[$key]) ?>" id="<?php echo $key ?>" />
                     <?php
                     break;
                 case 'color':

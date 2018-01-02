@@ -1,13 +1,14 @@
 <?php
 /*
   Plugin Name: WOOF - WooCommerce Products Filter
-  Plugin URI: http://woocommerce-filter.com/
+  Plugin URI: https://woocommerce-filter.com/
   Description: WOOF - WooCommerce Products Filter. Flexible, easy and robust products filter for WooCommerce store site!
   Requires at least: WP 4.1.0
-  Tested up to: WP 4.7
+  Tested up to: WP 4.9
   Author: realmag777
   Author URI: https://pluginus.net/
-  Version: 1.1.7
+  Version: 1.1.8
+  Requires PHP: 5.4
   Tags: filter,search,woocommerce,woocommerce filter,woocommerce product filter,woocommerce products filter,products filter,product filter,filter of products,filter for products,filter for woocommerce
   Text Domain: woocommerce-products-filter
   Domain Path: /languages
@@ -18,6 +19,8 @@
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
+
+
 
 
 /*
@@ -46,7 +49,7 @@ define('WOOF_PATH', plugin_dir_path(__FILE__));
 define('WOOF_LINK', plugin_dir_url(__FILE__));
 define('WOOF_PLUGIN_NAME', plugin_basename(__FILE__));
 define('WOOF_EXT_PATH', WOOF_PATH . 'ext/');
-define('WOOF_VERSION', '1.1.7');
+define('WOOF_VERSION', '1.1.8');
 define('WOOF_MIN_WOOCOMMERCE_VERSION', '2.4');
 //classes
 include WOOF_PATH . 'classes/storage.php';
@@ -76,7 +79,7 @@ try {
 }
 
 //***
-//03-05-2017
+//02-12-2017
 final class WOOF {
 
     public $settings = array();
@@ -102,7 +105,9 @@ final class WOOF {
 	self::$query_cache_table = $wpdb->prefix . self::$query_cache_table;
 
 	//***
-
+        add_action('wp_ajax_woof_upload_ext', array($this, 'woof_upload_ext'));
+        add_action( 'wp_ajax_nopriv_woof_upload_ext', array($this, 'woof_upload_ext'));
+        
 	$this->init_settings();
 	if (!$this->is_should_init()) {
 	    $this->is_activated = false;
@@ -231,6 +236,8 @@ final class WOOF {
 	//***
 	add_action('wp_ajax_woof_remove_ext', array($this, 'woof_remove_ext'));
 
+        
+        
 	add_filter('sidebars_widgets', array($this, 'sidebars_widgets'));
 	//own filters of WOOF
 	add_filter('woof_modify_query_args', array($this, 'woof_modify_query_args'), 1);
@@ -277,7 +284,7 @@ final class WOOF {
 	    wp_enqueue_style('open_sans_font', 'https://fonts.googleapis.com/css?family=Open+Sans');
 	    wp_enqueue_style('woof', WOOF_LINK . 'css/plugin_options.css');
 	    wp_enqueue_style('woof_fontello', WOOF_LINK . 'css/fontello.css');
-	    wp_enqueue_script('SimpleAjaxUploader', WOOF_LINK . 'lib/simple-ajax-uploader/SimpleAjaxUploader.min.js');
+	    wp_enqueue_script('SimpleAjaxUploader', WOOF_LINK . 'lib/simple-ajax-uploader/SimpleAjaxUploader.js');
 	    wp_enqueue_script('SimpleAjaxUploader-action', WOOF_LINK . 'lib/simple-ajax-uploader/action.js');
 	}
     }
@@ -328,6 +335,7 @@ final class WOOF {
 		if (is_array($data['woof_settings'])) {
 		    $data['woof_settings']['default_overlay_skin_word'] = WOOF_HELPER::escape($data['woof_settings']['default_overlay_skin_word']);
 		    //print_r($data['woof_settings']);
+                   
 		    update_option('woof_settings', $data['woof_settings']);
 		}
 		wp_cache_flush();
@@ -352,7 +360,13 @@ final class WOOF {
 	//*** for woocommerce >= v.2.6.0
 	//to avoid http://www.woocommerce-filter.com/filtering-by-product-attribute-doesn-work/
 	global $wpdb;
-	$wpdb->query($wpdb->prepare("UPDATE {$wpdb->prefix}woocommerce_attribute_taxonomies SET attribute_public=%d", 1));
+        $data_sql=array(
+            array(
+                'type'=>'int',
+                'val'=>1,
+            )
+        ); 
+	$wpdb->query(WOOF_HELPER::woof_prepare("UPDATE {$wpdb->prefix}woocommerce_attribute_taxonomies SET attribute_public=%d", $data_sql));
 	flush_rewrite_rules();
 	delete_transient('wc_attribute_taxonomies');
 
@@ -476,14 +490,10 @@ final class WOOF {
 	    '<a href="' . admin_url('admin.php?page=wc-settings&tab=woof') . '">' . __('Settings', 'woocommerce-products-filter') . '</a>',
 	    '<a target="_blank" href="' . esc_url('http://woocommerce-filter.com/') . '">' . __('Documentation', 'woocommerce-products-filter') . '</a>'
 		), $links);
-
-	return $links;
     }
 
     public function get_swoof_search_slug() {
-	$slug = 'swoof';
-
-	return $slug;
+	return 'swoof';
     }
 
     public function woocommerce_product_query($q) {
@@ -514,7 +524,7 @@ final class WOOF {
 	      }
 	     */
 	}
-
+        
 	//***
 	$_REQUEST['woof_parse_query'] = 1;
 
@@ -525,7 +535,8 @@ final class WOOF {
 	}
 
 	$request = $this->get_request_data();
-
+       
+        
 	//+++
 	if ($wp_query->is_main_query()) {
 
@@ -543,6 +554,7 @@ final class WOOF {
 
 		    if (!empty($tax_relations)) {
 			$tax_query = $wp_query->tax_query->queries;
+                        
 			foreach ($tax_query as $key => $value) {
 			    if (in_array($value['taxonomy'], array_keys($tax_relations))) {
 				if (count($tax_query[$key]['terms']) > 1) {
@@ -556,7 +568,11 @@ final class WOOF {
 			    $tax_query = $this->listen_catalog_visibility($tax_query, true);
 			}
 			// end fix
+                        
+  
+                       
 			$wp_query->set('tax_query', $tax_query);
+                        
 		    }
 		}
 
@@ -585,10 +601,11 @@ final class WOOF {
 
 		//+++
 		$meta_query = array();
+                                             
 		if (isset($wp_query->query_vars['meta_query'])) {
 		    $meta_query = $wp_query->query_vars['meta_query'];
 		}
-		$meta_query['relation'] = 'AND';
+              
 		//+++
 		//for extensions
 		if (!empty(WOOF_EXT::$includes['html_type_objects'])) {
@@ -600,6 +617,7 @@ final class WOOF {
 				    return $wp_query;
 				}
 			    }
+                          
 			    $obj->assemble_query_params($meta_query, $wp_query);
 			}
 		    }
@@ -612,15 +630,26 @@ final class WOOF {
 		}
 		//***
 		$wp_query->set('meta_query', $meta_query);
+               // var_dump($meta_query);
 	    }
 	}
-
+ 
 	return $wp_query;
     }
 
     private function assemble_price_params(&$meta_query) {
 	$request = $this->get_request_data();
 	if (isset($request['min_price']) AND isset($request['max_price'])) {
+            if ( wc_tax_enabled() && 'incl' === get_option( 'woocommerce_tax_display_shop' ) && ! wc_prices_include_tax() ) {
+		$tax_classes = array_merge( array( '' ), WC_Tax::get_tax_classes() );
+		$class_min   = $request['min_price'];
+		foreach ( $tax_classes as $tax_class ) {
+                    if ( $tax_rates = WC_Tax::get_rates( $tax_class ) ) {
+			$class_min =  $request['min_price'] - WC_Tax::get_tax_total( WC_Tax::calc_exclusive_tax($request['min_price'], $tax_rates ) );
+                    }
+		}
+		$request['min_price'] = $class_min;
+            }
 	    if ($request['min_price'] <= $request['max_price']) {
 		$meta_query[] = array(
 		    'key' => '_price',
@@ -650,77 +679,92 @@ final class WOOF {
 	}
     }
 
-    public function wp_head() {
-	global $wp_query;
-	//***
-	$request_data = $this->get_request_data();
-	if (!isset($wp_query->query_vars['taxonomy']) AND ! defined('DOING_AJAX')) {
-	    $this->set_really_current_term(/* get_queried_object() */);
-	}
-	//***
-	?>
-	<script type="text/javascript">
-	    var woof_is_permalink =<?php echo intval((bool) $this->is_permalink_activated()) ?>;
+public function wp_head() {
+  global $wp_query;
+  //***
+ 
+  //var_dump(get_queried_object());
+  $request_data = $this->get_request_data();
+  if (!isset($wp_query->query_vars['taxonomy']) AND ! defined('DOING_AJAX')) {
+     // $this->set_really_current_term(/* get_queried_object() */);
+  }
+  //***
+  ?>
+  <script type="text/javascript">
+      var woof_is_permalink =<?php echo intval((bool) $this->is_permalink_activated()) ?>;
 
-	    var woof_shop_page = "";
-	<?php if (!$this->is_permalink_activated()): ?>
-	        woof_shop_page = "<?php echo home_url('/?post_type=product'); ?>";
-	<?php endif; ?>
+      var woof_shop_page = "";
+  <?php if (!$this->is_permalink_activated()): ?>
+          woof_shop_page = "<?php echo home_url('/?post_type=product'); ?>";
+  <?php endif; ?>
 
-	    var woof_really_curr_tax = {};
-	    var woof_current_page_link = location.protocol + '//' + location.host + location.pathname;
-	    //***lets remove pagination from woof_current_page_link
-	    woof_current_page_link = woof_current_page_link.replace(/\page\/[0-9]+/, "");
-	<?php
-	if (!isset($wp_query->query_vars['taxonomy'])) {
-	    $page_id = get_option('woocommerce_shop_page_id');
-	    if ($page_id > 0) {
-		if (!$this->is_permalink_activated()) {
-		    $link = home_url('/?post_type=product');
-		} else {
-		    $link = get_permalink($page_id);
-		}
-	    }
+      var woof_really_curr_tax = {};
+      var woof_current_page_link = location.protocol + '//' + location.host + location.pathname;
+      //***lets remove pagination from woof_current_page_link
+      woof_current_page_link = woof_current_page_link.replace(/\page\/[0-9]+/, "");
+  <?php
+  if (!isset($wp_query->query_vars['taxonomy'])) {
+      $page_id = get_option('woocommerce_shop_page_id');
+      if ($page_id > 0) {
+      if (!$this->is_permalink_activated()) {
+          $link = home_url('/?post_type=product');
+      } else {
+          $link = get_permalink($page_id);
+      }
+      }
 
-	    if (isset($link) AND ! empty($link) AND is_string($link)) {
-		?>
-		    woof_current_page_link = "<?php echo $link ?>";
-		<?php
-	    }
-	}
+      if (isset($link) AND ! empty($link) AND is_string($link)) {
+      ?>
+          woof_current_page_link = "<?php echo $link ?>";
+      <?php
+      }
+  }
 
 
 //code bone when filter child categories on the category page of parent
 //like here: http://demo.pluginus.net/product-category/clothing/?swoof=1&product_cat=hoo1
 //+++
-	?>
-	    var woof_link = '<?php echo WOOF_LINK ?>';
+  ?>
+      var woof_link = '<?php echo WOOF_LINK ?>';
 
-	<?php
-	if (!defined('DOING_AJAX') AND ! is_page()) {
-	    if (isset($wp_query->query_vars['taxonomy']) AND empty($request_data)) {
-		$queried_obj = get_queried_object();
-		if (is_object($queried_obj)) {
-		    //$_SESSION['woof_really_current_term'] = $queried_obj;
-		    $this->set_really_current_term($queried_obj);
-		    ?>
-		        woof_really_curr_tax = {term_id:<?php echo intval($queried_obj->term_id) ?>, taxonomy: "<?php echo $queried_obj->taxonomy ?>"};
-		    <?php
-		}
-	    }
-	} else {
-	    if ($this->is_really_current_term_exists()) {
-		//unset($_SESSION['woof_really_current_term']);
-		$this->set_really_current_term();
-	    }
-	}
+  <?php
+  if (!defined('DOING_AJAX') AND ! is_page()) {
+         $queried_obj = get_queried_object();
+      if (isset($wp_query->query_vars['taxonomy']) AND is_object($queried_obj) AND get_class(get_queried_object())=='WP_Term' AND !isset($request_data['really_curr_tax'])) {
+     
+             if (is_object($queried_obj)) {
+          //$_SESSION['woof_really_current_term'] = $queried_obj;
+          $this->set_really_current_term($queried_obj);
+          ?>
+              woof_really_curr_tax = {term_id:<?php echo intval($queried_obj->term_id) ?>, taxonomy: "<?php echo $queried_obj->taxonomy ?>"};
+          <?php
+             }
+      }elseif(isset($request_data['really_curr_tax'])){
+          $tmp = explode('-',$request_data['really_curr_tax']);
+          $res = get_term($tmp[0], $tmp[1]);
+          $this->set_really_current_term($res );
+           ?>
+              woof_really_curr_tax = {term_id:<?php echo intval($res->term_id) ?>, taxonomy: "<?php echo $res->taxonomy ?>"};
+          <?php
+      }else{
+		  $this->set_really_current_term();
+	  }
+  } else {
+      if ($this->is_really_current_term_exists()) {
+      //unset($_SESSION['woof_really_current_term']);
+     
+      $this->set_really_current_term();
+      }
+  }
 
 //***
-	?>
-	</script>
+  ?>
+  </script>
 
-	<?php
-    }
+  <?php
+
+  //var_dump($this->get_really_current_term());
+ }
 
     public function wp_load_js() {
 	global $is_edge, $is_gecko;
@@ -742,7 +786,7 @@ final class WOOF {
 	    };
 
 	    if (typeof woof_lang_custom == 'undefined') {
-		var woof_lang_custom = {};//!!important
+		var woof_lang_custom = {};/*!!important*/
 	    }
 
 	//***
@@ -815,7 +859,7 @@ final class WOOF {
 	//+++
 	    var woof_autosubmit =<?php echo (int) get_option('woof_autosubmit', 0) ?>;
 	    var woof_ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-	    var woof_submit_link = "";
+	    /*var woof_submit_link = "";*/
 	    var woof_is_ajax = 0;
 	    var woof_ajax_redraw = 0;
 	    var woof_ajax_page_num =<?php echo ((get_query_var('page')) ? get_query_var('page') : 1) ?>;
@@ -883,7 +927,7 @@ final class WOOF {
 
 	    jQuery(function () {
 		woof_current_values = jQuery.parseJSON(woof_current_values);
-		if (woof_current_values.length == 0) {
+		if (woof_current_values==null ||woof_current_values.length == 0) {
 		    woof_current_values = {};
 		}
 
@@ -1153,7 +1197,7 @@ final class WOOF {
 		'class' => 'chosen_select',
 		'css' => 'min-width:300px;',
 		'options' => array(
-		    0 => __('No - premium only', 'woocommerce-products-filter')
+		    0 => __('No - premium only', 'woocommerce-products-filter'),
 		),
 		'desc_tip' => true
 	    ),
@@ -1339,6 +1383,7 @@ final class WOOF {
 
 
 		break;
+
 	    default:
 		//leave it empty
 		break;
@@ -1414,7 +1459,7 @@ final class WOOF {
 	    $this->assemble_price_params($args['meta_query']);
 	    $args['meta_query']['relation'] = 'AND';
 	}
-
+        
 	//check for rating
 	if ($this->is_isset_in_request_data('min_rating')) {
 	    $min = $request['min_rating'];
@@ -1457,7 +1502,13 @@ final class WOOF {
 		}
 	    }
 	}
-	$args = apply_filters('woocommerce_shortcode_products_query', $args, $atts);
+        
+        if (version_compare(WOOCOMMERCE_VERSION, '3.0.8', '>=')) {
+	$args = apply_filters('woocommerce_shortcode_products_query', $args, $atts,null);
+        }else{
+         $args = apply_filters('woocommerce_shortcode_products_query', $args, $atts);  
+        }
+	
 	//***
 	$_REQUEST['woof_dyn_recount_going'] = 1;
 	remove_filter('posts_clauses', array(WC()->query, 'order_by_popularity_post_clauses'));
@@ -1469,7 +1520,7 @@ final class WOOF {
 		$args['tax_query'][] = array(
 		    'taxonomy' => 'product_visibility',
 		    'field' => 'name',
-		    'terms' => 'exclude-from-catalog',
+		    'terms' => array('exclude-from-catalog', 'exclude-from-search'),
 		    'operator' => 'NOT IN',
 		);
 	    }
@@ -1484,9 +1535,8 @@ final class WOOF {
 	}
 
 	//***
-	//print_r($args);exit;
+	//print_r($args);//exit;
 	$query = new WP_QueryWoofCounter($args);
-
 	unset($_REQUEST['woof_dyn_recount_going']);
 	return $query->found_posts;
     }
@@ -1498,9 +1548,9 @@ final class WOOF {
     }
 
     public function woocommerce_before_shop_loop() {
-	$woof_set_automatically = (int) get_option('woof_set_automatically', 0);
+	$woof_set_automatically = intval(get_option('woof_set_automatically', 0));
 	//$_REQUEST['woof_before_shop_loop_done'] - is just key lock
-	if ($woof_set_automatically == 1 AND ! isset($_REQUEST['woof_before_shop_loop_done'])) {
+	if ($woof_set_automatically === 1 AND ! isset($_REQUEST['woof_before_shop_loop_done'])) {
 	    $_REQUEST['woof_before_shop_loop_done'] = true;
 	    $shortcode_hide = false;
 	    if (isset($this->settings['woof_auto_hide_button'])) {
@@ -1544,6 +1594,7 @@ final class WOOF {
 	if (get_option('woof_try_ajax', 0) AND ! isset($_REQUEST['woof_products_doing'])) {
 	    echo '</div>';
 	    echo '</div>';
+
 	}
     }
 
@@ -1632,7 +1683,8 @@ final class WOOF {
 		$orderby = 'date';
 		break;
 	    default:
-		$orderby = 'menu_order date';
+		$orderby = 'menu_order title';
+                //$orderby = 'menu_order date';
 		break;
 	}
 
@@ -1640,7 +1692,7 @@ final class WOOF {
 	return compact('order', 'orderby', 'meta_key');
     }
 
-    private function get_tax_query($additional_taxes = '') {
+    public function get_tax_query($additional_taxes = '') {
 	$data = $this->get_request_data();
 	$res = array();
 	//static $woo_taxonomies = NULL;
@@ -1760,7 +1812,7 @@ final class WOOF {
     }
 
     //works only in shortcode [woof_products]
-    private function get_meta_query($args = array()) {
+    public function get_meta_query($args = array()) {
 	//print_r(WC()->query); - will think about it
 	$meta_query = WC()->query->get_meta_query();
 	$meta_query = array_merge(array('relation' => 'AND'), $meta_query);
@@ -1824,9 +1876,12 @@ final class WOOF {
 	if ($orderby == 'no') {
 	    $orderby = $catalog_orderby['orderby'];
 	    $order = $catalog_orderby['order'];
-	} else {
+        }elseif($orderby=='price' OR $orderby=='price-desc'){
+            $catalog_orderby = $this->get_catalog_orderby(isset($orderby) ? $orderby : '');  
+        } else {
 	    $order_by_defined_in_atts = true;
 	}
+
 	//***
 	//this needs just for AJAX mode for shortcode [woof] in woof_draw_products()
 	$_REQUEST['woof_additional_taxonomies_string'] = $taxonomies;
@@ -1928,7 +1983,11 @@ final class WOOF {
 	    }
 	}
 	//***
-	$wr = apply_filters('woocommerce_shortcode_products_query', $args, $atts);
+        if (version_compare(WOOCOMMERCE_VERSION, '3.0.8', '>=')) {
+	$wr = apply_filters('woocommerce_shortcode_products_query', $args, $atts,null);
+        }else{
+         $wr = apply_filters('woocommerce_shortcode_products_query', $args, $atts);   
+        }
 	global $products, $wp_query;
 	//***
 	$tax_relations = apply_filters('woof_main_query_tax_relations', array());
@@ -1952,7 +2011,7 @@ final class WOOF {
 	$wr = apply_filters('woof_products_query', $wr);
 
 	//***
-
+        
 	if ($get_args_only) {
 	    $_REQUEST['woof_query_args'] = $wr;
 	    return $wr;
@@ -1991,7 +2050,7 @@ final class WOOF {
 	<?php if ($is_ajax == 1): ?>
 	    <?php //if (!get_option('woof_try_ajax')):                                                                                                                                     ?>
 	    <div id="woof_results_by_ajax" class="woof_results_by_ajax_shortcode" data-shortcode="<?php echo $shortcode_txt ?>">
-		<?php //endif;                                       ?>
+		<?php //endif;                                      ?>
 	    <?php endif; ?>
 	    <?php
 	    if ($products->have_posts()) :
@@ -2033,10 +2092,11 @@ final class WOOF {
 
 
 		    <?php
+                    $template_part = apply_filters('woof_template_part', 'product');
 		    //products output
 		    if (empty($custom_tpl) AND empty($tpl_index)) {
 			while ($products->have_posts()) : $products->the_post();
-			    wc_get_template_part('content', 'product');
+			    wc_get_template_part('content', $template_part);
 			endwhile; // end of the loop.
 		    }else {
 			if (!empty($tpl_index)) {
@@ -2054,7 +2114,7 @@ final class WOOF {
 
 
 
-		    <?php //wc_get_template('loop/loop-end.php');               ?>
+		    <?php //wc_get_template('loop/loop-end.php');              ?>
 
 		    <?php
 		    //woo_pagenav(); - for wp theme canvas
@@ -2116,6 +2176,7 @@ final class WOOF {
 		<?php endif; ?>
 	    <?php endif; ?>
 	    <?php
+
 	    wp_reset_postdata();
 	    wp_reset_query();
 
@@ -2179,7 +2240,7 @@ final class WOOF {
 	    $taxonomies = $this->get_taxonomies();
 	    $allow_taxonomies = (array) (isset($this->settings['tax']) ? $this->settings['tax'] : array());
 	    $args['taxonomies'] = array();
-	    $hide_empty = 0;
+	    $hide_empty = false;
 	    if (!empty($taxonomies)) {
 		foreach ($taxonomies as $tax_key => $tax) {
 		    if (!in_array($tax_key, array_keys($allow_taxonomies))) {
@@ -2529,21 +2590,26 @@ final class WOOF {
 
 	//ajax
 	public function woof_remove_ext() {
-	    if (!current_user_can('manage_woocommerce')) {
+	    if (!current_user_can('manage_woocommerce') OR ! current_user_can('activate_plugins')) {
 		return;
 	    }
+            check_ajax_referer( 'rm-ext-nonce', 'rm_ext_nonce' );
 
+	    if( ! wp_verify_nonce( $_REQUEST['rm_ext_nonce'], 'rm-ext-nonce' ) ) die( 'Stop!');
 	    //***
 
 	    $idx = $_REQUEST['idx'];
+            
+
 	    $directories = array();
 	    if ($this->get_custom_ext_path()) {
 		$directories = glob($this->get_custom_ext_path() . '*', GLOB_ONLYDIR);
 	    }
-
 	    if (!empty($directories)) {
 		foreach ($directories as $dir) {
-		    if (md5($dir) == $idx) {
+
+		    if (WOOF_EXT::get_ext_idx($dir) == $idx) {
+
 			$it = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
 			$files = new RecursiveIteratorIterator($it, RecursiveIteratorIterator::CHILD_FIRST);
 			foreach ($files as $file) {
@@ -2556,9 +2622,52 @@ final class WOOF {
 			rmdir($dir);
 		    }
 		}
+                 die('done');
 	    }
-	    die('done');
+	    die('fail');
 	}
+        function woof_upload_ext(){
+	    if (!current_user_can('manage_woocommerce') OR ! current_user_can('activate_plugins')) {
+		return;
+	    }
+            
+            	check_ajax_referer( 'add-ext-nonce', 'extnonce' );
+
+	        if( ! wp_verify_nonce( $_REQUEST['extnonce'], 'add-ext-nonce' ) ) die( 'Stop!');
+                
+             require(WOOF_PATH .'lib/simple-ajax-uploader/extras/Uploader.php');
+
+                $upload_dir = $_SERVER['HTTP_LOCATION'];
+                $valid_extensions = array('zip');
+
+                $Upload = new FileUpload('uploadfile');
+                //$ext = $Upload->getExtension(); // Get the extension of the uploaded file
+                //$Upload->newFileName = 'customFileName.'.$ext;
+                $result = $Upload->handleUpload($upload_dir, $valid_extensions);
+
+                //***
+
+                $zipArchive = new ZipArchive();
+                $zip_result = $zipArchive->open($Upload->getSavedFile());
+                $ext_info = array();
+                if ($zip_result === TRUE) {
+                    $zipArchive->extractTo($upload_dir);
+                    $zipArchive->close();
+                    $dir = $upload_dir . str_replace('.zip', '', $Upload->getFileName());
+                    //$ext_info = parse_ini_file($dir . '/info.dat');
+                    $ext_info = WOOF_HELPER::parse_ext_data($dir . '/info.dat');
+                    $ext_info['idx'] = md5($dir);
+                    unlink($Upload->getSavedFile());
+                }
+
+                if (!$result) {
+                    die( json_encode(array('success' => false, 'msg' => $Upload->getErrorMsg())));
+                } else {
+                    die( json_encode(array('success' => true, 'ext_info' => $ext_info)));
+                }
+               
+            
+        }
 
 	public function is_permalink_activated() {
 	    return get_option('permalink_structure', '');
@@ -2697,105 +2806,106 @@ final class WOOF {
 		    });
 		});
 	    </script>
-	<?php
-	wp_print_request_filesystem_credentials_modal();
-    }
-
-    function woof_dismiss_alert() {
-	check_ajax_referer('woof_dissmiss_alert', 'sec');
-
-	$alert = (array) get_option('woof_woocs_alert', array());
-	$alert[$_POST['alert']] = 1;
-
-	add_option('woof_woocs_alert', $alert, '', 'no');
-	update_option('woof_woocs_alert', $alert);
-
-	exit;
-    }
-
-    public function woof_alert_scripts() {
-	wp_enqueue_script('plugin-install');
-	add_thickbox();
-	wp_enqueue_script('updates');
-    }
-
-    public function woof_sort_terms_is_checked($terms = array(), $type = "checkbox") {
-
-	$not_sort_terms = apply_filters('woof_not_sort_checked_terms', array('slider'));
-
-	if (in_array($type, $not_sort_terms)) {
-	    return $terms;
+	    <?php
+	    wp_print_request_filesystem_credentials_modal();
 	}
 
-	$request = $this->get_request_data();
-	$temp_term = current($terms);
-	if (!is_array($temp_term))
-	    return $terms;
-	if ($this->is_isset_in_request_data($temp_term['taxonomy'])) {
-	    $current_request = $request[$temp_term['taxonomy']];
-	    $current_request = explode(',', urldecode($current_request));
-	} else {
-	    return $terms;
-	}
-	$temp_array = array();
-	foreach ($terms as $key => $val) {
+	function woof_dismiss_alert() {
+	    check_ajax_referer('woof_dissmiss_alert', 'sec');
 
-	    if (in_array($val['slug'], $current_request)) {
-		$temp_array[$key] = $val;
+	    $alert = (array) get_option('woof_woocs_alert', array());
+	    $alert[$_POST['alert']] = 1;
+
+	    add_option('woof_woocs_alert', $alert, '', 'no');
+	    update_option('woof_woocs_alert', $alert);
+
+	    exit;
+	}
+
+	public function woof_alert_scripts() {
+	    wp_enqueue_script('plugin-install');
+	    add_thickbox();
+	    wp_enqueue_script('updates');
+	}
+
+	public function woof_sort_terms_is_checked($terms = array(), $type = "checkbox") {
+
+	    $not_sort_terms = apply_filters('woof_not_sort_checked_terms', array('slider'));
+
+	    if (in_array($type, $not_sort_terms)) {
+		return $terms;
 	    }
+
+	    $request = $this->get_request_data();
+	    $temp_term = current($terms);
+	    if (!is_array($temp_term))
+		return $terms;
+	    if ($this->is_isset_in_request_data($temp_term['taxonomy'])) {
+		$current_request = $request[$temp_term['taxonomy']];
+		$current_request = explode(',', urldecode($current_request));
+	    } else {
+		return $terms;
+	    }
+	    $temp_array = array();
+	    foreach ($terms as $key => $val) {
+
+		if (in_array($val['slug'], $current_request)) {
+		    $temp_array[$key] = $val;
+		}
+	    }
+	    foreach ($temp_array as $key => $val) {
+		unset($terms[$key]);
+	    }
+	    return array_merge($temp_array, $terms);
 	}
-	foreach ($temp_array as $key => $val) {
-	    unset($terms[$key]);
-	}
-	return array_merge($temp_array, $terms);
+
+	//***
+
     }
 
-    //***
-}
+//***
+
+    if (isset($_GET['P3_NOCACHE'])) {
+	//stupid trick for that who believes in P3
+	return;
+    }
 
 //***
 
-if (isset($_GET['P3_NOCACHE'])) {
-    //stupid trick for that who believes in P3
-    return;
-}
-
-//***
-
-$init_the_plugin = true;
+    $init_the_plugin = true;
 
 //there is no reason to activate the plugin in wp-admin area, exept of the plugin settings page
-if (is_admin()) {
-    $init_the_plugin = false;
-}
+    if (is_admin()) {
+	$init_the_plugin = false;
+    }
 
-if (defined('DOING_AJAX')) {
-    $init_the_plugin = true;
-}
-
-if (isset($_GET['page']) AND $_GET['page'] == 'wc-settings') {
-    $init_the_plugin = true;
-}
-
-//***
-if (isset($_SERVER['SCRIPT_URI']) AND function_exists('basename')) {
-    $init_pages = array('plugins.php', 'widgets.php', 'term.php', 'edit-tags.php');
-    //http://stackoverflow.com/questions/7395049/get-last-part-of-url-php
-    $lastSegment = basename(parse_url($_SERVER['SCRIPT_URI'], PHP_URL_PATH));
-    if (in_array($lastSegment, $init_pages)) {
+    if (defined('DOING_AJAX')) {
 	$init_the_plugin = true;
     }
-} else {
-    $init_the_plugin = true;
-}
+
+    if (isset($_GET['page']) AND $_GET['page'] == 'wc-settings') {
+	$init_the_plugin = true;
+    }
+
+//***
+    if (isset($_SERVER['SCRIPT_URI']) AND function_exists('basename')) {
+	$init_pages = array('plugins.php', 'widgets.php', 'term.php', 'edit-tags.php');
+	//http://stackoverflow.com/questions/7395049/get-last-part-of-url-php
+	$lastSegment = basename(parse_url($_SERVER['SCRIPT_URI'], PHP_URL_PATH));
+	if (in_array($lastSegment, $init_pages)) {
+	    $init_the_plugin = true;
+	}
+    } else {
+	$init_the_plugin = true;
+    }
 //***
 
-if ($init_the_plugin OR isset($_GET['woof_cron_key'])) {
-    $WOOF = new WOOF();
-    if ($WOOF->is_activated) {
-	$GLOBALS['WOOF'] = $WOOF;
-	add_action('init', array($WOOF, 'init'), 1);
+    if ($init_the_plugin OR isset($_GET['woof_cron_key'])) {
+	$WOOF = new WOOF();
+	if ($WOOF->is_activated) {
+	    $GLOBALS['WOOF'] = $WOOF;
+	    add_action('init', array($WOOF, 'init'), 1);
+	}
     }
-}
 
 

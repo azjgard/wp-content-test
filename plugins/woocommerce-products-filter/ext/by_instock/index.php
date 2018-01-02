@@ -50,7 +50,7 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
         ?>      
         <script type="text/javascript">
             if (typeof woof_lang_custom == 'undefined') {
-                var woof_lang_custom = {};//!!important
+                var woof_lang_custom = {};/*!!important*/
             }
             woof_lang_custom.<?php echo $this->index ?> = "<?php _e('In stock', 'woocommerce-products-filter') ?>";
         </script>
@@ -110,6 +110,7 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
 
         //+++
 
+      
         $use_for = isset($WOOF->settings['by_instock']['use_for']) ? $WOOF->settings['by_instock']['use_for'] : 'simple';
         if ($use_for == 'both')
         {
@@ -226,9 +227,9 @@ final class WOOF_EXT_BY_INSTOCK extends WOOF_EXT {
                                     $sub_meta_query[] = array(
 
                                             'key' => 'attribute_' . $attr_slug,
-                                            'value' =>$t_name
+                                            'value' =>$terms[$i]
                                     );
-                                    //echo"<br>***", $t_name,"<br>";
+                                    
                             }
                         }
                         $meta_query[]=array($sub_meta_query);

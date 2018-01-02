@@ -1,13 +1,5 @@
 <?php
 /**
- *
- * OVERRIDE NOTES:
- *
- * This template is overridden to hide the products on the product
- * archive page that represent quantities versus individual products.
- * Currently, the pattern for that is ending in -####, but that could change.
- *
- *
  * The template for displaying product content within loops
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/content-product.php.
@@ -33,24 +25,7 @@ global $product;
 // Ensure visibility
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
-
 }
-
-
-
-
-
-// ------------
-// EDITED CODE
-// ------------
-// Return and don't output an <li> if the pattern matches
-if (preg_match('/-\d{2,}/', $product->get_sku())) {
-  return;
-}
-// ------------
-// EDITED CODE
-// ------------
-
 ?>
 <li <?php post_class(); ?>>
 	<?php

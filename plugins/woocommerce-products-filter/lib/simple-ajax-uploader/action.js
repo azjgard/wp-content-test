@@ -12,6 +12,7 @@ function woof_init_ext_uploader(abspath, location, url) {
             'location': location
         },
         button: btn,
+        //url:ajaxurl+"?action=woof_upload_ext",
         url: url,
         //sessionProgressUrl: '/code/ajaxuploader/sessionProgress.php',
         name: 'zipfile',

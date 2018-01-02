@@ -226,14 +226,12 @@ final class WOOF_HELPER {
 
 	if (empty($string)) {
 	    if (is_object($taxonomy_info)) {
-
-		if (isset($taxonomy_info->labels->name) AND ! empty($taxonomy_info->labels->name)) {
-		    $string = $taxonomy_info->labels->name;
-		} else {
-		    $string = $taxonomy_info->label;
-		}
-
-		//$string = $taxonomy_info->label;
+                //fix for WPML
+		if(isset($taxonomy_info->labels->name) AND !empty($taxonomy_info->labels->name)){
+			$string = $taxonomy_info->labels->name;
+		    }else{
+			$string = $taxonomy_info->label;
+		    }
 	    }
 	}
 
@@ -351,6 +349,8 @@ final class WOOF_HELPER {
 	$min = self::get_min_price();
 	$max = self::get_max_price();
 	//***
+        $min_price=($min_price)?:$min;
+        $max_price=($max_price)?:$max;
 
 	if ($min == $max) {
 	    return;
@@ -475,27 +475,42 @@ final class WOOF_HELPER {
      * woocommerce native function from 2.6.0 version - added by WOOF author
      */
     //wp-content\plugins\woocommerce\includes\widgets\class-wc-widget-price-filter.php
-    public static function get_filtered_price() {
+    public static function get_filtered_price($additional_taxes="") {
 	global $wpdb, $wp_the_query;
 
 	$args = $wp_the_query->query_vars;
 	$tax_query = isset($args['tax_query']) ? $args['tax_query'] : array();
+        
+        if(is_object($wp_the_query->tax_query)){
+            $tax_query  =$wp_the_query->tax_query->queries; //fix for cat page
+        }
 	$meta_query = isset($args['meta_query']) ? $args['meta_query'] : array();
 
 
 // Fix for price slider in ajax
-	if (isset($_REQUEST['woof_wp_query'])AND ! empty($_REQUEST['woof_wp_query'])) {
-	    $arg = $_REQUEST['woof_wp_query'];
-	    $tax_query = isset($arg->query['tax_query']) ? $arg->query['tax_query'] : array();
-	    $meta_query = isset($arg->query['meta_query']) ? $arg->query['meta_query'] : array();
-	}
-
+//	if (isset($_REQUEST['woof_wp_query'])AND ! empty($_REQUEST['woof_wp_query'])) {
+//	    $arg = $_REQUEST['woof_wp_query'];
+//	    $tax_query = isset($arg->query['tax_query']) ? $arg->query['tax_query'] : array();
+//	    $meta_query = isset($arg->query['meta_query']) ? $arg->query['meta_query'] : array();
+//	}
 	//++++    
+        
+        // fix  for  adapt slider in shortcode 
+        $tax_query =self::expand_additional_taxes_string($additional_taxes, $tax_query);
+        
+        //  fix  if current query has more them  one taxonomy 
+        $temp_arr =array();
+        if( isset($args['taxonomy']) AND isset($args[$args['taxonomy']]) AND !empty($args[$args['taxonomy']])){
+            $temp_arr = explode( ',' ,$args[$args['taxonomy']]);
+            if(!$temp_arr OR count($temp_arr)<1){
+                $temp_arr=array();
+            }
 
+        }
 	if (!empty($args['taxonomy']) && !empty($args['term'])) {
 	    $tax_query[] = array(
 		'taxonomy' => $args['taxonomy'],
-		'terms' => array($args['term']),
+		'terms' => (empty($temp_arr))?array($args['term']):$temp_arr,
 		'field' => 'slug',
 	    );
 	}
@@ -514,7 +529,7 @@ final class WOOF_HELPER {
 	$meta_query_sql = $meta_query->get_sql('post', $wpdb->posts, 'ID');
 	$tax_query_sql = $tax_query->get_sql($wpdb->posts, 'ID');
 	//CAST( price_meta.meta_value AS UNSIGNED )
-	$sql = "SELECT min( price_meta.meta_value + 0.0  ) as min_price, max( price_meta.meta_value + 0.0  )as max_price FROM {$wpdb->posts} ";
+	$sql = "SELECT min( FLOOR( price_meta.meta_value + 0.0)  ) as min_price, max( CEILING( price_meta.meta_value + 0.0)  )as max_price FROM {$wpdb->posts} ";
 	$sql .= " LEFT JOIN {$wpdb->postmeta} as price_meta ON {$wpdb->posts}.ID = price_meta.post_id " . $tax_query_sql['join'] . $meta_query_sql['join'];
 	$sql .= " 	WHERE {$wpdb->posts}.post_type = 'product'
 					AND {$wpdb->posts}.post_status = 'publish'
@@ -524,29 +539,48 @@ final class WOOF_HELPER {
 	return $wpdb->get_row($sql);
     }
 
-    public static function get_max_price() {
+    public static function get_max_price($additional_taxes="") {
 	global $wpdb;
-
 	if (version_compare(WOOCOMMERCE_VERSION, '2.6', '>')) {
 
-	    $prices = self::get_filtered_price();
+	    $prices = self::get_filtered_price($additional_taxes);
 	    $max = ceil($prices->max_price);
+
 	} else {
 	    self::set_layered_nav_product_ids();
 	    if (0 === sizeof(WC()->query->layered_nav_product_ids)) {
-
-		$max = ceil($wpdb->get_var(
-				$wpdb->prepare('
-					SELECT max(meta_value + 0)
-					FROM %1$s
-					LEFT JOIN %2$s ON %1$s.ID = %2$s.post_id
+                
+                $sql_data=array(
+                    array(
+                        'val'=>$wpdb->posts,
+                        'type'=>'string',
+                    ),
+                    array(
+                        'val'=>$wpdb->postmeta,
+                        'type'=>'string',
+                    ),
+                    array(
+                        'val'=>'_price',
+                        'type'=>'string',
+                    ),
+                );
+                $query_txt=self::woof_prepare('SELECT max(meta_value + 0) FROM %1$s LEFT JOIN %2$s ON %1$s.ID = %2$s.post_id
 					WHERE meta_key IN ("' . implode('","', apply_filters('woocommerce_price_filter_meta_keys', array('_price'))) . '")
-				', $wpdb->posts, $wpdb->postmeta, '_price')
-		));
+				', $sql_data );
+		$max = ceil($wpdb->get_var($query_txt));
 	    } else {
-
+                 $sql_data=array(
+                    array(
+                        'val'=>$wpdb->posts,
+                        'type'=>'string',
+                    ),
+                    array(
+                        'val'=>$wpdb->postmeta,
+                        'type'=>'string',
+                    ),
+                );
 		$max = ceil($wpdb->get_var(
-				$wpdb->prepare('
+				self::woof_prepare('
 					SELECT max(meta_value + 0)
 					FROM %1$s
 					LEFT JOIN %2$s ON %1$s.ID = %2$s.post_id
@@ -558,7 +592,7 @@ final class WOOF_HELPER {
 							AND %1$s.post_parent != 0
 						)
 					)
-				', $wpdb->posts, $wpdb->postmeta
+				', $sql_data
 		)));
 	    }
 	}
@@ -567,27 +601,47 @@ final class WOOF_HELPER {
 	return $max;
     }
 
-    public static function get_min_price() {
+    public static function get_min_price($additional_taxes="") {
 	global $wpdb;
 
 	if (version_compare(WOOCOMMERCE_VERSION, '2.6', '>')) {
-	    $prices = self::get_filtered_price();
+	    $prices = self::get_filtered_price($additional_taxes);
 	    $min = floor($prices->min_price);
 	} else {
 	    self::set_layered_nav_product_ids();
 	    if (0 === sizeof(WC()->query->layered_nav_product_ids)) {
+                $sql_data=array(
+                    array(
+                        'val'=>$wpdb->posts,
+                        'type'=>'string',
+                    ),
+                    array(
+                        'val'=>$wpdb->postmeta,
+                        'type'=>'string',
+                    ),
+                );               
 		$min = floor($wpdb->get_var(
-				$wpdb->prepare('
+				self::woof_prepare('
 					SELECT min(meta_value + 0)
 					FROM %1$s
 					LEFT JOIN %2$s ON %1$s.ID = %2$s.post_id
 					WHERE meta_key IN ("' . implode('","', apply_filters('woocommerce_price_filter_meta_keys', array('_price', '_min_variation_price'))) . '")
 					AND meta_value != ""
-				', $wpdb->posts, $wpdb->postmeta)
+				', $sql_data)
 		));
 	    } else {
+                $sql_data=array(
+                    array(
+                        'val'=>$wpdb->posts,
+                        'type'=>'string',
+                    ),
+                    array(
+                        'val'=>$wpdb->postmeta,
+                        'type'=>'string',
+                    ),
+                );                 
 		$min = floor($wpdb->get_var(
-				$wpdb->prepare('
+				self::woof_prepare('
 					SELECT min(meta_value + 0)
 					FROM %1$s
 					LEFT JOIN %2$s ON %1$s.ID = %2$s.post_id
@@ -600,7 +654,7 @@ final class WOOF_HELPER {
 							AND %1$s.post_parent != 0
 						)
 					)
-				', $wpdb->posts, $wpdb->postmeta
+				', $sql_data
 		)));
 	    }
 	}
@@ -739,5 +793,78 @@ final class WOOF_HELPER {
 	}
 	return $size;
     }
+    
+    public static function expand_additional_taxes_string($additional_taxes, $res = array()) {
+    if (!empty($additional_taxes)) {
+        $t = explode('+', $additional_taxes);
+        if (!empty($t) AND is_array($t)) {
+        foreach ($t as $string) {
+            $tmp = explode(':', $string);
+            $tax_slug = $tmp[0];
+            $tax_terms = explode(',', $tmp[1]);
+            $slugs = array();
+            foreach ($tax_terms as $term_id) {
+            $term = get_term(intval($term_id), $tax_slug);
+            if (is_object($term)) {
+                $slugs[] = $term->slug;
+            }
+            }
 
+            //***
+            if (!empty($slugs)) {
+            $res[] = array(
+                'taxonomy' => $tax_slug,
+                'field' => 'slug', //id
+                'terms' => $slugs
+            );
+            }
+        }
+        }
+    }
+
+    return $res;
+   }
+   public static function  woof_prepare($query,$args){
+       if ( is_null( $query ) ){
+          return; 
+       } 
+       $sql_val=array();
+       
+       $query = str_replace( "'%s'", '%s', $query ); // in case someone mistakenly already singlequoted it
+       $query = str_replace( '"%s"', '%s', $query ); // doublequote unquoting
+       $query = preg_replace( '|(?<!%)%f|' , '%F', $query ); // Force floats to be locale unaware
+       $query = preg_replace( '|(?<!%)%s|', "'%s'", $query ); // quote the strings, avoiding escaped strings like %%s
+       if(!is_array($args)){
+           $args=array('val'=>$args,'type'=>'string');
+       }
+       foreach ($args as $item){
+          
+           if(!is_array($item) OR !isset($item['val'])){
+               continue;
+           }
+           if(!isset($item['type'])){
+              $item['type']='string';
+           }  
+           $sql_val[]=self::woof_escape_sql($item['type'],$item['val']);
+       }
+       return @vsprintf( $query, $sql_val);
+   }
+   public static function woof_escape_sql($type,$value){
+       switch($type){
+           case'string':
+               global $wpdb;
+               return $wpdb->_real_escape($value);
+               break;
+           case'int':
+               return intval($value);
+               break;
+           case'float':
+               return floatval($value);
+               break;
+           default :
+               global $wpdb;
+               return $wpdb->_real_escape($value);
+       }
+       
+   }
 }

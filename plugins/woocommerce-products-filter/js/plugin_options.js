@@ -376,14 +376,17 @@ var woof_sort_order = [];
 	//***
 
 	$('.woof_ext_remove').life('click', function () {
+            
 	    if (confirm('Sure?')) {
 		woof_show_info_popup('Extension removing ...');
 		var _this = this;
 		var data = {
 		    action: "woof_remove_ext",
-		    idx: $(this).data('idx')
+		    idx: $(this).data('idx'),
+                    rm_ext_nonce: $('#rm-ext-nonce').val(),
 		};
-		$.post(ajaxurl, data, function () {
+		$.post(ajaxurl, data, function (e) {
+                    //console.log(e);
 		    woof_show_info_popup('Extension is removed!');
 		    $(_this).parents('.woof_ext_li').remove();
 		    woof_hide_info_popup();
@@ -407,20 +410,25 @@ var woof_sort_order = [];
 
 	//***
 	//to avoid logic errors with the count options
-	
+	$('#woof_hide_dynamic_empty_pos').change(function () {
+	    if ($(this).val() == 1) {
+		$('#woof_show_count').val(1);
+		$('#woof_show_count_dynamic').val(1);
+	    }
+	});
 
 	$('#woof_show_count_dynamic').change(function () {
 	    if ($(this).val() == 1) {
 		$('#woof_show_count').val(1);
+	    } else {
+		$('#woof_hide_dynamic_empty_pos').val(0);
 	    }
-	    
-	    
-	    $('#woof_hide_dynamic_empty_pos').val(0);
 	});
 
 	$('#woof_show_count').change(function () {
 	    if ($(this).val() == 0) {
 		$('#woof_show_count_dynamic').val(0);
+		$('#woof_hide_dynamic_empty_pos').val(0);
 	    }
 	});
 

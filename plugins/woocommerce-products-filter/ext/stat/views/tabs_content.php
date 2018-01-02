@@ -266,7 +266,7 @@ if (!defined('ABSPATH'))
                             <br />
                             <label style="margin-bottom: 5px; display: inline-block;"><?php _e('Password', 'woocommerce-products-filter') ?></label>:
                             <input type="text" name="woof_settings[woof_stat][server_options][host_pass]" value="<?php echo $server_options['host_pass'] ?>" /><br />
-
+                            <span id="woof_stat_connection"  class="button"><?php _e('Check DB connection', 'woocommerce-products-filter') ?></span>
 
                         </div>
                         <div class="woof-description">
@@ -731,7 +731,20 @@ if (!defined('ABSPATH'))
     });
 
     //+++
+    //+++
+    jQuery('#woof_stat_connection').click(function () {
+        var data = {
+            action: "woof_stat_check_connection",
+            woof_stat_host: jQuery("input[name='woof_settings[woof_stat][server_options][host]']").val(),
+            woof_stat_user: jQuery("input[name='woof_settings[woof_stat][server_options][host_user]']").val(),
+            woof_stat_name: jQuery("input[name='woof_settings[woof_stat][server_options][host_db_name]']").val(),
+            woof_stat_pswd: jQuery("input[name='woof_settings[woof_stat][server_options][host_pass]']").val(),
 
+        };
+        jQuery.post(ajaxurl, data, function (content) {
+            alert(content);
+        });
+    });
     function woof_stat_draw_graphs() {
         woof_stat_process_monitor('<?php _e('drawing graphs ...', 'woocommerce-products-filter') ?>');
 

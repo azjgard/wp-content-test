@@ -50,7 +50,7 @@ final class WOOF_EXT_BY_RATING extends WOOF_EXT {
         ?>      
         <script type="text/javascript">
             if (typeof woof_lang_custom == 'undefined') {
-                var woof_lang_custom = {};//!!important
+                var woof_lang_custom = {};/*!!important*/
             }
             woof_lang_custom.<?php echo $this->index ?> = "<?php _e('By rating', 'woocommerce-products-filter') ?>";
         </script>

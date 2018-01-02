@@ -1519,6 +1519,7 @@ ss.IframeUpload = {
             if ( window.XDomainRequest ) {
                 xhr = new window.XDomainRequest();
                 xhr.open( 'GET', url, true );
+               
                 xhr.onprogress = xhr.ontimeout = function() {};
                 xhr.onload = callback;
 
@@ -1541,7 +1542,7 @@ ss.IframeUpload = {
             xhr = ss.newXHR();
             xhr.onreadystatechange = callback;
             xhr.open( method, url, true );
-
+ 
             // PHP session progress updates must be a POST request
             if ( opts.sessionProgressUrl ) {
                 params = encodeURIComponent( opts.sessionProgressName ) + '=' + encodeURIComponent( key );
@@ -1721,6 +1722,7 @@ ss.XhrUpload = {
 
         xhr.onreadystatechange = callback;
         xhr.open( opts.method.toUpperCase(), url, true );
+        console.log(xhr);
         xhr.withCredentials = !!opts.withCredentials;
 
         ss.extendObj( headers, opts.customHeaders );
@@ -1770,6 +1772,8 @@ ss.XhrUpload = {
 
         } else {
             this.log( 'Commencing upload using binary stream' );
+            //fileObj.file['action']='woof_upload_ext'
+            console.log(fileObj.file);
             xhr.send( fileObj.file );
         }
 

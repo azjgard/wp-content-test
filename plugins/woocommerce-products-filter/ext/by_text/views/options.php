@@ -267,7 +267,8 @@ if (!defined('ABSPATH'))
             <div class="woof-form-element">
                 <?php
                 $autocomplete = array(
-                    0 => __('No - filtering by SKU is in the premium version only', 'woocommerce-products-filter'),
+                    0 => __('No', 'woocommerce-products-filter'),
+                    1 => __('Yes', 'woocommerce-products-filter')
                 );
                 ?>
 
