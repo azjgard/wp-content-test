@@ -20,12 +20,14 @@
     padding          : $atc-button_v-padding $atc-button_h-padding;
     text-transform   : uppercase;
     margin-bottom    : 0;
-    font-size        : 10px;
-    border           : 2px solid #eee;
-    background-color : #fff;
-    color            : #555;
+    font-size        : 12px;
+    background-color : #7287c4;
+    border           : none;
+    color            : #fff;
+    border-radius    : 5px;
     flex-grow        : 1;
     margin-left      : 10px;
+    font-weight      : bold;
 
     @include transition(all, 1s);
 
@@ -34,10 +36,9 @@
     }
   }
 
-
   .add-to-cart.button.added {
-    background-color : #7287c4;
-    color            : #fff;
+    background-color : #eee;
+    color            : #ccc;
   }
 
   .add-to-cart.button.full-width {
@@ -61,4 +62,34 @@
     margin-top    : 15px;
     margin-bottom : 8px;
   }
+}
+
+.notification {
+    background-color: #7287c4;
+    color: #fff;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    margin-top: 5px;
+    margin-left: 220px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px #aaa;
+
+    @include screen-size(xs) {
+      margin: auto;
+    }
+
+    @include screen-size(md) {
+       margin-top: 0;
+    }
+
+    @include screen-size(xs) {
+      margin-top: 10px;
+    }
+
+    a {
+     display: inline-block;
+     border-bottom: 1px solid #fff;
+     color: #fff; 
+     font-weight: bold;
+    }
 }

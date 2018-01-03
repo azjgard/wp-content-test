@@ -1,4 +1,4 @@
-var DEBUG = true;
+var DEBUG = false;
 
 if (DEBUG) {
   console.log('DEBUG IS ENABLED.');
@@ -24,52 +24,61 @@ function debug() {
       var action           = $(this).parent().attr('action');
       var productContainer = $(this).parent().parent();
 
-      var newQuantity = $(e.target).closest('form').find('.input-text').val();
+      var form = $(e.target).closest('form');
 
-      if (action.includes('&quantity')) {
-        action = action.replace(/quantity\=\d{1,}/, 'quantity=' + newQuantity);
+      var newQuantity     = $(form).find('.input-text').val();
+      var newQuantityPack = $(form).find(':selected').text();
+
+      if (newQuantityPack.includes('Qty/Pk')) {
+        alert('Please select a quantity pack before adding an item to your cart.');
       }
       else {
-        action += '&quantity=' + newQuantity;
-      }
+        if (action.includes('&quantity')) {
+          action = action.replace(/quantity\=\d{1,}/, 'quantity=' + newQuantity);
+        }
+        else {
+          action += '&quantity=' + newQuantity;
+        }
 
-      $.get(action, function(res) {
-        // TODO: change logic for product page vs product-archive
-        // page.
+        $.get(action, function(res) {
+          // TODO: change logic for product page vs product-archive
+          // page.
 
-        var html  = jQuery.parseHTML(res);
-        var notif = $(html).find('.woocommerce-message');
+          var html  = jQuery.parseHTML(res);
+          var notif = $(html).find('.woocommerce-message');
 
-        var notificationText = notif.text().includes('added to your cart') ?
-          'This item has been added to your cart.' :
-          'Sorry, please try again.';
+          var notificationText = notif.text().includes('added to your cart') ?
+            'The item has been added.<br><a href="' + window.location.href.replace('shop', 'cart') + '">Click here to view your cart</a>' :
+            'Sorry, please try again.';
 
-        // Replace the old cart with the new cart
-        var newCart = $(html).find('#site-header-cart');
-        $('#site-header-cart').replaceWith(newCart);
+          // Replace the old cart with the new cart
+          var newCart = $(html).find('#site-header-cart');
+          $('#site-header-cart').replaceWith(newCart);
 
-        // Replace the old footer bar with the new footer bar
-        var newFooterBar = $(html).find('.storefront-handheld-footer-bar');
-        $('.storefront-handheld-footer-bar').replaceWith(newFooterBar);
+          // Replace the old footer bar with the new footer bar
+          var newFooterBar = $(html).find('.storefront-handheld-footer-bar');
+          $('.storefront-handheld-footer-bar').replaceWith(newFooterBar);
 
-        // Display the notification text
-        $(productContainer).append('<div class="notification">' + notificationText + '</div>');
+          // Display the notification text
+          $(productContainer).append('<div class="notification" style="display: none;">' + notificationText + '</div>');
+          $(productContainer).find('.notification').fadeIn('slow');
 
-        // fade it in
-        setTimeout(function () {
-          $(productContainer).find('.add-to-cart.button').addClass('added').text('Item Added');
-        }, 10);
-
-        // fade it out
-        setTimeout(function () {
-          $(productContainer).find('.notification').fadeOut();
-          $(productContainer).find('.add-to-cart.button').removeClass('added').text('Add to Cart');
-
+          // fade it in
           setTimeout(function () {
-            $(productContainer).find('.notification').remove();
-          }, 600);
-        }, 1200);
-      });
+            $(productContainer).find('.add-to-cart.button').addClass('added');
+          }, 10);
+
+          // fade it out
+          setTimeout(function () {
+            $(productContainer).find('.notification').fadeOut();
+            $(productContainer).find('.add-to-cart.button').removeClass('added');
+
+            setTimeout(function () {
+              $(productContainer).find('.notification').remove();
+            }, 600);
+          }, 8200);
+        });
+      }
     }
     window.ajaxAddToCart = ajaxAddToCart;
     addAjaxCartListeners();

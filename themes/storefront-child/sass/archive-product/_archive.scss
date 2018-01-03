@@ -96,19 +96,6 @@ $breadcrumbs      : '.woocommerce-breadcrumb';
   display : none; 
 }
 
-/* Keep spacing between product categories once the sidebar goes away */
-// @media screen and (max-width: 767px) {
-//   .product.type-product.status-publish {
-//     margin-bottom : 150px;
-//   }
-// }
-
-// When the screen gets REALLY small, we need the shop to switch to
-// a pure vertical layout.
-@media screen and (max-width: 500px) {
-
-}
-
 #main > .storefront-sorting {
   margin-bottom: 0;
 }

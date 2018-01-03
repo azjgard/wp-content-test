@@ -37,17 +37,13 @@ are never wrapped (screwing up the rest of the product div)~~
 - BUG: the dumb search only searches for product names, and doesn't work for
 SKU numbers, attributes, etc.
 
-- Fix the AJAX add to cart for the single product page
-
 - Figure out what to do for caching and versioning file names before
 uploading to the server.
 
-- Add JavaScript to prevent adding to cart if the customer has not yet
-selected a quantity.
+~~- Add JavaScript to prevent adding to cart if the customer has not yet
+selected a quantity.~~
 
-
-- Add quantity box to product archive page and make it work
-
+~~- Add quantity box to product archive page and make it work~~
 
 - Optimize speed and load times
 
