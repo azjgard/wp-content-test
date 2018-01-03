@@ -22,8 +22,19 @@ function debug() {
     function ajaxAddToCart(e) {
       e.preventDefault();
 
-      var action           = $(this).parent().attr('action')
-      var productContainer = $(this).parent().parent()
+      var action           = $(this).parent().attr('action');
+      var productContainer = $(this).parent().parent();
+
+      var newQuantity = $(e.target).closest('form').find('.input-text').val();
+
+      if (action.includes('&quantity')) {
+        action = action.replace(/quantity\=\d{1,}/, 'quantity=' + newQuantity);
+      }
+      else {
+        action += '&quantity=' + newQuantity;
+      }
+
+      console.log(action);
 
       $.get(action, function(res) {
         // TODO: change logic for product page vs product-archive
@@ -136,25 +147,24 @@ function addAjaxCartListeners() {
     debug('Select box changed.. ', action);
   });
 
-  $(document).on('change', '.cart-form .quantity input', changeQuantity);
+  // $(document).on('change', '.cart-form .quantity input', changeQuantity);
 
-  // update the form action attribute with the quantity that is present
-  // in the text input box
-  function changeQuantity(e) {
-    var form        = $(e.target).closest('form');
-    var quantity    = $(form).find('.input-text').val();
-    var queryString = $(form).attr('action').split('?')[1];
-    var newString   = null;
+  // function changeQuantity(e) {
+  //   var form        = $(e.target).closest('form');
+  //   var quantity    = $(form).find('.input-text').val();
+  //   var queryString = $(form).attr('action').split('?')[1];
+  //   var newString   = null;
 
-    if (queryString.includes('&quantity=')) {
-      newString = queryString.split('&')[0] + '&quantity=' + quantity;
-    }
-    else {
-      newString = queryString + '&quantity=' + quantity;
-    }
+  //   if (queryString.includes('&quantity=')) {
+  //     newString = queryString.split('&')[0] + '&quantity=' + quantity;
+  //   }
+  //   else {
+  //     newString = queryString + '&quantity=' + quantity;
+  //   }
 
-    $(form).attr('action', $(form).attr('action').split('?')[0] + '?' + newString);
-  }
+  //   $(form).attr('action', $(form).attr('action').split('?')[0] + '?' + newString);
+  // }
+
 })(jQuery);
 
 // ---------------------------------------------------------------------------------
