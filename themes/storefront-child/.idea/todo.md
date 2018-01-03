@@ -21,18 +21,18 @@ via AJAX.~~
 - Need to add the rest of the categories, sub-categories, and attributes
 - Need to add the finishing touches to everything
 
-- Disable the image zoom when hovered on an individual product page
+~~- Disable the image zoom when hovered on an individual product page~~
+
 - Change the "easter basket" cart to a shopping cart
+
 - Notification on each product page to contact Reflect Scientific
 if the desired package can't be found
 
------ **DONE** -----
-- Add products to cart via AJAX (NOTE: there is a snippet for this
-saved in Chrome Snippets)
------ **DONE** -----
+~~- Add products to cart via AJAX (NOTE: there is a snippet for this
+saved in Chrome Snippets)~~
 
-- BUG: make the tables wider so that the values of the product attributes
-are never wrapped (screwing up the rest of the product div)
+~~- BUG: make the tables wider so that the values of the product attributes
+are never wrapped (screwing up the rest of the product div)~~
 
 - BUG: the dumb search only searches for product names, and doesn't work for
 SKU numbers, attributes, etc.
@@ -45,18 +45,16 @@ uploading to the server.
 - Add JavaScript to prevent adding to cart if the customer has not yet
 selected a quantity.
 
-- Add quantity box to product archive page
+
+- Add quantity box to product archive page and make it work
+
 
 - Optimize speed and load times
 
------ **DONE** -----
-- Pay for hosting, change DNS servers to point
-to hosting
------ **DONE** -----
+~~- Pay for hosting, change DNS servers to point
+to hosting~~
 
------ **DONE** -----
-- Put site up in production
------ **DONE** -----
+~~- Put site up in production~~
 
 - Link up actual payment gateway
 

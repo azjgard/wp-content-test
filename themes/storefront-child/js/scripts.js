@@ -1,7 +1,7 @@
 var DEBUG = true;
 
 if (DEBUG) {
-    console.log('DEBUG IS ENABLED.');
+  console.log('DEBUG IS ENABLED.');
 }
 
 function debug() {
@@ -129,8 +129,32 @@ function addAjaxCartListeners() {
       $(cartButton).attr('value', productId ? productId : $(cartButton).attr('default'));
     }
 
+    // update the form action attribute with the quantity that is present
+    // in the text input box
+    changeQuantity(e);
+
     debug('Select box changed.. ', action);
   });
+
+  $(document).on('change', '.cart-form .quantity input', changeQuantity);
+
+  // update the form action attribute with the quantity that is present
+  // in the text input box
+  function changeQuantity(e) {
+    var form        = $(e.target).closest('form');
+    var quantity    = $(form).find('.input-text').val();
+    var queryString = $(form).attr('action').split('?')[1];
+    var newString   = null;
+
+    if (queryString.includes('&quantity=')) {
+      newString = queryString.split('&')[0] + '&quantity=' + quantity;
+    }
+    else {
+      newString = queryString + '&quantity=' + quantity;
+    }
+
+    $(form).attr('action', $(form).attr('action').split('?')[0] + '?' + newString);
+  }
 })(jQuery);
 
 // ---------------------------------------------------------------------------------
@@ -141,7 +165,6 @@ function addAjaxCartListeners() {
  */
 
 (function($) {
-
   // Mobile product filter
   $('#lcgc-toggle-filter').on('click', function() {
     toggleElement('#secondary', filter)
