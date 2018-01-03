@@ -12,7 +12,6 @@ function debug() {
     }
 }
 
-
 /**
  * Add to Cart via AJAX
  */
@@ -33,8 +32,6 @@ function debug() {
       else {
         action += '&quantity=' + newQuantity;
       }
-
-      console.log(action);
 
       $.get(action, function(res) {
         // TODO: change logic for product page vs product-archive
@@ -146,24 +143,6 @@ function addAjaxCartListeners() {
 
     debug('Select box changed.. ', action);
   });
-
-  // $(document).on('change', '.cart-form .quantity input', changeQuantity);
-
-  // function changeQuantity(e) {
-  //   var form        = $(e.target).closest('form');
-  //   var quantity    = $(form).find('.input-text').val();
-  //   var queryString = $(form).attr('action').split('?')[1];
-  //   var newString   = null;
-
-  //   if (queryString.includes('&quantity=')) {
-  //     newString = queryString.split('&')[0] + '&quantity=' + quantity;
-  //   }
-  //   else {
-  //     newString = queryString + '&quantity=' + quantity;
-  //   }
-
-  //   $(form).attr('action', $(form).attr('action').split('?')[0] + '?' + newString);
-  // }
 
 })(jQuery);
 
@@ -382,16 +361,12 @@ function addAjaxCartListeners() {
 
           $('.subcategory div').removeClass('disabled');
 
-          console.log('------');
-
           // Parse the data and store the attributes that should
           // be excluded in the 'exclude' array
           exclusionPieces.map(function(exclusion) {
             if (!exclusion) return;
 
             var pieces = exclusion.split('--');
-
-            console.log(pieces);
 
             var attributeName    = pieces[0].replace(' ', '\ ').replace('"', '\"');
             var attributeValue   = pieces[1].replace(' ', '\ ').replace('"', '\"');
@@ -403,16 +378,11 @@ function addAjaxCartListeners() {
                 attributeValue : attributeValue
               });
 
-              console.log('.subcategory[name="' + attributeName + '"]');
-              console.log('div:contains("' + attributeValue + '")');
-
               $(".subcategory[name='" + attributeName + "']")
                 .find("div:contains('" + attributeValue + "')")
                 .addClass('disabled');
             }
           });
-
-          console.log(exclude);
 
           setProductsHTML(newHTML);
           toggleProductVisibility(productsVisibilityClass);
