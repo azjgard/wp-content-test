@@ -137,10 +137,6 @@ function addAjaxCartListeners() {
       $(cartButton).attr('value', productId ? productId : $(cartButton).attr('default'));
     }
 
-    // update the form action attribute with the quantity that is present
-    // in the text input box
-    changeQuantity(e);
-
     debug('Select box changed.. ', action);
   });
 
