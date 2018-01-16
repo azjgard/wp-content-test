@@ -286,6 +286,11 @@ body.single-product form.cart .wcgp-select {
 body.single-product #tab-title-additional_information {
   display: none; }
 
+.site-header-cart .cart-contents:after {
+  content: "\f07a" !important;
+  font-size: 22px !important;
+  margin-top: -6px !important; }
+
 .widget_shopping_cart {
   display: none !important; }
 
@@ -486,8 +491,18 @@ p + h2 {
         font-weight: 300;
         line-height: 18px; } }
 
+@media only screen and (max-width: 767px) {
+  .site-branding {
+    float: none !important;
+    display: flex;
+    justify-content: center; }
+    .site-branding .custom-logo-link,
+    .site-branding .custom-logo-link > img {
+      width: 100%;
+      max-width: 370px; } }
+
 .custom-logo-link {
-  width: 230px; }
+  width: 260px; }
 
 button.menu-toggle {
   display: none; }

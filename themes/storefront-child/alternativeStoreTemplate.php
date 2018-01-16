@@ -12,13 +12,10 @@ set_error_handler(function($errno, $errstr, $errfile, $errline) {
 
 get_header(); 
 
-$attribute_data = wp_cache_get('attribute_data', 'lcgc');
-
+$attribute_data  = wp_cache_get('attribute_data', 'lcgc');
 $value_blacklist = array();
 
 ?>
-
-
 
 <div id="primary" class="content-area">
   <main id="main" class="site-main" role="main">
@@ -122,67 +119,59 @@ $value_blacklist = array();
             }
           }
 
-
           // This creates a deep copy the of meta_query data. We don't
           // want to modify the query itself, because that should be run
           // without modification to return the actual products for the user.
-          $exclusion_meta_query = array();
-          foreach ($meta_query as $k => $v) {
-            $exclusion_meta_query[$k] = $v;
-          }
+          /* $exclusion_meta_query = array(); */
+          /* foreach ($meta_query as $k => $v) { */
+          /*   $exclusion_meta_query[$k] = $v; */
+          /* } */
 
-          foreach($attribute_data['Ferrules'] as $subcategory) {
+          /* foreach($attribute_data['Ferrules'] as $subcategory) { */
 
 
-            $key = $subcategory['subcategory_name'];
+          /*   $key = $subcategory['subcategory_name']; */
 
-            // We want to make sure that the current key doesn't exist
-            // as an attribute key that is actually being queried for,
-            // as that's a lot of unnecessary looping, since any attribute
-            // key can only work with one value.
-            if (!array_key_exists($key, $value_blacklist)) {
-              foreach ($subcategory['subcategory_attr'] as $value) {
+          /*   // We want to make sure that the current key doesn't exist */
+          /*   // as an attribute key that is actually being queried for, */
+          /*   // as that's a lot of unnecessary looping, since any attribute */
+          /*   // key can only work with one value. */
+          /*   if (!array_key_exists($key, $value_blacklist)) { */
+          /*     foreach ($subcategory['subcategory_attr'] as $value) { */
 
-                $start_time = microtime(true);
+          /*       $start_time = microtime(true); */
 
-                array_push($exclusion_meta_query, array(
-                  'key' => '_product_attributes',
-                  'value' => '\"'.$key.'\".{2,7}\"value\".{2,7}\"'.$value.'\"',
-                  'compare' => 'REGEXP'
-                ));
+          /*       array_push($exclusion_meta_query, array( */
+          /*         'key' => '_product_attributes', */
+          /*         'value' => '\"'.$key.'\".{2,7}\"value\".{2,7}\"'.$value.'\"', */
+          /*         'compare' => 'REGEXP' */
+          /*       )); */
 
-                $exclusion_args = array(
-                  'post_type' => 'product',
-                  'posts_per_page' => 1,
-                  'numberposts' => 1,
-                  'meta_query' => $exclusion_meta_query,
-                  'fields' => 'ids',
-                  'no_found_rows'          => true,
-                  'update_post_term_cache' => false,
-                  'update_post_meta_cache' => false,
-                  'cache_results'          => false
-                );
+          /*       $exclusion_args = array( */
+          /*         'post_type' => 'product', */
+          /*         'posts_per_page' => 1, */
+          /*         'numberposts' => 1, */
+          /*         'meta_query' => $exclusion_meta_query, */
+          /*         'fields' => 'ids', */
+          /*         'no_found_rows'          => true, */
+          /*         'update_post_term_cache' => false, */
+          /*         'update_post_meta_cache' => false, */
+          /*         'cache_results'          => false */
+          /*       ); */
 
-                $exclusion_loop  = new WP_Query( $exclusion_args );
-                $arg_has_results = ($exclusion_loop->post_count > 0) ? 'true;' : 'false;';
+          /*       $exclusion_loop  = new WP_Query( $exclusion_args ); */
+          /*       $arg_has_results = ($exclusion_loop->post_count > 0) ? 'true;' : 'false;'; */
 
-                $exclusion_string .= 
-                  $key . '--' . $value . '--' . $arg_has_results;
+          /*       $exclusion_string .= */ 
+          /*         $key . '--' . $value . '--' . $arg_has_results; */
 
-                array_pop($exclusion_meta_query);
-              }
-            }
-          }
-
-          /* echo "<br>"; */
-          /* echo "<br>"; */
-          /* echo "<br>"; */
-          /* echo $exclusion_string; */
+          /*       array_pop($exclusion_meta_query); */
+          /*     } */
+          /*   } */
+          /* } */
 
           $args['meta_query'] = $meta_query;
         }
-
-          /* echo '<h1>Time taken: ' . (microtime(true) - $start_time) . '</h1>'; */
 
         $loop = new WP_Query( $args );
 
