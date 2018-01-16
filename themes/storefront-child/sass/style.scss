@@ -21,13 +21,16 @@ Version:        0.1.0
 @import 'single-product';
 @import 'cart-page';
 
-
+// Change basket icons to carts
 .site-header-cart .cart-contents:after {
-  content: "\f07a" !important;
-  font-size: 22px !important;
-  margin-top: -6px !important;
+  content    : "\f07a" !important;
+  font-size  : 22px !important;
+  margin-top : -6px !important;
 }
-
+.storefront-handheld-footer-bar ul li.cart > a:before {
+  content     : "\f07a" !important;
+  margin-left : -22px;
+}
 
 // Disable the cart preview hover on the shopping cart.
 .widget_shopping_cart {

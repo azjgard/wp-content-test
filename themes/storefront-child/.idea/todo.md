@@ -23,7 +23,7 @@ via AJAX.~~
 
 ~~- Disable the image zoom when hovered on an individual product page~~
 
-- Change the "easter basket" cart to a shopping cart
+~~- Change the "easter basket" cart to a shopping cart~~
 
 - Notification on each product page to contact Reflect Scientific
 if the desired package can't be found

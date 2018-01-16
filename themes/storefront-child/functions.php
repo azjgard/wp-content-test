@@ -1,5 +1,32 @@
 <?php
 
+function lcgc_update_product_table( $post_id ) {
+  // only execute for products
+  /* if (get_post_type( $post_id ) == 'product') { */
+  /*   global $wpdb; */
+
+  /*   // use dbDelta for raw sql */
+  /*   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' ); */
+
+  /*   $table_name = $wpdb->prefix . 'productexclusiontable'; */
+  /*   $sql = ''; */
+
+
+  /*   dbDelta( $sql ); */
+  /* } */
+  $response = wp_remote_post('localhost:3000', array(
+    'method' => 'POST',
+    'timeout' => 45,
+    'httpversion' => '1.0',
+    'blocking' => true,
+    'body' => array('test' => 'test'),
+    'cookies' => array()
+  ));
+}
+
+add_action('save_post', 'lcgc_update_product_table');
+add_action('before_delete_post', 'lcgc_update_product_table');
+
 /**
  * WooCommerce customizations
  */

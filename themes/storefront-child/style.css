@@ -291,6 +291,10 @@ body.single-product #tab-title-additional_information {
   font-size: 22px !important;
   margin-top: -6px !important; }
 
+.storefront-handheld-footer-bar ul li.cart > a:before {
+  content: "\f07a" !important;
+  margin-left: -22px; }
+
 .widget_shopping_cart {
   display: none !important; }
 
