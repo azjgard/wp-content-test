@@ -36,15 +36,24 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 }
 
-
-
-
+// 5
+// 10
+// 25
+// 50
+// 100
 
 // ------------
 // EDITED CODE
 // ------------
 // Return and don't output an <li> if the pattern matches
-if (preg_match('/-\d{2,}/', $product->get_sku())) {
+$sku = $product->get_sku();
+if (
+  preg_match('/-5/', $sku)  ||
+  preg_match('/-10/', $sku) ||
+  preg_match('/-25/', $sku) ||
+  preg_match('/-50/', $sku) ||
+  preg_match('/-100/', $sku)
+) {
   return;
 }
 // ------------

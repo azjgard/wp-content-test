@@ -219,8 +219,8 @@ p+h2 {
 }
 
 #wpadminbar {
-  // display: none;
-  // pointer-events: none;
+  opacity        : .2;
+  pointer-events : none;
 }
 
 @include screen-size(md) {

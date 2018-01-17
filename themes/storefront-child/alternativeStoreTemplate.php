@@ -182,8 +182,11 @@ endwhile;
 
           // The client side JavaScript will grab the value of this input
           // box and use it to gray out the options that shouldn't be selectable.
-          echo '<input type="hidden" id="exclusion-string" value="'.$exclusion_string.'" />';
-echo '<div id="exclusion-string-div" style="display: none">';
+
+          /* echo '<input type="hidden" id="exclusion-string" value="'.$exclusion_string.'" />'; */
+
+/* echo '<div id="exclusion-string-div" style="display: none">'; */
+
 echo $exclusion_string;
 echo '</div>';
         } 

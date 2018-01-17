@@ -118,16 +118,155 @@ $attribute_data = array(
         array(
           'subcategory_name' => 'Material',
           'subcategory_attr' => array(
-            '100% Graphite',
-            '100% Vespel®',
-            '100% Teflon®',
-            '85% Vespel®/ 15% Graphite',
-            '60% Vespel®/ 40% Graphite'
+            '100% Graphite', '100% Vespel®', '100% Teflon®',
+            '85% Vespel®/ 15% Graphite', '60% Vespel®/ 40% Graphite'
           )
         )
       ),
-      'these' => array(),
-      'world' => array()
+      'Accessories' => array(
+        array( 
+          'subcategory_name' => 'Use',
+          'subcategory_attr' => array(
+            'GC', 'HPLC', 'GC, HPLC'
+          )
+        )
+      ),
+      'GC Inlet Liners' => array(
+        array( 
+          'subcategory_name' => 'OD',
+          'subcategory_attr' => array(
+            '4.6 mm', '5 mm', '6.2 mm', '6.3 mm', '6.5 mm'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'ID',
+          'subcategory_attr' => array(
+            '.5 mm', '.8 mm', '.9 mm', '1 mm', '2 mm', '2.4 mm', '3.4 mm', '4 mm'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Length',
+          'subcategory_attr' => array(
+            '18 mm', '54 mm', '64 mm', '72 mm', '74 mm', '78.5 mm', '92 mm'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Fits Injector Port',
+          'subcategory_attr' => array(
+            'Varian 1060/1061', 'Varian 1075/1077', 'Varian 1078/1079',
+            'Varian 1093/1094', 'Varian 1095/1096/1097/1098'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Fits GC Model',
+          'subcategory_attr' => array(
+            'Agilent/HP 4890', 'Agilent/HP 5880', 'Agilent/HP 5890',
+            'Agilent/HP 6850', 'Agilent/HP 6890', 'Finnigan 9001',
+            'Finnigan GCQ', 'Perkin Elmer', 'Varian CP-1177', 'Varian/Bruker'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Volume μL',
+          'subcategory_attr' => array(
+            '8', '10', '30', '35', '170', '200', '250', '350', '500', '800',
+            '900', '1000', '1200'
+          )
+        ),
+      ),
+      'GC Purifiers' => array(
+        array( 
+          'subcategory_name' => 'Removes',
+          'subcategory_attr' => array(
+            'H2O',
+            'Hydrocarbon',
+            'Hydrocarbon, H2O',
+            'Hydrocarbon, H2O, Oxygen',
+            'Oxygen',
+            'Oxygen, H2O',
+            'Oxygen, Hydrocarbon'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Volume',
+          'subcategory_attr' => array(
+            '1.48cc', '1.84cc', '4.4cc', '120cc', '200cc', '825cc'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Pressure Rating',
+          'subcategory_attr' => array(
+            '50 PSI', '250 PSI', '100 PSI'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Tube Material',
+          'subcategory_attr' => array(
+            'Aluminum', 'Lexan'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Dimensions',
+          'subcategory_attr' => array(
+            '.4" OD x 3.43" L ', '.4" OD x 3.83" L ', '.4" OD x 6.63" L ',
+            '1.3" OD x 11" L', '2" OD x 10.25" L', '3.75" OD x 7.25" L'
+          )
+        )
+      ),
+      'GC Septa' => array(
+        array( 
+          'subcategory_name' => 'Size',
+          'subcategory_attr' => array(
+            '5 mm (3/16 in.)', '9 mm (11/32 in.)', '9.5 mm (3/8 in.)',
+            '10 mm', '11 mm (7/16 in.)', '11.5 mm (11/24 in.)',
+            '12.5 mm (1/2 in.) ', '17 mm (21/32 in.)', 'Shimadzu Plug'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Temperature Rating',
+          'subcategory_attr' => array(
+            '250°C', '300°C', '325°C', '350°C', '400°C'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Guide Hole',
+          'subcategory_attr' => array(
+            'Yes', 'No'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Molded Septa',
+          'subcategory_attr' => array(
+            'Yes', 'No'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Bleed',
+          'subcategory_attr' => array(
+            'Low Bleed', 'Teflon Faced', 'Ultra Low Bleed'
+          )
+        ),
+        array( 
+          'subcategory_name' => 'Fits Instrument',
+          'subcategory_attr' => array(
+            'Agilent (HP ) On-Column Injection', 'Varian/Bruker 1177',
+            'Varian/Bruker Packed Column', 'Varian/Bruker 1075',
+            'Varian/Bruker 1078', 'Agilent (HP) HP5750 & Earlier',
+            'Thermo Scientific TRACE GC/', 'Shimadzu All Models (14/15A/16/17A)',
+            'Varian/Bruker Packed Column', 'Agilent (HP) Capillary',
+            'Thermo Scientific Large Volume Splitless Injector',
+            'Varian/Bruker 1040', 'Varian/Bruker 1041',
+            'Varian/Bruker 1060', 'Varian/Bruker 1061', 'Agilent (HP) 5700',
+            'Agilent (HP) 5880', 'Agilent (HP) 5890', 'Agilent (HP) 6890',
+            'Agilent (HP) 6900', 'Tracor 550', 'Tracor 560',
+            'Finnigan (TMQ) GC 9001', 'Fin', 'Varian/Bruker 1077',
+            'Varian/Bruker 3700 Vista', 'Varian/Bruker Capillary Injectors',
+            'Varian/Bruker Saturn GC/MS', 'Agilent (HP) 5880A',
+            'Agilent (HP) 5890', 'Agilent (HP) 6850', 'Agilent (HP) 7890',
+            'Agilent (HP) PTV', 'Agilent (HP)', 'Varian/Bruker 1079',
+            'Varian/Bruker 1093', 'Varian/Bruker 1094 SPI', 'Varian/Bruker Saturn '
+          )
+        ),
+      )
     );
 wp_cache_add('attribute_data', $attribute_data, 'lcgc');
 

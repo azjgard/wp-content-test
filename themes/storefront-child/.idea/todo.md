@@ -2,18 +2,17 @@
 
 # STOPPED IN ALTERNATIVESTORETEMPLATE.PHP
 
-** WAIT ON DETAILS FROM STEVEN **
---------------------------------------
+-----**WAIT ON DETAILS FROM STEVEN**-----
+For people ordering in USA:
+  - Shipping system conditional on price, no conditions at all on location
+  - Create option to allow for 2-day shipping
 
-    For people ordering in USA:
-      - Shipping system conditional on price, no conditions at all on location
-      - Create option to allow for 2-day shipping
+- Abilty to ship with a shipping company account
 
-    - Abilty to ship with a shipping company account
-
-    For people ordering out of USA:
-      - Only options are to ship with account or ship with GCFerrule's FedEx
-      account
+For people ordering out of USA:
+  - Only options are to ship with account or ship with GCFerrule's FedEx
+  account
+-----**WAIT ON DETAILS FROM STEVEN**-----
 
 ~~- Implement sidebar front-end to request the filterable product page
 via AJAX.~~
@@ -28,14 +27,21 @@ via AJAX.~~
 - Notification on each product page to contact Reflect Scientific
 if the desired package can't be found
 
+- Format and import all of the product sheets
+  - Fix the quantity select boxes so that they only show up for
+    SKUs ending in specific numbers.
+  - Fix the styling on the products that don't have quantity select boxes
+  - Figure out why some of the products aren't importing.
+  - Make the filter always redirect to the product page?
+
 ~~- Add products to cart via AJAX (NOTE: there is a snippet for this
 saved in Chrome Snippets)~~
 
 ~~- BUG: make the tables wider so that the values of the product attributes
 are never wrapped (screwing up the rest of the product div)~~
 
-- BUG: the dumb search only searches for product names, and doesn't work for
-SKU numbers, attributes, etc.
+~~- BUG: the dumb search only searches for product names, and doesn't work for
+SKU numbers, attributes, etc.~~
 
 - Figure out what to do for caching and versioning file names before
 uploading to the server.

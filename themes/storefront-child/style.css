@@ -35,7 +35,7 @@ body:not(.product-template-default) .product.type-product.status-publish {
       padding: 5px 15px;
       text-transform: uppercase;
       margin-bottom: 0;
-      font-size: 12px;
+      font-size: 14px;
       background-color: #7287c4;
       border: none;
       color: #fff;
@@ -53,7 +53,7 @@ body:not(.product-template-default) .product.type-product.status-publish {
       background-color: #eee;
       color: #ccc; }
     body:not(.product-template-default) .product.type-product.status-publish .cart-form .add-to-cart.button.full-width {
-      width: 200px; }
+      float: right; }
       @media only screen and (max-width: 767px) {
         body:not(.product-template-default) .product.type-product.status-publish .cart-form .add-to-cart.button.full-width {
           height: 46px; } }
@@ -428,6 +428,10 @@ p + h2 {
 
 .site-header {
   background-color: transparent; }
+
+#wpadminbar {
+  opacity: .2;
+  pointer-events: none; }
 
 @media only screen and (max-width: 767px) {
   #secondary {
