@@ -187,8 +187,8 @@ endwhile;
 
 /* echo '<div id="exclusion-string-div" style="display: none">'; */
 
-echo $exclusion_string;
-echo '</div>';
+/* echo $exclusion_string; */
+/* echo '</div>'; */
         } 
         else {
           echo __( 'No products found' );

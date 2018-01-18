@@ -39,6 +39,8 @@ require(get_stylesheet_directory() . '/includes/woo.php');
 
 require(get_stylesheet_directory() . '/includes/enqueue.php');
 
+require(get_stylesheet_directory() . '/includes/products.php');
+
 /**
  * Show current template being used on all pages where it exists
  */

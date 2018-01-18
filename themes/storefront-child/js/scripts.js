@@ -402,3 +402,34 @@ function addAjaxCartListeners() {
     }, minimumTransitionDelay);
   }
 })(jQuery);
+
+// ---------------------------------------------------------------------------------
+
+/**
+ * Handle the banner on the homepage
+ */
+
+(function($) {
+  setTimeout(function() {
+    var bannerContainer = document.querySelector('.lcgc-homepage .banner');
+
+    if (bannerContainer) {
+      var numBanners = bannerContainer.children.length;
+
+      function rotateBanner(currentBanner) {
+        $( $(bannerContainer).children()[currentBanner] ).fadeOut(function() {
+          if (currentBanner < numBanners - 1) { currentBanner++;   }
+          else                                { currentBanner = 0; }
+
+          $( $(bannerContainer).children()[currentBanner] ).fadeIn(function() {
+            setTimeout(function() {
+              rotateBanner(currentBanner);
+            }, 5000);
+          })
+        });
+      }
+
+      setTimeout(function() { rotateBanner(0); }, 5000);
+    }
+  }, 1000);
+})(jQuery);
