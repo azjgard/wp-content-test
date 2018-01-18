@@ -2,6 +2,51 @@
 @import 'mixins';
 
 
+#lcgc-attribute-filter {
+  width: 100%;
+  padding: 5px;
+  font-size: 13px;
+}
+
+#secondary .category-filter {
+  > h2, h3 {
+    font-family: 'Archivo Narrow', sans-serif;
+  }
+
+  h3 {
+    color          : #7287c3;
+    font-size      : 15px !important;
+    border-top     : none;
+    font-weight    : bold;
+    padding-top    : 0;
+    margin-bottom  : 0;
+    text-transform : uppercase;
+  }
+}
+
+#secondary .custom-search-form {
+  margin-bottom: 35px;
+
+  form {
+    margin-bottom: 0;
+  }
+
+  label:first-child {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .small {
+   font-size: 11px; 
+   margin-bottom: 15px;
+   display: block;
+   line-height: .95;
+   margin-top: 3px;
+  }
+}
+
 // For small screen sizes, hide the product filter
 // when the sidebar isn't visible. Otherwise, it blocks
 // the 'Product Filter' button.
@@ -29,146 +74,146 @@
   height           : 100%;
 }
 
-#wcapf-category-filter-2 {
-  @include screen-size(md) {
-    overflow-y : auto;
-    max-height : calc(100% - 95px);
-  }
+// #wcapf-category-filter-2 {
+//   @include screen-size(md) {
+//     overflow-y : auto;
+//     max-height : calc(100% - 95px);
+//   }
 
-  // This is for specific list items (i.e. styles that vary
-  // depending on which child the element is)
+//   // This is for specific list items (i.e. styles that vary
+//   // depending on which child the element is)
 
-  ul {
-    background-color: #fff;
-  }
+//   ul {
+//     background-color: #fff;
+//   }
 
-  >.wcapf-layered-nav {
+//   >.wcapf-layered-nav {
 
-      // the root level
-      >ul:not(.children) {
-        // background-color: red;
-      }
+//       // the root level
+//       >ul:not(.children) {
+//         // background-color: red;
+//       }
 
-      // the first layer list
-      >ul > li.chosen > ul {
-        margin-left: 0 !important;
-        padding: 0px;
+//       // the first layer list
+//       >ul > li.chosen > ul {
+//         margin-left: 0 !important;
+//         padding: 0px;
 
-        >li > a {
-          border: 0;
-          font-weight: bold;
-          color: #7186C3;
-          font-size: 17px;
-          text-transform: uppercase;
+//         >li > a {
+//           border: 0;
+//           font-weight: bold;
+//           color: #7186C3;
+//           font-size: 17px;
+//           text-transform: uppercase;
 
-          &::before {
-            display: none;
-          }
-        }
-      }
+//           &::before {
+//             display: none;
+//           }
+//         }
+//       }
 
-      // the second layer list
-      >ul > li > ul > li > ul {
-        margin: 5px 8px 20px 8px !important;
-        border: 1px solid #ccc;
+//       // the second layer list
+//       >ul > li > ul > li > ul {
+//         margin: 5px 8px 20px 8px !important;
+//         border: 1px solid #ccc;
 
-        >li > a {
-          border: 0 !important;
-        }
-      }
-  }
+//         >li > a {
+//           border: 0 !important;
+//         }
+//       }
+//   }
 
-  // List items that will still be present,
-  // but that cannot be selected because the filter
-  // is mutually exclusive.
-  // This is for general list items.
-  li.not-selectable {
-    opacity        : .5;
-    pointer-events : none;
-    a { background-color : rgba(0,0,0,.08); }
-  }
+//   // List items that will still be present,
+//   // but that cannot be selected because the filter
+//   // is mutually exclusive.
+//   // This is for general list items.
+//   li.not-selectable {
+//     opacity        : .5;
+//     pointer-events : none;
+//     a { background-color : rgba(0,0,0,.08); }
+//   }
 
-  >.children {
-    margin: 0 !important;
-  }
+//   >.children {
+//     margin: 0 !important;
+//   }
 
-  li {
-    margin  : 0 !important;
-    width   : 100%;
+//   li {
+//     margin  : 0 !important;
+//     width   : 100%;
 
-    // Hide the default checkboxes that come with
-    // the plugin because they're super ugly and
-    // I don't want to hack at the HTML
-    &::before {
-      display: none !important;
-    }
+//     // Hide the default checkboxes that come with
+//     // the plugin because they're super ugly and
+//     // I don't want to hack at the HTML
+//     &::before {
+//       display: none !important;
+//     }
 
-    a {
-      border       : 1px solid #ccc;
-      color        : #000;
-      padding      : 8px;
-      display      : block;
-      width        : 100%;
-      margin-right : 15px;
-      position     : relative;
+//     a {
+//       border       : 1px solid #ccc;
+//       color        : #000;
+//       padding      : 8px;
+//       display      : block;
+//       width        : 100%;
+//       margin-right : 15px;
+//       position     : relative;
 
-      // empty checkbox
-      &::before {
-        content  : '';
-        width    : 18px;
-        height   : 18px;
-        position : absolute;
-        right    : 9px;
-        top      : 9px;
-        border   : 1px solid #ccc;
-        background-color: #eee;
-      }
-    }
+//       // empty checkbox
+//       &::before {
+//         content  : '';
+//         width    : 18px;
+//         height   : 18px;
+//         position : absolute;
+//         right    : 9px;
+//         top      : 9px;
+//         border   : 1px solid #ccc;
+//         background-color: #eee;
+//       }
+//     }
 
-    // the link of the chosen list item
-    &.chosen > a {
-      &::before {
-        background-image: url(https://openclipart.org/download/253846/1467299975.svg);
-        background-size: cover;
-      }
-    }
-  }
+//     // the link of the chosen list item
+//     &.chosen > a {
+//       &::before {
+//         background-image: url(https://openclipart.org/download/253846/1467299975.svg);
+//         background-size: cover;
+//       }
+//     }
+//   }
 
-  >ul {
-    >li {
-      >a {
-        display: block;
-      }
-    }
-  }
-  ul.children {
-    >li {
-      >a {
+//   >ul {
+//     >li {
+//       >a {
+//         display: block;
+//       }
+//     }
+//   }
+//   ul.children {
+//     >li {
+//       >a {
 
-      }
-    }
-  }
-}
+//       }
+//     }
+//   }
+// }
 
-// remove underline from text elements
-.widget-area .widget a:not(.button) {
-  text-decoration: none;
-}
+// // remove underline from text elements
+// .widget-area .widget a:not(.button) {
+//   text-decoration: none;
+// }
 
-#secondary .wcapf-layered-nav .children {
-  margin-top: 0 !important;
-}
+// #secondary .wcapf-layered-nav .children {
+//   margin-top: 0 !important;
+// }
 
-#secondary .wcapf-layered-nav ul li {
-  margin: 0 !important;
-}
+// #secondary .wcapf-layered-nav ul li {
+//   margin: 0 !important;
+// }
 
-#secondary .wcapf-layered-nav ul li.chosen .children {
-  li {
-    margin: 0 !important;
+// #secondary .wcapf-layered-nav ul li.chosen .children {
+//   li {
+//     margin: 0 !important;
 
-    .children {
-    }
-  }
-  margin-top: !important;
-}
+//     .children {
+//     }
+//   }
+//   margin-top: !important;
+// }

@@ -7,6 +7,7 @@ Author URI:
 Template:       storefront
 Version:        0.1.0
 */
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow');
 
 @import "variables.scss";
 @import "mixins.scss";
@@ -235,6 +236,7 @@ p + h2 {
 .primary-navigation {
   ul > li {
     text-transform: uppercase;
+    font-family: 'Archivo Narrow', sans-serif;
   }
 }
 
@@ -248,14 +250,16 @@ p + h2 {
 }
 
 @media screen and (min-width: 767px) {
-  .current-menu-item::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    border-top: 2px solid #555;
-    width: 70%;
-    left: 15%;
-    height: 20px;
+  ul:not(#site-header-cart) {
+    .current-menu-item::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      border-top: 2px solid #555;
+      width: 60%;
+      left: 21%;
+      height: 26px;
+    }
   }
 }
 

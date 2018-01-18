@@ -1,5 +1,38 @@
 <?php
 
+add_filter( 'get_product_search_form' , 'woo_custom_product_searchform' );
+
+/**
+ * woo_custom_product_searchform
+ *
+ * @access      public
+ * @since       1.0 
+ * @return      void
+*/
+function woo_custom_product_searchform( $form ) {
+
+  if (strpos($form, 'woocommerce-product-search-field-0') !== false) {
+    return $form;
+  }
+	
+  $form = '
+<div class="custom-search-form">
+<label class="search-label">Search:</label>
+<form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/'  ) ) . '">
+		<div>
+			<label class="screen-reader-text" for="s">' . __( 'Search for:', 'woocommerce' ) . '</label>
+			<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Enter Keyword', 'woocommerce' ) . '" />
+			<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
+			<input type="hidden" name="post_type" value="product" />
+		</div>
+  </form>
+<span class="small">Search by product name, part #, or other manufacturer\'s part #</span>
+</div>';
+	
+	return $form;
+	
+}
+
 function lcgc_update_product_table( $post_id ) {
   // only execute for products
   /* if (get_post_type( $post_id ) == 'product') { */
@@ -299,8 +332,7 @@ class LCGC_Sidebar_Filter_Widget extends WP_Widget {
     $filter_html = '';
 ?>
     <div class="category-filter">
-    <h2>Filter products by:</h2>
-      <h3>Category:</h3>
+    <h2>Filter by Category:</h2>
       <select id="lcgc-attribute-filter"> 
         <option selected value="choose">Choose a category</option>
 <?php
@@ -311,7 +343,7 @@ class LCGC_Sidebar_Filter_Widget extends WP_Widget {
       $filter_html .= '<div class="'.$category->slug.'-attribute-filter no-display">';
 
       foreach($this->attribute_data[$category->name] as $subcategory) {
-        $filter_html .= '<h4 class="subcategory-title" name="'.$category->slug.'">'.$subcategory['subcategory_name'].'</h4>';
+        $filter_html .= '<h3 class="subcategory-title" name="'.$category->slug.'">'.$subcategory['subcategory_name'].'</h3>';
         $filter_html .= '<div class="subcategory" name="'.$subcategory['subcategory_name'].'">';
 
         foreach ($subcategory['subcategory_attr'] as $attr) {

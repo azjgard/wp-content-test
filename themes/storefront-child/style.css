@@ -7,6 +7,7 @@ Author URI:
 Template:       storefront
 Version:        0.1.0
 */
+@import url("https://fonts.googleapis.com/css?family=Archivo+Narrow");
 body:not(.product-template-default) .product.type-product.status-publish {
   width: 100% !important;
   margin-bottom: 20px;
@@ -162,6 +163,39 @@ body:not(.product-template-default) .product.type-product.status-publish {
   padding: .2em 0 .1em 0;
   text-align: left; }
 
+#lcgc-attribute-filter {
+  width: 100%;
+  padding: 5px;
+  font-size: 13px; }
+
+#secondary .category-filter > h2, #secondary .category-filter h3 {
+  font-family: 'Archivo Narrow', sans-serif; }
+
+#secondary .category-filter h3 {
+  color: #7287c3;
+  font-size: 15px !important;
+  border-top: none;
+  font-weight: bold;
+  padding-top: 0;
+  margin-bottom: 0;
+  text-transform: uppercase; }
+
+#secondary .custom-search-form {
+  margin-bottom: 35px; }
+  #secondary .custom-search-form form {
+    margin-bottom: 0; }
+  #secondary .custom-search-form label:first-child {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000; }
+  #secondary .custom-search-form .small {
+    font-size: 11px;
+    margin-bottom: 15px;
+    display: block;
+    line-height: .95;
+    margin-top: 3px; }
+
 @media only screen and (max-width: 767px) {
   #secondary:not(.visible) .category-filter {
     display: none; } }
@@ -179,84 +213,6 @@ body:not(.product-template-default) .product.type-product.status-publish {
   top: 0;
   width: 100%;
   height: 100%; }
-
-@media only screen and (max-width: 767px) {
-  #wcapf-category-filter-2 {
-    overflow-y: auto;
-    max-height: calc(100% - 95px); } }
-
-#wcapf-category-filter-2 ul {
-  background-color: #fff; }
-
-#wcapf-category-filter-2 > .wcapf-layered-nav > ul > li.chosen > ul {
-  margin-left: 0 !important;
-  padding: 0px; }
-  #wcapf-category-filter-2 > .wcapf-layered-nav > ul > li.chosen > ul > li > a {
-    border: 0;
-    font-weight: bold;
-    color: #7186C3;
-    font-size: 17px;
-    text-transform: uppercase; }
-    #wcapf-category-filter-2 > .wcapf-layered-nav > ul > li.chosen > ul > li > a::before {
-      display: none; }
-
-#wcapf-category-filter-2 > .wcapf-layered-nav > ul > li > ul > li > ul {
-  margin: 5px 8px 20px 8px !important;
-  border: 1px solid #ccc; }
-  #wcapf-category-filter-2 > .wcapf-layered-nav > ul > li > ul > li > ul > li > a {
-    border: 0 !important; }
-
-#wcapf-category-filter-2 li.not-selectable {
-  opacity: .5;
-  pointer-events: none; }
-  #wcapf-category-filter-2 li.not-selectable a {
-    background-color: rgba(0, 0, 0, 0.08); }
-
-#wcapf-category-filter-2 > .children {
-  margin: 0 !important; }
-
-#wcapf-category-filter-2 li {
-  margin: 0 !important;
-  width: 100%; }
-  #wcapf-category-filter-2 li::before {
-    display: none !important; }
-  #wcapf-category-filter-2 li a {
-    border: 1px solid #ccc;
-    color: #000;
-    padding: 8px;
-    display: block;
-    width: 100%;
-    margin-right: 15px;
-    position: relative; }
-    #wcapf-category-filter-2 li a::before {
-      content: '';
-      width: 18px;
-      height: 18px;
-      position: absolute;
-      right: 9px;
-      top: 9px;
-      border: 1px solid #ccc;
-      background-color: #eee; }
-  #wcapf-category-filter-2 li.chosen > a::before {
-    background-image: url(https://openclipart.org/download/253846/1467299975.svg);
-    background-size: cover; }
-
-#wcapf-category-filter-2 > ul > li > a {
-  display: block; }
-
-.widget-area .widget a:not(.button) {
-  text-decoration: none; }
-
-#secondary .wcapf-layered-nav .children {
-  margin-top: 0 !important; }
-
-#secondary .wcapf-layered-nav ul li {
-  margin: 0 !important; }
-
-#secondary .wcapf-layered-nav ul li.chosen .children {
-  margin-top: !important; }
-  #secondary .wcapf-layered-nav ul li.chosen .children li {
-    margin: 0 !important; }
 
 body.single-product #secondary {
   display: none; }
@@ -430,7 +386,8 @@ p + h2 {
   float: none; }
 
 .primary-navigation ul > li {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  font-family: 'Archivo Narrow', sans-serif; }
 
 .menu-item {
   position: relative; }
@@ -440,14 +397,14 @@ p + h2 {
   font-weight: bold; }
 
 @media screen and (min-width: 767px) {
-  .current-menu-item::after {
+  ul:not(#site-header-cart) .current-menu-item::after {
     content: "";
     position: absolute;
     bottom: 0;
     border-top: 2px solid #555;
-    width: 70%;
-    left: 15%;
-    height: 20px; } }
+    width: 60%;
+    left: 21%;
+    height: 26px; } }
 
 #masthead {
   margin-bottom: 0;
