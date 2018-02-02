@@ -295,6 +295,11 @@ body.single-product #tab-title-additional_information {
         margin-top: 11px;
         margin-left: 0; } }
 
+@media only screen and (max-width: 767px) {
+  .page-template-template-fullwidth #lcgc-toggle-mobile-nav,
+  .page-template-template-fullwidth .storefront-primary-navigation {
+    width: 100vw !important; } }
+
 .site-header-cart .cart-contents:after {
   content: "\f07a" !important;
   font-size: 22px !important;
@@ -472,16 +477,20 @@ p + h2 {
   #secondary.visible {
     width: 100%;
     padding: 30px;
+    padding-top: 40px;
     max-height: calc(100vh - 68px); }
     #secondary.visible #lcgc-toggle-filter {
+      position: fixed;
       top: 0;
       color: #fff;
       bottom: auto;
       z-index: 999;
-      position: fixed;
       font-weight: bold;
       border-bottom: 1px solid #ccc;
-      background-color: #7286c3; }
+      background-color: #7286c3;
+      -webkit-transition: none;
+      -moz-transition: none;
+      transition: none; }
   @media only screen and (max-width: 767px) {
     #secondary {
       position: fixed;
@@ -545,6 +554,20 @@ button.menu-toggle {
   -webkit-transition: transform 0.5s;
   -moz-transition: transform 0.5s;
   transition: transform 0.5s; }
+  .storefront-primary-navigation.visible {
+    padding-top: 50px; }
+    .storefront-primary-navigation.visible #lcgc-toggle-mobile-nav {
+      position: fixed;
+      top: 0;
+      color: #fff;
+      bottom: auto;
+      z-index: 999;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      background-color: #7286c3;
+      width: 50vw; }
+  .storefront-primary-navigation #lcgc-toggle-mobile-nav {
+    position: fixed; }
   @media only screen and (max-width: 767px) {
     .storefront-primary-navigation {
       height: 350px;
@@ -562,7 +585,9 @@ button.menu-toggle {
       background-color: #fff; }
       .storefront-primary-navigation .handheld-navigation {
         max-height: none;
-        text-align: center; } }
+        text-align: center; }
+      .storefront-primary-navigation.visible {
+        height: 325px; } }
   .storefront-primary-navigation #lcgc-toggle-mobile-nav {
     padding: 10px;
     font-size: 18px;

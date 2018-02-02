@@ -98,6 +98,16 @@ $internal-div-padding: 15px;
   }
 }
 
+@include screen-size(md) {
+  .page-template-template-fullwidth {
+    #lcgc-toggle-mobile-nav,
+    .storefront-primary-navigation {
+      width: 100vw !important;
+    }
+  }
+
+}
+
 // Change basket icons to carts
 .site-header-cart .cart-contents:after {
   content: "\f07a" !important;
@@ -332,17 +342,22 @@ p + h2 {
   &.visible {
     width      : 100%;
     padding    : 30px;
+    padding-top: 40px;
     max-height : calc(100vh - 68px);
 
     #lcgc-toggle-filter {
+      position         : fixed;
       top              : 0;
       color            : #fff;
       bottom           : auto;
       z-index          : 999;
-      position         : fixed;
       font-weight      : bold;
       border-bottom    : 1px solid #ccc;
       background-color : #7286c3;
+
+      -webkit-transition: none;
+      -moz-transition: none;
+      transition: none;
     }
   }
 
@@ -426,6 +441,26 @@ button.menu-toggle {
 .storefront-primary-navigation {
   @include transition(transform, 0.5s);
 
+  &.visible {
+    padding-top: 50px;
+
+    #lcgc-toggle-mobile-nav {
+      position         : fixed;
+      top              : 0;
+      color            : #fff;
+      bottom           : auto;
+      z-index          : 999;
+      font-weight      : bold;
+      border-bottom    : 1px solid #ccc;
+      background-color : #7286c3;
+      width            : 50vw;
+    }
+  }
+
+  #lcgc-toggle-mobile-nav {
+    position: fixed;
+  }
+
   @include screen-size(md) {
     height: 350px;
     position: fixed;
@@ -445,7 +480,12 @@ button.menu-toggle {
       max-height: none;
       text-align: center;
     }
+
+    &.visible {
+      height: 325px; 
+    }
   }
+
 
   #lcgc-toggle-mobile-nav {
     padding: 10px;
