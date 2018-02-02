@@ -215,6 +215,60 @@ function addAjaxCartListeners() {
  */
 
 (function($) {
+
+  function filterProducts(filterArguments) {
+      var data = {
+        'action'        : 'get_filter_exclusions',
+        'category_slug' : $('#lcgc-attribute-filter').val(),
+        'filter_args'   : filterArguments
+      };
+
+      $.post(ajaxurl, data, function(response) {
+        var html     = $.parseHTML(response);
+        var newProducts = $(html).find('ul.products').html();
+        var oldProducts = $('ul.products');
+
+        var exclusionString = $(html).find('#exclusion-string').html();
+        var exclusionObject = JSON.parse(exclusionString);
+
+        // TODO:
+        // add in loader/smooth transition
+        //
+        // TODO: parse the exclusion string and disable those elements
+
+        if ($(oldProducts)[0]) {
+          $(oldProducts).html(newProducts);
+        }
+        else {
+          $('#main').html('<ul class="products">' + newProducts + '</ul>');
+        }
+
+        var localBlacklist = {
+          'Similar to' : true,
+          'Qty/pk'     : true,
+          'Temp.'      : true
+        };
+
+        $('div.disabled').removeClass('disabled');
+
+        for (var attributeName in exclusionObject) {
+          var attribute = exclusionObject[attributeName];
+
+
+          if (!localBlacklist[attributeName]) {
+            for (var valueName in attribute) {
+
+              $(".subcategory[name='"+attributeName+"']")
+                .find("div:contains('"+valueName+"')")
+                .addClass('disabled');
+            }
+          }
+        }
+      });
+  }
+
+
+
   // TODO: implement loader class
   var loaderVisibilityClass   = '';
   var minimumTransitionDelay  = 400;
@@ -255,13 +309,11 @@ function addAjaxCartListeners() {
       $(this)
         .closest('.subcategory')
         .find('input')
-        .prop("checked", false)
-        .addClass('disabled');
+        .prop("checked", false);
 
       // check and enable this one
       $(this)
-        .prop("checked", true)
-        .removeClass('disabled');
+        .prop("checked", true);
     }
     else {
       // uncheck this one
@@ -269,12 +321,14 @@ function addAjaxCartListeners() {
         .prop("checked", false);
 
       // enable all of its siblings
-      $(this)
-        .closest('.subcategory')
-        .find('input')
-        .prop("checked", false)
-        .removeClass('disabled');
+      // $(this)
+      //   .closest('.subcategory')
+      //   .find('input')
+      //   .prop("checked", false)
+      //   .removeClass('disabled');
     }
+
+    var filter_args = {};
 
     // TODO:
     // Right now we are looping through every single checkbox on the
@@ -286,15 +340,12 @@ function addAjaxCartListeners() {
       var currentAttributeValue = $( $(this).siblings()[0] ).text();
 
       if (this.checked) {
-        attrString += currentAttributeName + ':' + currentAttributeValue + ';';
+        filter_args[currentAttributeName] = currentAttributeValue;
       }
     });
 
-    // Build a new URL to send a request to that contains all of the 
-    // information about the products that you want in the query string.
-    var newURL = requestLocation + '?category=' + categoryName + '&attribute=' + attrString;
+    filterProducts(filter_args);
 
-    replaceProducts(newURL);
   });
 
   // Select box Event Handler
@@ -305,6 +356,8 @@ function addAjaxCartListeners() {
     var categoryName = options[index].value;
     var fullReqURL   = requestLocation + '?category=' + categoryName;
 
+
+
     if (categoryName === 'choose' && originalHTML !== null) {
       showSidebarElements();
       replaceProducts(); // calling w/o args shows original products
@@ -313,8 +366,9 @@ function addAjaxCartListeners() {
       if (originalHTML === null)
         originalHTML = $(products).html();
 
+      filterProducts(null);
       showSidebarElements(categoryName);
-      replaceProducts(fullReqURL);
+      // replaceProducts(fullReqURL);
     }
   })
 
@@ -361,33 +415,10 @@ function addAjaxCartListeners() {
           // a 'disabled' class to all of the appropriate filter
           // attributes.
           var exclusionString = $(obj).find('#exclusion-string-div').html();
-          var exclusionPieces = exclusionString ? exclusionString.split(';') : [];
-          var exclude         = [];
+
+
 
           $('.subcategory div').removeClass('disabled');
-
-          // Parse the data and store the attributes that should
-          // be excluded in the 'exclude' array
-          exclusionPieces.map(function(exclusion) {
-            if (!exclusion) return;
-
-            var pieces = exclusion.split('--');
-
-            var attributeName    = pieces[0].replace(' ', '\ ').replace('"', '\"');
-            var attributeValue   = pieces[1].replace(' ', '\ ').replace('"', '\"');
-            var shouldBeIncluded = pieces[2];
-
-            if (shouldBeIncluded == 'false') {
-              exclude.push({
-                attributeName  : attributeName,
-                attributeValue : attributeValue
-              });
-
-              $(".subcategory[name='" + attributeName + "']")
-                .find("div:contains('" + attributeValue + "')")
-                .addClass('disabled');
-            }
-          });
 
           setProductsHTML(newHTML);
           toggleProductVisibility(productsVisibilityClass);

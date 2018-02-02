@@ -1,0 +1,14 @@
+{
+    "name": "azjgard/storefront-child",
+    "authors": [
+        {
+            "name": "Jordin Gardner",
+            "email": "gard.jordin@gmail.com"
+        }
+    ],
+    "require": {
+        "itsgoingd/clockwork": "^2.0",
+        "mailgun/mailgun-php": "~1.7.2",
+        "monolog/monolog": "^1.23"
+    }
+}

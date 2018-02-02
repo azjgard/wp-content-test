@@ -1,7 +1,5 @@
 <?php
 
-
-
 //
 // Set up all form fields
 // 

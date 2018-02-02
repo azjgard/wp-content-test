@@ -1,60 +1,353 @@
 <?php
 
-add_filter( 'get_product_search_form' , 'woo_custom_product_searchform' );
+function global_debug($val, $title) {
+  if ( class_exists( 'PC' ) ) {
+    PC::debug($val, $title);
+  }
+}
 
+add_action( 'woocommerce_product_import_inserted_product_object', 'testing_product_import' );
+
+function sqlify($str) {
+  /* $str = str_replace  ("'", "", $str); */
+  /* $str = preg_replace ('/[^\p{L}\p{N}]/u', '_', $str); */
+  return $str;
+}
+
+function slugify($str) {
+  return strtolower(str_replace(" ", "-", $str));
+}
+
+function comparing_quotes($str) {
+  $str = str_replace('"', "____");
+  $str = str_replace(",", "----");
+
+  return $str;
+}
+
+function normalize($str) {
+  $str = str_replace('\"', '"', $str);
+  $str = str_replace(' | ', ', ', $str);
+
+  return $str;
+}
+
+add_action( 'init', 'my_test_func' );
+
+
+add_action( 'wp_ajax_get_filter_exclusions', 'get_filter_exclusions' );
+add_action( 'wp_ajax_nopriv_get_filter_exclusions', 'get_filter_exclusions' );
+
+function get_product_cat_by_slug($slug) {
+  return get_term_by('slug', $slug, 'product_cat');
+}
+
+function get_filter_exclusions($category_slug = false, $filter_args = false) {
+
+  if (isset($_POST["category_slug"])) {
+    $category_slug = $_POST["category_slug"];
+  }
+
+  if (isset($_POST["filter_args"])) {
+    $filter_args = $_POST["filter_args"];
+  }
+
+  if (!$category_slug) {
+    return;
+  }
+
+  $category    = get_product_cat_by_slug($category_slug);
+  $category_id = $category->term_id;
+
+  $max_product_count = 15;
+
+  $attributes = maybe_unserialize(
+    get_option( "global-attributes-object" ) 
+  )[$category_slug];
+
+  $unfiltered_products = maybe_unserialize(
+    get_option( $category_slug . '-products-object' )
+  );
+
+  $filtered_products = array();
+
+  $product_count = 0;
+
+  if ($filter_args) {
+    for ($i = 0; $i < sizeof($unfiltered_products); $i++) {
+      $flag    = true;
+      $product = $unfiltered_products[$i];
+
+      foreach($filter_args as $name => $value) {
+        $meta = $product->meta;
+
+        $v1 = normalize($meta[slugify($name)]['value']); 
+        $v2 = normalize($value);
+
+        /* global_debug($v1, "v1"); */
+        /* global_debug($v2, "v2"); */
+
+        if ($v1 != $v2) {
+          $flag = false;
+        }
+      }
+
+      if ($flag) {
+        foreach($product->meta as $attribute_object) {
+          unset($attributes[$attribute_object['name']][$attribute_object['value']]);
+        }
+        if ($product_count < $max_product_count) {
+          array_push($filtered_products, $product);
+          $product_count++;
+        }
+      }
+    }
+  }
+  else {
+    for ($x = 0; $x < $max_product_count; $x++) {
+      array_push($filtered_products, $unfiltered_products[$x]);
+    }
+    $attributes = array();
+  }
+
+?>
+
+<div id="primary" class="content-area">
+  <main id="main" class="site-main" role="main">
+    <ul class="products"> 
+<?php
+  $loop             = new WP_Query(array());
+  $loop->posts      = $filtered_products;
+  $loop->post_count = sizeof($filtered_products);
+
+  if ( $loop->have_posts() ) {
+    while ( $loop->have_posts() ) : $loop->the_post();
+    wc_get_template_part( 'content', 'product' );
+endwhile;
+  } 
+  else {
+    echo __( 'No products found' );
+  }
+
+  wp_reset_postdata();
+?>
+    </ul>
+  </main>
+
+<?php 
+  echo '<div id="exclusion-string">' . json_encode($attributes) . '</div>'; 
+?>
+
+</div>
+
+</div>
+
+<?php
+
+  die();
+}
+
+function my_test_func() {
+
+  /* wp_cache_add( get_option( "global-products-object" )  ); */
+
+  /* get_filter_exclusions('ferrules', array( */
+  /* 'Material' => '100% Graphite', */
+  /* 'Ferrule ID' => 'No Hole', */
+  /* 'Fits Column ID' => '0.1 mm', */
+  /* 'Ferrule ID' => '0.3 mm', */
+  /* 'Material' => '100% Graphite' */
+  /* )); */
+}
+
+function get_combinations($arrays) {
+  $result = array(array());
+
+  $property_blacklist = array(
+    "Qty_pk",
+    "Similar_to"
+  );
+
+  foreach ($arrays as $property => $property_values) {
+    $tmp = array();
+
+    if (!in_array($property, $property_blacklist)) {
+
+      foreach ($result as $result_item) {
+        foreach ($property_values as $property_value) {
+          $tmp[] = array_merge($result_item, array($property => $property_value));
+        }
+      }
+      $result = $tmp;
+    }
+  }
+  return $result;
+}
+
+function mb_unserialize($string) {
+  $string2 = preg_replace_callback(
+    '!s:(\d+):"(.*?)";!s',
+    function($m){
+      $len = strlen($m[2]);
+      $result = "s:$len:\"{$m[2]}\";";
+      return $result;
+
+    },
+    $string);
+  return unserialize($string2);
+}    
+
+function get_product_categories() {
+  $taxonomy     = 'product_cat';
+  $orderby      = 'name';  
+  $show_count   = 0;
+  $pad_counts   = 0;
+  $hierarchical = 1;
+  $title        = '';
+  $empty        = 1;
+
+  $args = array(
+    'taxonomy'     => $taxonomy,
+    'orderby'      => $orderby,
+    'show_count'   => $show_count,
+    'pad_counts'   => $pad_counts,
+    'hierarchical' => $hierarchical,
+    'title_li'     => $title,
+    'hide_empty'   => $empty
+  );
+
+  return get_categories( $args );
+}
+
+function get_product_attribute_list() {
+  global $wpdb;
+
+  $meta_keys = [];
+
+  $product_categories = get_product_categories();
+
+  $query = "SELECT meta_value FROM wp_postmeta WHERE meta_key = '_product_attributes' AND post_id = '%s' LIMIT 1;";
+
+  foreach ($product_categories as $category) {
+    $single_post = get_posts(array(
+      'numberposts' => 1,
+      'post_type'   => 'product',
+      'tax_query'   => array(
+        array(
+          'taxonomy' => 'product_cat',
+          'terms'    => $category->cat_ID,
+          'operator' => 'IN'
+        )
+      )
+    ))[0];
+
+    $meta_keys[$category->category_nicename] = [];
+
+    $meta_query        = $wpdb->prepare($query, $single_post->ID);
+    $meta_serialized   = $wpdb->get_results($meta_query)[0]->meta_value;
+
+    $meta_unserialized = maybe_unserialize($meta_serialized);
+
+    foreach($meta_unserialized as $meta_value) {
+      array_push(
+        $meta_keys[$category->category_nicename],
+        $meta_value["name"]
+      );
+    }
+  }
+  return $meta_keys;
+}
+
+function products_with_meta_exist($attributes) {
+  global $wpdb;
+
+  $query = "SELECT * FROM wp_postmeta WHERE meta_key = '_product_attributes'";
+
+  foreach($attributes as $key => $value) {
+    $query .= $wpdb->prepare(
+      ' AND meta_value LIKE %s',
+      '%' . $key . '%' . $value . '%'
+    );
+  }
+
+  $query .= ' LIMIT 1;';
+
+  $result = $wpdb->get_results($query);
+
+  return sizeof($result) > 0;
+}
+
+
+function process_post() {
+  $exists = products_with_meta_exist(array(
+    'Material'         => '100% Graphite',
+    'Specialty Styles' => 'Short'
+  ));
+
+  if ( class_exists( 'PC' ) ) {
+    PC::debug($exists, "Do products exist?");
+  }
+}
+
+add_filter( 'get_product_search_form' , 'woo_custom_product_searchform' );
 /**
  * woo_custom_product_searchform
  *
  * @access      public
  * @since       1.0 
  * @return      void
-*/
+ */
 function woo_custom_product_searchform( $form ) {
 
   if (strpos($form, 'woocommerce-product-search-field-0') !== false) {
     return $form;
   }
-	
+
   $form = '
 <div class="custom-search-form">
 <label class="search-label">Search:</label>
 <form role="search" method="get" id="searchform" action="' . esc_url( home_url( '/'  ) ) . '">
-		<div>
-			<label class="screen-reader-text" for="s">' . __( 'Search for:', 'woocommerce' ) . '</label>
-			<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Enter Keyword', 'woocommerce' ) . '" />
-			<input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
-			<input type="hidden" name="post_type" value="product" />
-		</div>
+    <div>
+      <label class="screen-reader-text" for="s">' . __( 'Search for:', 'woocommerce' ) . '</label>
+      <input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="' . __( 'Enter Keyword', 'woocommerce' ) . '" />
+      <input type="submit" id="searchsubmit" value="'. esc_attr__( 'Search', 'woocommerce' ) .'" />
+      <input type="hidden" name="post_type" value="product" />
+    </div>
   </form>
 <span class="small">Search by product name, part #, or other manufacturer\'s part #</span>
 </div>';
-	
-	return $form;
-	
+
+  return $form;
+
 }
 
 function lcgc_update_product_table( $post_id ) {
-  // only execute for products
-  /* if (get_post_type( $post_id ) == 'product') { */
-  /*   global $wpdb; */
+  /* // only execute for products */
+  /* /1* if (get_post_type( $post_id ) == 'product') { *1/ */
+  /* /1*   global $wpdb; *1/ */
 
-  /*   // use dbDelta for raw sql */
-  /*   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' ); */
+  /* /1*   // use dbDelta for raw sql *1/ */
+  /* /1*   require_once( ABSPATH . 'wp-admin/includes/upgrade.php' ); *1/ */
 
-  /*   $table_name = $wpdb->prefix . 'productexclusiontable'; */
-  /*   $sql = ''; */
+  /* /1*   $table_name = $wpdb->prefix . 'productexclusiontable'; *1/ */
+  /* /1*   $sql = ''; *1/ */
 
 
-  /*   dbDelta( $sql ); */
-  /* } */
-  $response = wp_remote_post('localhost:3000', array(
-    'method' => 'POST',
-    'timeout' => 45,
-    'httpversion' => '1.0',
-    'blocking' => true,
-    'body' => array('test' => 'test'),
-    'cookies' => array()
-  ));
+  /* /1*   dbDelta( $sql ); *1/ */
+  /* /1* } *1/ */
+  /* $response = wp_remote_post('localhost:3000', array( */
+  /*   'method' => 'POST', */
+  /*   'timeout' => 45, */
+  /*   'httpversion' => '1.0', */
+  /*   'blocking' => true, */
+  /*   'body' => array('test' => 'test'), */
+  /*   'cookies' => array() */
+  /* )); */
+
+  if ( class_exists( 'PC' ) ) {
+    /* PC::debug('Product updated: ' . $post_id); */
+    /* PC::debug(array('hello' => 'world'), 'Array test'); */
+  }
 }
 
 add_action('save_post', 'lcgc_update_product_table');
@@ -79,11 +372,11 @@ require(get_stylesheet_directory() . '/includes/products.php');
  */
 
 if (current_user_can('manage_options')) {
-	function show_template() {
-		global $template;
-		echo '<div style="background-color: #eee; border: 1px solid #000; padding: 5px;"><strong>Current template: </strong>' . $template . '</div>';
-	}
-	/* add_action('wp_head', 'show_template'); */
+  function show_template() {
+    global $template;
+    echo '<div style="background-color: #eee; border: 1px solid #000; padding: 5px;"><strong>Current template: </strong>' . $template . '</div>';
+  }
+  /* add_action('wp_head', 'show_template'); */
 }
 
 
