@@ -470,7 +470,18 @@ p + h2 {
   padding: 10px;
   max-width: 260px; }
   #secondary.visible {
-    max-height: calc(100% - 95px); }
+    width: 100%;
+    padding: 30px;
+    max-height: calc(100vh - 68px); }
+    #secondary.visible #lcgc-toggle-filter {
+      top: 0;
+      color: #fff;
+      bottom: auto;
+      z-index: 999;
+      position: fixed;
+      font-weight: bold;
+      border-bottom: 1px solid #ccc;
+      background-color: #7286c3; }
   @media only screen and (max-width: 767px) {
     #secondary {
       position: fixed;
