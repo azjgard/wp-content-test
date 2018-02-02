@@ -620,7 +620,8 @@ p + h2 {
 }
 
 #secondary.visible {
-  max-height: calc(100% - 95px);
+  width      : 100%;
+  max-height : calc(90vh - 70px);
 }
 
 @media only screen and (max-width: 767px) {
