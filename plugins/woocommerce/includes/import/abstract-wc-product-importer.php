@@ -145,6 +145,10 @@ abstract class WC_Product_Importer implements WC_Importer_Interface {
 			return 0;
 		}
 
+    if ( function_exists( 'PC' ) ) {
+      PC::debug(absint( min( round( ( $this->file_position / $size ) * 100 ), 100 ) ), 'FILE SIZE');
+    }
+
 		return absint( min( round( ( $this->file_position / $size ) * 100 ), 100 ) );
 	}
 
