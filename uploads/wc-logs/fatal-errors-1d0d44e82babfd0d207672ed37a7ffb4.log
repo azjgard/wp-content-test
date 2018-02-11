@@ -1629,3 +1629,485 @@ Stack trace:
 #4 {main}
   thrown
 
+2018-01-17T22:15:56+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 190 in file /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/alternativeStoreTemplate.php(190): {closure}(8, 'Undefined varia...', '/var/www/html/l...', 190, Array)
+#1 /var/www/html/lcgc-vials/wp-includes/template-loader.php(74): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-blog-header.php(19): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#4 {main}
+  thrown
+
+2018-01-17T22:53:18+00:00 CRITICAL Uncaught Error: Call to undefined function wc_display_product_attributes() in /var/www/html/lcgc-vials/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-product.php:309
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(14): WC_Abstract_Legacy_Product->list_attributes()
+#1 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(20): get_woocommerce_product_list()
+#2 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(42): require('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-01-17T22:53:32+00:00 CRITICAL Uncaught Error: Call to undefined method WC_Product::display_product_attributes() in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php:14
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(20): get_woocommerce_product_list()
+#1 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(42): require('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#7 {main}
+  thrown
+
+2018-01-17T22:53:38+00:00 CRITICAL Uncaught Error: Call to undefined function wc_display_product_attributes() in /var/www/html/lcgc-vials/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-product.php:309
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(14): WC_Abstract_Legacy_Product->list_attributes()
+#1 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(20): get_woocommerce_product_list()
+#2 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(42): require('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-01-17T22:54:09+00:00 CRITICAL Uncaught Error: Call to undefined function wc_display_product_attributes() in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php:14
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(22): get_woocommerce_product_list()
+#1 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(42): require('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#7 {main}
+  thrown
+
+2018-01-17T22:54:20+00:00 CRITICAL Uncaught Error: Call to undefined function wc_display_product_attributes() in /var/www/html/lcgc-vials/wp-content/plugins/woocommerce/includes/legacy/abstract-wc-legacy-product.php:309
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(14): WC_Abstract_Legacy_Product->list_attributes()
+#1 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/includes/products.php(20): get_woocommerce_product_list()
+#2 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(42): require('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-01-23T21:01:09+00:00 CRITICAL Uncaught Error: Class 'Clockwork' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:6
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:01:10+00:00 CRITICAL Uncaught Error: Class 'Clockwork' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:6
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:02:07+00:00 CRITICAL Uncaught Error: Call to undefined function clock() in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:6
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:02:49+00:00 CRITICAL Uncaught Error: Call to a member function info() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:8
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:02:50+00:00 CRITICAL Uncaught Error: Call to a member function info() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:8
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:02:51+00:00 CRITICAL Uncaught Error: Call to a member function info() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:8
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:02:51+00:00 CRITICAL Uncaught Error: Call to a member function info() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:8
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:09:07+00:00 CRITICAL Uncaught Error: Class 'Clockwork' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:8
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:12:50+00:00 CRITICAL Uncaught Error: Call to undefined function clock() in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:7
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:14:58+00:00 CRITICAL Uncaught Error: Call to a member function store() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/vendor/itsgoingd/clockwork/Clockwork/Clockwork.php:124
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(9): Clockwork\Clockwork->storeRequest()
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-23T21:14:59+00:00 CRITICAL Uncaught Error: Call to a member function store() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/vendor/itsgoingd/clockwork/Clockwork/Clockwork.php:124
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(9): Clockwork\Clockwork->storeRequest()
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-23T21:14:59+00:00 CRITICAL Uncaught Error: Call to a member function store() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/vendor/itsgoingd/clockwork/Clockwork/Clockwork.php:124
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(9): Clockwork\Clockwork->storeRequest()
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-23T21:15:32+00:00 CRITICAL Uncaught Error: Call to a member function store() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/vendor/itsgoingd/clockwork/Clockwork/Clockwork.php:124
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(8): Clockwork\Clockwork->storeRequest()
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-23T21:15:33+00:00 CRITICAL Uncaught Error: Call to a member function store() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/vendor/itsgoingd/clockwork/Clockwork/Clockwork.php:124
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(8): Clockwork\Clockwork->storeRequest()
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-23T21:18:00+00:00 CRITICAL Uncaught Error: Call to a member function store() on null in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/vendor/itsgoingd/clockwork/Clockwork/Clockwork.php:124
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(8): Clockwork\Clockwork->storeRequest()
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-23T21:20:31+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:6
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:20:33+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:6
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:20:45+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:7
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:21:09+00:00 CRITICAL Uncaught Error: Call to undefined function debug() in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:4
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:21:10+00:00 CRITICAL Uncaught Error: Call to undefined function debug() in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:4
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:22:51+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:22:52+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:22:52+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:23:22+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:10
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:25:16+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:7
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T21:29:50+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:8
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-settings.php(424): include()
+#1 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#5 {main}
+  thrown
+
+2018-01-23T22:37:00+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:13
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): process_post('')
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#4 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/options-general.php(10): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-01-23T23:01:56+00:00 CRITICAL Uncaught Error: Class 'PC' not found in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:9
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(17): products_with_meta_exist(Array)
+#1 /var/www/html/lcgc-vials/wp-settings.php(424): include('/var/www/html/l...')
+#2 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#3 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#4 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#6 {main}
+  thrown
+
+2018-01-24T01:55:02+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:19
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): get_product_attribute_list('')
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#4 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-01-24T01:55:20+00:00 CRITICAL Uncaught Error: Cannot use object of type stdClass as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:19
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): get_product_attribute_list('')
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#2 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#3 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#4 /var/www/html/lcgc-vials/wp-config.php(89): require_once('/var/www/html/l...')
+#5 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-blog-header.php(13): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/index.php(17): require('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-01-31T23:07:04+00:00 CRITICAL Cannot redeclare sqlify() (previously declared in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:11)
+
+2018-01-31T23:07:05+00:00 CRITICAL Cannot redeclare sqlify() (previously declared in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:11)
+
+2018-02-01T20:11:18+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 67108872 bytes)
+
+2018-02-01T20:11:29+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 67108872 bytes)
+
+2018-02-01T20:18:41+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 67108872 bytes)
+
+2018-02-01T20:19:32+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 67108872 bytes)
+
+2018-02-01T20:19:46+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 67108872 bytes)
+
+2018-02-01T20:20:13+00:00 CRITICAL Allowed memory size of 134217728 bytes exhausted (tried to allocate 67108872 bytes)
+
+2018-02-01T21:31:58+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:51
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(76): get_filter_exclusions('ferrules', Array)
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): my_test_func('')
+#2 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#5 /var/www/html/lcgc-vials/wp-config.php(91): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/admin-ajax.php(22): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-02-01T21:32:06+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:51
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(76): get_filter_exclusions('ferrules', Array)
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): my_test_func('')
+#2 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#5 /var/www/html/lcgc-vials/wp-config.php(91): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/admin-ajax.php(22): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-02-01T21:32:16+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:51
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(76): get_filter_exclusions('ferrules', Array)
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): my_test_func('')
+#2 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#5 /var/www/html/lcgc-vials/wp-config.php(91): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-02-01T21:32:38+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:59
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(76): get_filter_exclusions('ferrules', Array)
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): my_test_func('')
+#2 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#5 /var/www/html/lcgc-vials/wp-config.php(91): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-02-01T21:33:40+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:59
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(76): get_filter_exclusions('ferrules', Array)
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): my_test_func('')
+#2 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#5 /var/www/html/lcgc-vials/wp-config.php(91): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/admin-ajax.php(22): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+
+2018-02-01T21:33:59+00:00 CRITICAL Uncaught Error: Cannot use object of type WP_Post as array in /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php:59
+Stack trace:
+#0 /var/www/html/lcgc-vials/wp-content/themes/storefront-child/functions.php(76): get_filter_exclusions('ferrules', Array)
+#1 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(286): my_test_func('')
+#2 /var/www/html/lcgc-vials/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters(NULL, Array)
+#3 /var/www/html/lcgc-vials/wp-includes/plugin.php(453): WP_Hook->do_action(Array)
+#4 /var/www/html/lcgc-vials/wp-settings.php(450): do_action('init')
+#5 /var/www/html/lcgc-vials/wp-config.php(91): require_once('/var/www/html/l...')
+#6 /var/www/html/lcgc-vials/wp-load.php(37): require_once('/var/www/html/l...')
+#7 /var/www/html/lcgc-vials/wp-admin/admin.php(31): require_once('/var/www/html/l...')
+#8 {main}
+  thrown
+

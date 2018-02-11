@@ -1,5 +1,4 @@
 <?php
-
 function global_debug($val, $title) {
   if ( class_exists( 'PC' ) ) {
     PC::debug($val, $title);
@@ -26,15 +25,15 @@ function comparing_quotes($str) {
 }
 
 function normalize($str) {
+  $str = str_replace("\'", "'", $str);
   $str = str_replace('\"', '"', $str);
   $str = str_replace(' | ', ', ', $str);
 
   return $str;
 }
 
-add_action( 'init', 'my_test_func' );
-
-
+// These actions allow both logged-in and non logged-in users to
+// use the filter from the front-end.
 add_action( 'wp_ajax_get_filter_exclusions', 'get_filter_exclusions' );
 add_action( 'wp_ajax_nopriv_get_filter_exclusions', 'get_filter_exclusions' );
 
@@ -75,27 +74,29 @@ function get_filter_exclusions($category_slug = false, $filter_args = false) {
 
   if ($filter_args) {
     for ($i = 0; $i < sizeof($unfiltered_products); $i++) {
-      $flag    = true;
-      $product = $unfiltered_products[$i];
+      $product            = $unfiltered_products[$i];
+      $product_does_match = true;
 
-      foreach($filter_args as $name => $value) {
-        $meta = $product->meta;
+      foreach ($filter_args as $name => $filter_meta_value) {
+        $meta               = $product->meta;
+        $product_meta_value = $meta[slugify($name)]['value'];
 
-        $v1 = normalize($meta[slugify($name)]['value']); 
-        $v2 = normalize($value);
-
-        /* global_debug($v1, "v1"); */
-        /* global_debug($v2, "v2"); */
-
-        if ($v1 != $v2) {
-          $flag = false;
+        // We need to normalize values anytime we are making a comparison.
+        if (normalize($product_meta_value) != normalize($filter_meta_value)) {
+          $product_does_match = false;
         }
       }
 
-      if ($flag) {
+      if ($product_does_match) {
+        // We are popping every single attribute value that our matching
+        // products have off of the global attributes object. That global
+        // object will be returned to the front-end, where it will
+        // be used to exclude future filters that wouldn't otherwise
+        // return any results.
         foreach($product->meta as $attribute_object) {
           unset($attributes[$attribute_object['name']][$attribute_object['value']]);
         }
+
         if ($product_count < $max_product_count) {
           array_push($filtered_products, $product);
           $product_count++;
@@ -144,20 +145,7 @@ endwhile;
 
 <?php
 
-  die();
-}
-
-function my_test_func() {
-
-  /* wp_cache_add( get_option( "global-products-object" )  ); */
-
-  /* get_filter_exclusions('ferrules', array( */
-  /* 'Material' => '100% Graphite', */
-  /* 'Ferrule ID' => 'No Hole', */
-  /* 'Fits Column ID' => '0.1 mm', */
-  /* 'Ferrule ID' => '0.3 mm', */
-  /* 'Material' => '100% Graphite' */
-  /* )); */
+  wp_die();
 }
 
 function get_combinations($arrays) {
@@ -550,7 +538,7 @@ $attribute_data = array(
           )
         ),
         array( 
-          'subcategory_name' => 'Temperature Rating',
+          'subcategory_name' => 'Temp. Rating',
           'subcategory_attr' => array(
             '250°C', '300°C', '325°C', '350°C', '400°C'
           )

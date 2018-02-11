@@ -32,6 +32,8 @@ add_action( 'wp_ajax_update_filter', 'lcgc_update_attribute_filter' );
 function lcgc_update_attribute_filter() {
 	global $wpdb;
 
+  // As we cycle through all of the products, we store every single
+  // attribute in this array so that we can pull from it later on.
   $attribute_tracker = [];
 
   $product_categories     = get_product_categories();
@@ -41,6 +43,8 @@ function lcgc_update_attribute_filter() {
     $category_id       = null;
     $category_products = array();
 
+    // This loop is literally just to grab the category ID since
+    // it's not otherwise included.
     foreach($product_categories as $product_category) {
       if ($product_category->category_nicename == $category) {
         $category_id = $product_category->cat_ID;
@@ -62,6 +66,8 @@ function lcgc_update_attribute_filter() {
     foreach($products as $product) {
       $category_slug = wp_get_post_terms($product->ID, 'product_cat')[0]->slug;
 
+      // All of the attributes that we store are nested within a 
+      // subarray whose key is the name of the category.
       if (!array_key_exists($category_slug, $attribute_tracker)) {
         $attribute_tracker[$category_slug] = [];
       }
@@ -75,61 +81,60 @@ function lcgc_update_attribute_filter() {
         $wpdb->get_results($sql)[0]->meta_value
       );
 
+      // We modify the WP_Post object itself here because, later on,
+      // we'll be bootstrapping our own WP_Query using these same objects.
+      // If that weren't the case, it would make more sense to turn
+      // these into regular key => value arrays.
       $product->meta     = $meta;
       $product->category = $category;
       array_push($category_products, $product);
 
       foreach($meta as $data) {
-        $sqlified_name = $data["name"];
+        $sqlified_name  = $data["name"];
+        $sqlified_value = $data["value"];
 
         if (!array_key_exists($sqlified_name, $attribute_tracker[$category_slug])) {
           $attribute_tracker[$category_slug][$sqlified_name] = [];
         }
-      }
-
-      foreach($meta as $data) {
-        $sqlified_name  = $data["name"];
-        $sqlified_value = $data["value"];
-
         if (!array_key_exists($sqlified_value, $attribute_tracker[$category_slug][$sqlified_name]) && $sqlified_value != "") {
           $attribute_tracker[$category_slug][$sqlified_name][$sqlified_value] = false;
         }
       }
     }
 
-    update_option("global-attributes-object", $attribute_tracker);
-    update_option($category . "-products-object", $category_products);
+      update_option("global-attributes-object", $attribute_tracker);
+      update_option($category . "-products-object", $category_products);
+    }
+
+    echo "The Attribute Filter has been updated!";
+
+    wp_die();
   }
 
-  echo "The Attribute Filter has been updated!";
+  class WooCommerce_Attribute_Filter {
 
-  wp_die();
-}
+    private $page_title = 'Update Filter';
+    private $slug       = 'wc-update-filter';
+    private $main_section_name = 'main_section';
 
-class WooCommerce_Attribute_Filter {
+    public function __construct() {
+      add_action( 'admin_menu', array($this, 'create_plugin_settings_page') );
+      add_action( 'admin_init', array($this, 'setup_sections') );
+      add_action( 'admin_init', array($this, 'setup_fields') );
+    }
 
-  private $page_title = 'Update Filter';
-  private $slug       = 'wc-update-filter';
-  private $main_section_name = 'main_section';
+    public function create_plugin_settings_page() {
+      // Add the menu item and page
+      $menu_title = 'Update Filter';
+      $capability = 'manage_options';
+      $callback   = array( $this, 'plugin_settings_page_content' );
+      $icon       = '';
+      $position   = 100;
 
-  public function __construct() {
-    add_action( 'admin_menu', array($this, 'create_plugin_settings_page') );
-    add_action( 'admin_init', array($this, 'setup_sections') );
-    add_action( 'admin_init', array($this, 'setup_fields') );
-  }
+      add_menu_page( $this->page_title, $menu_title, $capability, $this->slug, $callback, $icon, $position );
+    }
 
-  public function create_plugin_settings_page() {
-    // Add the menu item and page
-    $menu_title = 'Update Filter';
-    $capability = 'manage_options';
-    $callback   = array( $this, 'plugin_settings_page_content' );
-    $icon       = '';
-    $position   = 100;
-
-    add_menu_page( $this->page_title, $menu_title, $capability, $this->slug, $callback, $icon, $position );
-  }
-
-  public function plugin_settings_page_content() { ?>
+    public function plugin_settings_page_content() { ?>
     <div class="wrap">
       <h1>Update Attribute Filter</h1>
       <div>
@@ -141,12 +146,12 @@ class WooCommerce_Attribute_Filter {
         <div id="response"></div>
       </div>
       </div> <?php
+    }
+
+    public function setup_sections() {}
+      public function setup_fields() {}
+      public function field_callback($args) {}
+      private function clean_string($string) {}
   }
 
-  public function setup_sections() {}
-  public function setup_fields() {}
-  public function field_callback($args) {}
-  private function clean_string($string) {}
-}
-
-$wc = new WooCommerce_Attribute_Filter();
+  $wc = new WooCommerce_Attribute_Filter();

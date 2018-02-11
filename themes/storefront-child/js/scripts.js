@@ -217,11 +217,15 @@ function addAjaxCartListeners() {
 (function($) {
 
   function filterProducts(filterArguments) {
-      var data = {
-        'action'        : 'get_filter_exclusions',
-        'category_slug' : $('#lcgc-attribute-filter').val(),
-        'filter_args'   : filterArguments
-      };
+    var data = {
+      'action'        : 'get_filter_exclusions',
+      'category_slug' : $('#lcgc-attribute-filter').val(),
+      'filter_args'   : filterArguments
+    };
+
+    showLoader();
+
+    setTimeout(function() {
 
       $.post(ajaxurl, data, function(response) {
         var html     = $.parseHTML(response);
@@ -264,7 +268,24 @@ function addAjaxCartListeners() {
             }
           }
         }
+
+        addAjaxCartListeners();
+
+        setTimeout(function() {
+          hideLoader();
+        }, 300);
       });
+
+    }, 400);
+
+  }
+
+  function showLoader() {
+    $('#loader').css('display', 'flex').hide().fadeIn();
+  }
+
+  function hideLoader() {
+    $('#loader').fadeOut();
   }
 
 
@@ -415,7 +436,6 @@ function addAjaxCartListeners() {
           // a 'disabled' class to all of the appropriate filter
           // attributes.
           var exclusionString = $(obj).find('#exclusion-string-div').html();
-
 
 
           $('.subcategory div').removeClass('disabled');

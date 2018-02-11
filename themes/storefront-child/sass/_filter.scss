@@ -58,10 +58,19 @@
   }
 }
 
+@keyframes disabled {
+  0% {
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+}
+
 .subcategory .disabled {
   pointer-events : none;
   position       : relative;
-  opacity        : .5;
+  opacity: .5;
 }
 
 .subcategory .disabled::before {
