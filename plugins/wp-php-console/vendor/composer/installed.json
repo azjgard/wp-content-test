@@ -1,5 +1,171 @@
 [
     {
+        "name": "composer/installers",
+        "version": "v1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "049797d727261bf27f2690430d935067710049c2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
+            "reference": "049797d727261bf27f2690430d935067710049c2",
+            "shasum": ""
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2017-12-29T09:13:20+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Composer\\Installers\\Plugin",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Composer\\Installers\\": "src/Composer/Installers"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "https://composer.github.io/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Eliasis",
+            "Hurad",
+            "ImageCMS",
+            "Kanboard",
+            "Lan Management System",
+            "MODX Evo",
+            "Mautic",
+            "Maya",
+            "OXID",
+            "Plentymarkets",
+            "Porto",
+            "RadPHP",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "aimeos",
+            "annotatecms",
+            "attogram",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "cockpit",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "eZ Platform",
+            "elgg",
+            "expressionengine",
+            "fuelphp",
+            "grav",
+            "installer",
+            "itop",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lavalite",
+            "lithium",
+            "magento",
+            "majima",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "modx",
+            "moodle",
+            "osclass",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "pxcms",
+            "reindex",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "sydes",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "yawik",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "nekojira/wp-requirements",
+        "version": "1.4.1",
+        "version_normalized": "1.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/unfulvio/wp-requirements.git",
+            "reference": "c12147245286b5b9053d1745995677e6df36e96d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/unfulvio/wp-requirements/zipball/c12147245286b5b9053d1745995677e6df36e96d",
+            "reference": "c12147245286b5b9053d1745995677e6df36e96d",
+            "shasum": ""
+        },
+        "time": "2015-10-05T09:08:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Fulvio Notarstefano",
+                "email": "fulvio.notarstefano@gmail.com",
+                "homepage": "https://github.com/nekojira",
+                "role": "Developer"
+            }
+        ],
+        "description": "Utility for WordPress plugin developers to check PHP version, WordPress version and presence of PHP extensions in current installation.",
+        "homepage": "https://github.com/nekojira/wp-requirements/",
+        "keywords": [
+            "php",
+            "requirements",
+            "version",
+            "wordpress"
+        ]
+    },
+    {
         "name": "php-console/php-console",
         "version": "3.1.6",
         "version_normalized": "3.1.6.0",
@@ -17,7 +183,7 @@
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2016-02-19 16:00:24",
+        "time": "2016-02-19T16:00:24+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -67,7 +233,7 @@
             "reference": "bd41459d5e27df8d33057842b32377c39e97a5a8",
             "shasum": ""
         },
-        "time": "2016-04-16 21:52:24",
+        "time": "2016-04-16T21:52:24+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -83,152 +249,6 @@
         "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
-        ]
-    },
-    {
-        "name": "composer/installers",
-        "version": "v1.0.25",
-        "version_normalized": "1.0.25.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/composer/installers.git",
-            "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-            "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-            "shasum": ""
-        },
-        "require": {
-            "composer-plugin-api": "^1.0"
-        },
-        "replace": {
-            "roundcube/plugin-installer": "*",
-            "shama/baton": "*"
-        },
-        "require-dev": {
-            "composer/composer": "1.0.*@dev",
-            "phpunit/phpunit": "4.1.*"
-        },
-        "time": "2016-04-13 19:46:30",
-        "type": "composer-plugin",
-        "extra": {
-            "class": "Composer\\Installers\\Plugin",
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Composer\\Installers\\": "src/Composer/Installers"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Kyle Robinson Young",
-                "email": "kyle@dontkry.com",
-                "homepage": "https://github.com/shama"
-            }
-        ],
-        "description": "A multi-framework Composer library installer",
-        "homepage": "https://composer.github.io/installers/",
-        "keywords": [
-            "Craft",
-            "Dolibarr",
-            "Hurad",
-            "ImageCMS",
-            "MODX Evo",
-            "Mautic",
-            "OXID",
-            "SMF",
-            "Thelia",
-            "WolfCMS",
-            "agl",
-            "aimeos",
-            "annotatecms",
-            "bitrix",
-            "cakephp",
-            "chef",
-            "codeigniter",
-            "concrete5",
-            "croogo",
-            "dokuwiki",
-            "drupal",
-            "elgg",
-            "fuelphp",
-            "grav",
-            "installer",
-            "joomla",
-            "kohana",
-            "laravel",
-            "lithium",
-            "magento",
-            "mako",
-            "mediawiki",
-            "modulework",
-            "moodle",
-            "phpbb",
-            "piwik",
-            "ppi",
-            "puppet",
-            "roundcube",
-            "shopware",
-            "silverstripe",
-            "symfony",
-            "typo3",
-            "wordpress",
-            "zend",
-            "zikula"
-        ]
-    },
-    {
-        "name": "nekojira/wp-requirements",
-        "version": "1.4.1",
-        "version_normalized": "1.4.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/unfulvio/wp-requirements.git",
-            "reference": "c12147245286b5b9053d1745995677e6df36e96d"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/unfulvio/wp-requirements/zipball/c12147245286b5b9053d1745995677e6df36e96d",
-            "reference": "c12147245286b5b9053d1745995677e6df36e96d",
-            "shasum": ""
-        },
-        "time": "2015-10-05 09:08:37",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "Fulvio Notarstefano",
-                "email": "fulvio.notarstefano@gmail.com",
-                "homepage": "https://github.com/nekojira",
-                "role": "Developer"
-            }
-        ],
-        "description": "Utility for WordPress plugin developers to check PHP version, WordPress version and presence of PHP extensions in current installation.",
-        "homepage": "https://github.com/nekojira/wp-requirements/",
-        "keywords": [
-            "php",
-            "requirements",
-            "version",
-            "wordpress"
         ]
     }
 ]

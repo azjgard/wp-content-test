@@ -248,6 +248,27 @@ body.single-product form.cart .wcgp-select {
 body.single-product #tab-title-additional_information {
   display: none; }
 
+a.cart-remove-button {
+  padding: 9px;
+  border: 0;
+  border: 1px solid #dadada;
+  color: #555;
+  display: block;
+  margin: auto;
+  text-align: center !important;
+  max-width: 100px; }
+  @media only screen and (max-width: 505px) {
+    a.cart-remove-button {
+      margin: 0 !important; } }
+
+ul.products li.product img {
+  margin: 0 !important;
+  float: left; }
+  @media only screen and (max-width: 505px) {
+    ul.products li.product img {
+      float: none;
+      margin: auto !important; } }
+
 .lcgc-homepage > #main {
   margin-top: 23px; }
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2017 ServMask Inc.
+ * Copyright (C) 2014-2018 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -128,6 +128,17 @@ abstract class Ai1wm_Database {
 	 */
 	public function __construct( $wpdb ) {
 		$this->wpdb = $wpdb;
+
+		// Check Microsoft SQL Server support
+		if ( is_resource( $this->wpdb->dbh ) ) {
+			if ( get_resource_type( $this->wpdb->dbh ) === 'SQL Server Connection' ) {
+				throw new Exception(
+					'Your WordPress installation uses Microsoft SQL Server. ' .
+					'In order to use All in One WP Migration, please change your installation to MySQL and try again. ' .
+					'<a href="https://help.servmask.com/knowledgebase/microsoft-sql-server/" target="_blank">Technical details</a>'
+				);
+			}
+		}
 
 		// Set database host (HyberDB)
 		if ( empty( $this->wpdb->dbhost ) ) {
@@ -493,6 +504,9 @@ abstract class Ai1wm_Database {
 		// Flag to hold if all tables have been processed
 		$completed = true;
 
+		// Set SQL Mode
+		$this->query( "SET SESSION sql_mode = ''" );
+
 		// Get tables
 		$tables = $this->get_tables();
 
@@ -673,11 +687,12 @@ abstract class Ai1wm_Database {
 		// Flag to hold if all tables have been processed
 		$completed = true;
 
-		// Set empty query
-		$query = null;
+		// Set SQL Mode
+		$this->query( "SET SESSION sql_mode = ''" );
 
 		// Set file pointer at the query offset
 		if ( fseek( $file_handler, $query_offset ) !== -1 ) {
+			$query = null;
 
 			// Start transaction
 			$this->query( 'START TRANSACTION' );
@@ -764,7 +779,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function get_version() {
 		$result = $this->query( "SHOW VARIABLES LIKE 'version'" );
-		$row = $this->fetch_assoc( $result );
+		$row    = $this->fetch_assoc( $result );
 
 		// Close result cursor
 		$this->free_result( $result );
@@ -782,7 +797,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function get_max_allowed_packet() {
 		$result = $this->query( "SHOW VARIABLES LIKE 'max_allowed_packet'" );
-		$row = $this->fetch_assoc( $result );
+		$row    = $this->fetch_assoc( $result );
 
 		// Close result cursor
 		$this->free_result( $result );
@@ -801,7 +816,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function get_collation( $collation_name ) {
 		$result = $this->query( "SHOW COLLATION LIKE '{$collation_name}'" );
-		$row = $this->fetch_assoc( $result );
+		$row    = $this->fetch_assoc( $result );
 
 		// Close result cursor
 		$this->free_result( $result );
@@ -820,7 +835,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function get_create_table( $table_name ) {
 		$result = $this->query( "SHOW CREATE TABLE `{$table_name}`" );
-		$row = $this->fetch_assoc( $result );
+		$row    = $this->fetch_assoc( $result );
 
 		// Close result cursor
 		$this->free_result( $result );
@@ -886,7 +901,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function replace_table_prefixes( $input, $position = false ) {
 		// Get table prefixes
-		$search = $this->get_old_table_prefixes();
+		$search  = $this->get_old_table_prefixes();
 		$replace = $this->get_new_table_prefixes();
 
 		// Replace first occurance at a specified position
@@ -914,13 +929,13 @@ abstract class Ai1wm_Database {
 	protected function replace_table_values( $input ) {
 		// Replace base64 encoded values (Visual Composer)
 		if ( $this->get_visual_composer() ) {
-			$input = preg_replace_callback( '/\[vc_raw_html\](.+?)\[\/vc_raw_html\]/S', array( $this, 'replace_base64_values_callback' ), $input );
+			$input = preg_replace_callback( '/\[vc_raw_html\]([a-zA-Z0-9+\/=]*+)\[\/vc_raw_html\]/S', array( $this, 'replace_base64_values_callback' ), $input );
 		}
 
 		// Replace serialized values
 		foreach ( $this->get_old_replace_values() as $old_value ) {
 			if ( strpos( $input, $this->escape( $old_value ) ) !== false ) {
-				$input = preg_replace_callback( "/'(.*?)(?<!\\\\)'/S", array( $this, 'replace_table_values_callback' ), $input );
+				$input = preg_replace_callback( "/'([^'\\\\]*+(?:\\\\.[^'\\\\]*)*+)'/S", array( $this, 'replace_table_values_callback' ), $input );
 				break;
 			}
 		}
@@ -969,7 +984,7 @@ abstract class Ai1wm_Database {
 	 * @return string
 	 */
 	protected function replace_table_collations( $input ) {
-		static $search = array();
+		static $search  = array();
 		static $replace = array();
 
 		// Replace table collations
@@ -1103,7 +1118,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function replace_table_options( $input ) {
 		// Set table replace options
-		$search = array(
+		$search  = array(
 			'TYPE=InnoDB',
 			'TYPE=MyISAM',
 			'ENGINE=Aria',
@@ -1143,7 +1158,7 @@ abstract class Ai1wm_Database {
 	 */
 	protected function replace_table_engines( $input ) {
 		// Set table replace engines
-		$search = array(
+		$search  = array(
 			'ENGINE=MyISAM',
 			'ENGINE=Aria',
 		);

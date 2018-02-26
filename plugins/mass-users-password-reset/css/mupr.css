@@ -1,0 +1,21 @@
+.mupr-msg{
+    display: inline-block;
+    padding-left: 15px;
+    padding-top: 5px;
+    color: green;
+}
+.mupr-label{
+	padding-right: 6px;
+}
+
+#mupr-image-loader{
+	position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;	
+}
+.users_list{
+	position: relative;
+}

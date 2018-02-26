@@ -1,0 +1,285 @@
+2018-01-05T22:51:00+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 196, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-10T00:25:25+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 196, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-10T00:26:04+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 196, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-10T00:26:45+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 196, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-12T00:21:37+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 196 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(196): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 196, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-18T18:17:29+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 190 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(190): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 190, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-18T18:23:32+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 190 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(190): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 190, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-18T18:23:41+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 190 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(190): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 190, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-18T18:23:46+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 190 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(190): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 190, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-01-18T18:23:50+00:00 CRITICAL Uncaught RuntimeException: Undefined variable: exclusion_string on line 190 in file /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php in /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php:10
+Stack trace:
+#0 /var/www/html/wp-content/themes/storefront-child/alternativeStoreTemplate.php(190): {closure}(8, 'Undefined varia...', '/var/www/html/w...', 190, Array)
+#1 /var/www/html/wp-includes/template-loader.php(74): include('/var/www/html/w...')
+#2 /var/www/html/wp-blog-header.php(19): require_once('/var/www/html/w...')
+#3 /var/www/html/index.php(17): require('/var/www/html/w...')
+#4 {main}
+  thrown
+
+2018-02-06T18:17:09+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-07T06:18:50+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-07T17:40:55+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-08T06:12:53+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-08T18:13:40+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-09T06:25:05+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-09T17:47:08+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-10T05:58:31+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-10T18:01:09+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-11T05:58:22+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-11T18:36:14+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-12T05:58:17+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-12T18:07:58+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-13T05:54:33+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+
+2018-02-13T17:37:33+00:00 CRITICAL Uncaught Error: Call to undefined function request_filesystem_credentials() in /var/www/html/wp-admin/includes/class-wp-upgrader-skin.php:93
+Stack trace:
+#0 /var/www/html/wp-admin/includes/class-automatic-upgrader-skin.php(47): WP_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#1 /var/www/html/wp-admin/includes/class-wp-automatic-updater.php(144): Automatic_Upgrader_Skin->request_filesystem_credentials(false, '/var/www/html/', true)
+#2 /var/www/html/wp-admin/includes/update.php(85): WP_Automatic_Updater->should_update('core', Object(stdClass), '/var/www/html/')
+#3 /var/www/html/wp-includes/update.php(215): find_core_auto_update()
+#4 /var/www/html/wp-includes/class-wp-hook.php(286): wp_version_check()
+#5 /var/www/html/wp-includes/class-wp-hook.php(310): WP_Hook->apply_filters('', Array)
+#6 /var/www/html/wp-includes/plugin.php(515): WP_Hook->do_action(Array)
+#7 /var/www/html/wp-cron.php(126): do_action_ref_array('wp_version_chec...', Array)
+#8 {main}
+  thrown
+

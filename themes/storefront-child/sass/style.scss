@@ -22,6 +22,31 @@ Version:        0.1.0
 @import "single-product";
 @import "cart-page";
 
+a.cart-remove-button {
+    padding: 9px;
+    border: 0;
+    border: 1px solid #dadada;
+    color: #555;
+    display: block;
+    margin: auto;
+    text-align: center !important;
+    max-width: 100px;
+
+    @include screen-size(xs) {
+      margin: 0 !important;
+    }
+}
+
+ul.products li.product img {
+  margin: 0 !important;
+  float: left;
+
+  @include screen-size(xs) {
+    float: none;
+    margin: auto !important;
+  }
+}
+
 // Styling for homepage
 .lcgc-homepage > #main {
   margin-top : 23px;
