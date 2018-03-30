@@ -4,6 +4,7 @@
 .wcda-display-attributes {
   max-height  : 150px;
   overflow    : hidden;
+  overflow-y  : auto;
   margin-left : 220px;
 
   @include screen-size(xs) {
@@ -12,14 +13,14 @@
 }
 
 .wcda-display-attributes .attr-table {
-  width            : 100% !important;
-  max-width        : 250px !important;
+  // width            : 100% !important;
+  // max-width        : 250px !important;
   background-color : transparent;
 
   @include screen-size(xs) {
     margin    : auto !important;
     font-size : 13px;
-    max-width : 200px !important;
+    // max-width : 200px !important;
   }
 }
 
@@ -27,4 +28,8 @@
   background-color : transparent;
   padding          : .2em 0 .1em 0;
   text-align       : left;
+
+  span.attribute-value {
+    padding-right: 10px;
+  }
 }

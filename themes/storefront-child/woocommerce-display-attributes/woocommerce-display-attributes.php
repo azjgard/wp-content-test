@@ -13,5 +13,5 @@ class wcdaDisplayAttributes {
 $WCDA = new wcdaDisplayAttributes();
 
 $WCDA->include_file('/admin.php');
-$WCDA->include_file('/woocommerce-display-attributes-styles.php');
+/* $WCDA->include_file('/woocommerce-display-attributes-styles.php'); */
 

@@ -92,26 +92,19 @@ do_action( 'woocommerce_before_cart' ); ?>
 						}
 						?></td>
 
+<!-- ****** -->
+<!-- <CustomCode> -->
 						<td class="product-part-number">
-							<?php
-								echo esc_attr( preg_split('/-\d{1,3}/',$_product->get_sku())[0] );
-							?>
+							<?php echo $_product->get_sku(); ?>
 						</td>
+<!-- </CustomCode> -->
+<!-- ****** -->
 
 <!-- ****** -->
 <!-- <CustomCode> -->
-						<td class="product-pack" data-title="Pack Size"><?php
-
-            $sku = $_product->get_sku();
-            $size = 1;
-
-            if (preg_match('/-\d{1,2}$/', $sku)) {
-              $size = explode('-', $sku)[1];
-            }
-
-            echo $size;
-              
-						?></td>
+            <td class="product-pack" data-title="Pack Size">
+              <?php echo wcgp_get_product_quantity_by_sku( $_product ); ?>
+            </td>
 <!-- </CustomCode> -->
 <!-- ****** -->
 

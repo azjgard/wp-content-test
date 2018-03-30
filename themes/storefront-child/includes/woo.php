@@ -100,76 +100,93 @@ if (!function_exists('wcgp_get_quantity_options_by_sku')) {
 	function wcgp_get_quantity_options_by_sku($sku) {
 		global $wpdb;
 
-    $product_ids = $wpdb->get_results(
-      $wpdb->prepare(
-        "SELECT post_id FROM $wpdb->postmeta WHERE meta_key='_sku' AND meta_value LIKE '%s'",
-        $sku.'-%'
-      )
-    );
+    $sql  = 
+        "SELECT post_id 
+        FROM $wpdb->postmeta 
+        WHERE meta_key='_sku' AND meta_value REGEXP '%s'";
+    $regex = '^' . $sku .'-(5|10|15|25|50|100)$';
 
-		if ($product_ids) { return $product_ids; }
-		else              { return false;        }
-	}
+    $query       = $wpdb->prepare( $sql, $regex );
+    $product_ids = $wpdb->get_results( $query );
+
+    if ($product_ids) { return $product_ids; }
+    else              { return false;        }
+  }
 }
 
 // Accepts a product's SKU, splits the string at -, and returns the number
 // that comes after it
 if (!function_exists('wcgp_get_product_quantity_by_sku')) {
-	function wcgp_get_product_quantity_by_sku( $sku ) {
-		return explode( '-', $sku )[1];
-	}
+  function wcgp_get_product_quantity_by_sku( $product ) {
+    return $product->get_attributes()['qty-pk']['data']['options'][0];
+  }
 }
 
 if (!function_exists('generate_quantity_select_box')) {
-    function generate_quantity_select_box($product, $html, $return_cart_class) {
-	    $shop_url = get_permalink(wc_get_page_id('shop'));
+  function generate_quantity_select_box($product, $html, $return_cart_class) {
+    $shop_url = get_permalink(wc_get_page_id('shop'));
 
-	    $product_sku = $product->get_sku();
-      $product_link = $shop_url.'?add-to-cart='.$product->get_id();
-      $product_formatted_price = money_format('%i', (double)$product->get_price());
+    $product_sku = $product->get_sku();
+    $product_link = $shop_url.'?add-to-cart='.$product->get_id();
+    $product_formatted_price = money_format('%i', (double)$product->get_price());
 
-	    $product_ids = wcgp_get_quantity_options_by_sku($product_sku);
+    $product_ids = wcgp_get_quantity_options_by_sku( $product_sku );
 
-	    $add_to_cart_button_class = $product_ids ? '' : 'full-width';
+    $add_to_cart_button_class = $product_ids ? '' : 'full-width';
 
-	    if ($product_ids) {
-		    $html .= '<select class="wcgp-select">';
+    $has_no_select_box = $product_ids ? false : true;
 
-        // Do we need this as a default? Maybe... so it's indicative that
-        // the user needs to select a pack versus just automatically adding
-        // one to their cart.
-		    $html .= '<option value selected>Select Qty/Pk</option>';
+    if ($add_to_cart_button_class == 'full-width') {
+      $qty = wcgp_get_product_quantity_by_sku( $product );
 
-        $html .= '<option value="' . $product_link . '">10 - $' . $product_formatted_price . '</option>';
-        
-		    foreach ($product_ids as $product_object) {
-			    $product_id    = $product_object->post_id;
-			    $qty_product   = new WC_Product($product_id);
-			    $product_qty   = wcgp_get_product_quantity_by_sku($qty_product->get_sku());
-			    $product_price = $qty_product->get_price();
-			    $product_variant_link = $shop_url . '?add-to-cart=' . $product_id;
-			    $product_variant_text = $product_qty . ' - $' . money_format('%i', (double)$product_price);
-
-			    $html .= '<option value="' . $product_variant_link . '">' . $product_variant_text . '</option>';
-		    }
-		    $html .= '</select>';
-	    }
-
-	    if ($return_cart_class) {
-		    return array(
-			    'html' => $html,
-			    'add_to_cart_button_class' => $add_to_cart_button_class
-		    );
-        }
-        else {
-	        return $html;
-        }
+      $html .= "<div class='no-qty-select'>
+        <span>$" . $product_formatted_price . '</span>
+        <span> (' . $qty . ' pack)</span>
+        </div>';
     }
+
+    if ($product_ids) {
+      $html .= '<select class="wcgp-select">';
+
+      // Do we need this as a default? Maybe... so it's indicative that
+      // the user needs to select a pack versus just automatically adding
+      // one to their cart.
+      $html .= '<option value selected>Select Qty/Pk</option>';
+
+      $html .= '<option value="' . $product_link . '">';
+      $html .= wcgp_get_product_quantity_by_sku( $product ) . ' - $' . $product_formatted_price;
+      $html .= '</option>';
+
+
+      foreach ($product_ids as $product_object) {
+        $product_id    = $product_object->post_id;
+        $qty_product   = new WC_Product($product_id);
+        $product_qty   = wcgp_get_product_quantity_by_sku( $qty_product );
+        $product_price = $qty_product->get_price();
+        $product_variant_link = $shop_url . '?add-to-cart=' . $product_id;
+        $product_variant_text = $product_qty . ' - $' . money_format('%i', (double)$product_price);
+
+        $html .= '<option value="' . $product_variant_link . '">' . $product_variant_text . '</option>';
+      }
+      $html .= '</select>';
+
+    }
+
+    if ($return_cart_class) {
+      return array(
+        'html' => $html,
+        'add_to_cart_button_class' => $add_to_cart_button_class
+      );
+    }
+    else {
+      return $html;
+    }
+  }
 }
 
 function lcgc_echo_cart_form() {
-    global $product;
-    echo generate_quantity_select_box($product, '', false);
+  global $product;
+  echo generate_quantity_select_box($product, '', false);
 }
 
 add_action('woocommerce_before_add_to_cart_quantity', 'lcgc_echo_cart_form');
@@ -186,20 +203,20 @@ function quantity_inputs_for_woocommerce_loop_add_to_cart_link( $html, $product 
   ) {
     // the default action that will occur when the form
     // is submitted
-		$default_action = esc_url($product->add_to_cart_url());
+    $default_action = esc_url($product->add_to_cart_url());
 
-		$form_quantity_info = generate_quantity_select_box($product, '', true);
+    $form_quantity_info = generate_quantity_select_box($product, '', true);
 
-		$add_to_cart_button_class = $form_quantity_info['add_to_cart_button_class'];
+    $add_to_cart_button_class = $form_quantity_info['add_to_cart_button_class'];
 
 
-		$html = '<form action="' . $default_action . '" data-default="'.$default_action.'" class="cart-form" method="post" enctype="multipart/form-data">';
-		$html .= $form_quantity_info['html'];
+    $html = '<form action="' . $default_action . '" data-default="'.$default_action.'" class="cart-form" method="post" enctype="multipart/form-data">';
+    $html .= $form_quantity_info['html'];
     $html .= woocommerce_quantity_input( array(), $product, false );
-		$html .= '<button type="submit" class="add-to-cart button alt ' . $add_to_cart_button_class . '">' . esc_html( $product->add_to_cart_text() ) . '</button>';
-		$html .= '</form>';
-	}
-	return $html;
+    $html .= '<button type="submit" class="add-to-cart button alt ' . $add_to_cart_button_class . '">' . esc_html( $product->add_to_cart_text() ) . '</button>';
+    $html .= '</form>';
+  }
+  return $html;
 }
 add_filter('woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce_loop_add_to_cart_link', 10, 2);
 
@@ -210,8 +227,8 @@ add_filter('woocommerce_loop_add_to_cart_link', 'quantity_inputs_for_woocommerce
  */
 
 if (!function_exists('show_woocommerce_page_title')) {
-	function show_woocommerce_page_title() { return false; }
-	add_filter('woocommerce_show_page_title', 'show_woocommerce_page_title');
+  function show_woocommerce_page_title() { return false; }
+  add_filter('woocommerce_show_page_title', 'show_woocommerce_page_title');
 }
 
 // ---------------------------------------------------------------------------------
@@ -222,7 +239,7 @@ if (!function_exists('show_woocommerce_page_title')) {
  */
 
 function woocommerce_template_loop_product_title() {
-	echo '<h2 class="woocommerce-loop-product__title"><a href="'. get_the_permalink() . '">' . get_the_title() . '</a></h2>';
+  echo '<h2 class="woocommerce-loop-product__title"><a href="'. get_the_permalink() . '">' . get_the_title() . '</a></h2>';
 }
 
 // ---------------------------------------------------------------------------------
@@ -232,10 +249,10 @@ function woocommerce_template_loop_product_title() {
  */
 
 if (!function_exists('lcgc_change_menu_toggle_text')) {
-	function lcgc_change_menu_toggle_text() {
-		return 'Navigation';
-	}
-	add_filter('storefront_menu_toggle_text', 'lcgc_change_menu_toggle_text');
+  function lcgc_change_menu_toggle_text() {
+    return 'Navigation';
+  }
+  add_filter('storefront_menu_toggle_text', 'lcgc_change_menu_toggle_text');
 }
 
 // ---------------------------------------------------------------------------------
@@ -246,31 +263,31 @@ if (!function_exists('lcgc_change_menu_toggle_text')) {
  */
 
 if ( ! function_exists( 'storefront_primary_navigation' ) ) {
-	function storefront_primary_navigation() {
-		?>
+  function storefront_primary_navigation() {
+?>
         <nav id="site-navigation" class="main-navigation" role="navigation" aria-label="<?php esc_html_e( 'Primary Navigation', 'storefront' ); ?>">
             <button class="menu-toggle" aria-controls="site-navigation" aria-expanded="false"><span><?php echo esc_attr( apply_filters( 'storefront_menu_toggle_text', __( 'Menu', 'storefront' ) ) ); ?></span></button>
 
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location'	=> 'primary',
-					'container_class'	=> 'primary-navigation',
-				)
-			);
+<?php
+    wp_nav_menu(
+      array(
+        'theme_location'	=> 'primary',
+        'container_class'	=> 'primary-navigation',
+      )
+    );
 
-			wp_nav_menu(
-				array(
-					'theme_location'	=> 'handheld',
-					'container_class'	=> 'handheld-navigation',
-				)
-			);
-			?>
+    wp_nav_menu(
+      array(
+        'theme_location'	=> 'handheld',
+        'container_class'	=> 'handheld-navigation',
+      )
+    );
+?>
             <!-- Add this button to toggle navigation on mobile devices -->
             <button id="lcgc-toggle-mobile-nav"><i class="fa fa-navicon"></i> Navigation</button>
             <!-- Add this button to toggle navigation on mobile devices -->
         </nav>
-		<?php
-	}
+<?php
+  }
 }
 

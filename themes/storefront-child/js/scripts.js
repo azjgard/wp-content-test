@@ -258,12 +258,16 @@ function addAjaxCartListeners() {
         for (var attributeName in exclusionObject) {
           var attribute = exclusionObject[attributeName];
 
-
           if (!localBlacklist[attributeName]) {
             for (var valueName in attribute) {
-
+              // Disable all of the filter items that are exact
+              // matches for the attribute that we've passed from
+              // the backend to be disabled.
               $(".subcategory[name='"+attributeName+"']")
                 .find("div:contains('"+valueName+"')")
+                .filter(function() {
+                  return normalize($(this).text()) === normalize(valueName);
+                })
                 .addClass('disabled');
             }
           }
@@ -287,8 +291,6 @@ function addAjaxCartListeners() {
   function hideLoader() {
     $('#loader').fadeOut();
   }
-
-
 
   // TODO: implement loader class
   var loaderVisibilityClass   = '';
@@ -484,3 +486,12 @@ function addAjaxCartListeners() {
     }
   }, 1000);
 })(jQuery);
+
+function normalize(str) {
+  return str
+    .replace("\'", "'")
+    .replace('\"', '"')
+    .replace(' | ', ', ')
+    .toLowerCase()
+    .trim();
+}

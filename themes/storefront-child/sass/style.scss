@@ -22,6 +22,26 @@ Version:        0.1.0
 @import "single-product";
 @import "cart-page";
 
+.product-archive-message {
+  font-size: 18px;
+  text-align: center;
+}
+
+.no-qty-select {
+  width: 100%;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 18px;
+
+  span:first-child {
+    font-weight: bold;
+  }
+
+  @include screen-size(xs) {
+    margin: 10px 0;
+  }
+}
+
 a.cart-remove-button {
     padding: 9px;
     border: 0;
@@ -43,7 +63,7 @@ ul.products li.product img {
 
   @include screen-size(xs) {
     float: none;
-    margin: auto !important;
+    // margin: auto !important;
   }
 }
 
@@ -655,5 +675,13 @@ button.menu-toggle span::before {
   40% {
     box-shadow: 0 -2em;
     height: 5em;
+  }
+}
+
+@media screen and (max-width: 505px) {
+  body:not(.product-template-default) .product.type-product.status-publish .woocommerce-loop-product__title,
+  body:not(.product-template-default) .product.type-product.status-publish .cart-form {
+    position: static;
+    margin: 8px 0 !important;
   }
 }

@@ -93,7 +93,7 @@ if (!function_exists( 'wcda_display_attributes' )) {
 if (!function_exists('echoProdAttr')) {
   function echoProdAttr($name, $value) { ?>
     <tr>
-      <td>
+      <td width="120px">
         <span class="attribute-key">
           <b><?php echo $name; ?></b>
         </span>
@@ -109,7 +109,7 @@ if (!function_exists('echoProdAttr')) {
 
 if (!function_exists('barsToCommas')) {
   function barsToCommas($str) {
-    return str_replace('|', ',', $str);
+    return str_replace(' | ', ', ', $str);
   } 
 }
 

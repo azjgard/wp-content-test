@@ -1,13 +1,5 @@
 <?php
 /**
- *
- * OVERRIDE NOTES:
- *
- * This template is overridden to hide the products on the product
- * archive page that represent quantities versus individual products.
- * Currently, the pattern for that is ending in -####, but that could change.
- *
- *
  * The template for displaying product content within loops
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/content-product.php.
@@ -33,34 +25,43 @@ global $product;
 // Ensure visibility
 if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
-
 }
 
-// 5
-// 10
-// 25
-// 50
-// 100
+$product_sku = $product->get_sku();
+$approved_quantities = array( '5', '10', '15', '25', '50', '100' );
 
-// ------------
-// EDITED CODE
-// ------------
-// Return and don't output an <li> if the pattern matches
-$sku = $product->get_sku();
-if (
-  preg_match('/-5/', $sku)  ||
-  preg_match('/-10/', $sku) ||
-  preg_match('/-25/', $sku) ||
-  preg_match('/-50/', $sku) ||
-  preg_match('/-100/', $sku)
-) {
-  return;
+if (strpos($product_sku, '392611945') !== false) {
+  global_debug('Here we are', 'SKU');
 }
-// ------------
-// EDITED CODE
-// ------------
+
+for ($i = 0; $i < sizeof($approved_quantities); $i++) {
+  if (preg_match('/-' . $approved_quantities[$i] . '$/', $product_sku)) {
+    return;
+  }
+}
+
+/* $product_thumbnail_url = wp_get_attachment_image_src( */ 
+/*   get_post_thumbnail_id( $loop->post->ID ), */ 
+/*   'single-post-thumbnail' */ 
+/* )[0]; */
+
+/* <li> */
+/*   <h3 class="product-title"> */
+/*     <?php echo get_the_title(); ?> */
+/*   </h3> */
+
+/*   <img */ 
+/*     class="product-thumbnail" */ 
+/*     src="<?php echo $product_thumbnail_url; ?>" /> */
+
+/*   <div class="product-attributes"> */
+/*   </div> */
+/* </li> */
 
 ?>
+
+
+
 <li <?php post_class(); ?>>
 	<?php
 	/**

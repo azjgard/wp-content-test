@@ -143,25 +143,25 @@ body:not(.product-template-default) .product.type-product.status-publish {
 .wcda-display-attributes {
   max-height: 150px;
   overflow: hidden;
+  overflow-y: auto;
   margin-left: 220px; }
   @media only screen and (max-width: 505px) {
     .wcda-display-attributes {
       margin-left: 0 !important; } }
 
 .wcda-display-attributes .attr-table {
-  width: 100% !important;
-  max-width: 250px !important;
   background-color: transparent; }
   @media only screen and (max-width: 505px) {
     .wcda-display-attributes .attr-table {
       margin: auto !important;
-      font-size: 13px;
-      max-width: 200px !important; } }
+      font-size: 13px; } }
 
 .wcda-display-attributes .attr-table td {
   background-color: transparent;
   padding: .2em 0 .1em 0;
   text-align: left; }
+  .wcda-display-attributes .attr-table td span.attribute-value {
+    padding-right: 10px; }
 
 #lcgc-attribute-filter {
   width: 100%;
@@ -248,6 +248,21 @@ body.single-product form.cart .wcgp-select {
 body.single-product #tab-title-additional_information {
   display: none; }
 
+.product-archive-message {
+  font-size: 18px;
+  text-align: center; }
+
+.no-qty-select {
+  width: 100%;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 18px; }
+  .no-qty-select span:first-child {
+    font-weight: bold; }
+  @media only screen and (max-width: 505px) {
+    .no-qty-select {
+      margin: 10px 0; } }
+
 a.cart-remove-button {
   padding: 9px;
   border: 0;
@@ -266,8 +281,7 @@ ul.products li.product img {
   float: left; }
   @media only screen and (max-width: 505px) {
     ul.products li.product img {
-      float: none;
-      margin: auto !important; } }
+      float: none; } }
 
 .lcgc-homepage > #main {
   margin-top: 23px; }
@@ -738,3 +752,9 @@ button.menu-toggle span::before {
   40% {
     box-shadow: 0 -2em;
     height: 5em; } }
+
+@media screen and (max-width: 505px) {
+  body:not(.product-template-default) .product.type-product.status-publish .woocommerce-loop-product__title,
+  body:not(.product-template-default) .product.type-product.status-publish .cart-form {
+    position: static;
+    margin: 8px 0 !important; } }
